@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{algorithm,algpseudocode}
+\begin{document}
+\begin{algorithm}
+  \caption{Alpha Miner}
+  \label{alg:alphaminer}
+  \begin{algorithmic}[1]
+    \State $T_L = \{ t \in T \;\mid \exists_{\sigma \in L} \; t \in \sigma\}$ \label{op0}
+    
+    \State $T_I = \{ t \in T \;\mid \exists_{\sigma \in L} \; t=first(\sigma)\}$ \label{op1}
+    
+    \State $T_O = \{ t \in T \;\mid \exists_{\sigma \in L} \; t=last(\sigma)\}$ \label{op2}
+    
+    \State $X_L = \{ (A,B) \mid A \subseteq T_L \land A \neq \o \land B \subseteq T_L \land B \neq \o \land \forall_{a\in A} \forall_{b\in B}\; a \to _L b \land \forall_{a1,a2\in A} a_1 # _L a_2 \land \forall_{b1,b2\in B} b_1 # _L b_2\}$ \label{op3}
+    
+    \State $Y_L = \{ (A,B) \in X_L \mid \forall_{A',B' \in X_L} A \subseteq A' \land B \subseteq B' \implies (A,B) = (A',B')\}$ \label{op4}
+    
+    \State $P_L = \{ p_{(A,B)} \mid (A,B) \in Y_L \} \cup \{i_l, o_L \}$ \label{op5}
+    
+    \State $F_L = \{ (a,p_{(A,B)}) \mid (A,B) \in Y_L \land a \in A \} \cup \{  (p_{(A,B)},b) \mid (A,B) \in Y_L \land b \in B \} \cup \{ (i_l,t \mid t \in T_I  \} \cup \{ (t,o_L \mid t\inT_o\}$ \label{op6}
+    
+    \State $\alpha(L) = (P_L, T_L, F_L) $ \label{op7}
+    
+  \end{algorithmic}
+\end{algorithm}
+
+See Algorithm~\ref{alg:alphaminer}. More specifically, Operation~\ref{op1}.
+\end{document}

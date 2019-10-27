@@ -1,0 +1,94 @@
+import csv
+import time
+import random
+import datetime as dt
+
+#init
+timestamp = '2018-04-01 07:30:00'
+timestamp_start = dt.datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
+noise = 5.0
+eventlog = []
+days = 14
+range = 6
+
+#Set A
+pattern_a = [("Garage Door", "Garage Door opened"),
+("Garage Door" , "Garage Door closed")]
+("smartlight 02", "switched to ON"), 
+("smartlight 02", "switched to OFF")]
+
+#Set B
+pattern_b = [("Smart TV" , "Turned ON"),
+("Smart TV" , "Turned OFF")]
+("SmartLight 01" , "switched to ON"),
+("SmartLight 01" , "DIMMER set to 37"),
+("SmartLight 01" , "switched to OFF")]
+
+#Noise
+pattern_n =  [("Appliance a" , "read 13"),
+("Appliance b" , "read 33"),
+("Appliance c" , "read 7"),
+("Appliance d" , "read 90"),
+("Appliance e" , "read 45"),
+("Appliance f" , "read 67"),
+("Appliance g" , "read 0"),
+("Appliance h" , "read 23"),
+("Appliance i" , "read 44"),
+("Appliance j" , "read 1")]
+
+def printeventlog():
+    for row in eventlog:
+        print(row)
+
+def addnoise(casename, currenttimestamp):
+    timestamp_it_rnd = currenttimestamp
+    noisesum = int(( float(noise) / float(100.) ) * len(pattern_a)+len(pattern_b))
+    for i in range(noisesum):
+        randmin = random.randint(-6,6)
+        timestamp_it_rnd = timestamp_it_rnd + dt.timedelta(minutes=(9+randmin)) + dt.timedelta(seconds=30+3*randmin)
+        eventlog.append([casename, str(timestamp_it_rnd), pattern_n[random.randint(0,9)][0], pattern_n[random.randint(0,9)][1]])
+        
+def eventlogfill():
+    var_case = 'A'
+    for i in range(days):
+        timestamp_it = timestamp_start + dt.timedelta(days=i)
+        a = list(pattern_a)
+        b = list(pattern_b)
+        patterns = [a,b]
+        addnoise(var_case,timestamp_it)
+        a.reverse()
+        b.reverse()
+        while (len(a)>0 or len(b)>0):
+            
+            randmin = random.randint(-range,range)
+            timestamp_it = timestamp_it + dt.timedelta(minutes=((range+2)+randmin)) + dt.timedelta(seconds=30+3*randmin)
+
+            if len(a)>0 and len(b)>0:
+                currentpattern = patterns[random.randint(0,len(patterns)-1)]
+            elif len(a)==0:
+                currentpattern = patterns[1]
+            elif len(b)==0:
+                currentpattern = patterns[0]
+            else:
+                break
+            eventlog.append([var_case, str(timestamp_it), currentpattern[len(currentpattern)-1][0],  currentpattern[len(currentpattern)-1][1]])
+            #print [var_case, str(timestamp_it), currentpattern[len(currentpattern)-1][0],  currentpattern[len(currentpattern)-1][1]]
+            currentpattern.pop()
+        var_case = chr(ord(var_case) + 1)
+    eventlog.sort(key=lambda events: events[1])
+
+eventlogfill()
+#printeventlog()
+
+def createcsv():
+    ts = dt.datetime.now()
+    ts = ts.strftime('%Y%m%d%H%M')
+    with open('D:\\Users\\Karina\\OneDrive\\Documents\\bsc\\Testdaten\\Generate\\test'+str(ts)+'.csv', 'wb') as csvfile:
+            filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            filewriter.writerow(['case', 'timestamp', 'resource', 'activity'])
+            for i in range(len(eventlog)):
+                #print eventlog[i]
+                filewriter.writerow(eventlog[i])
+    print("writing completed")
+
+createcsv()

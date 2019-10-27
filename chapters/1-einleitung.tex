@@ -1,0 +1,101 @@
+\chapter{Einleitung}\label{chap:introduction}
+Mit einem wachsenden Angebot an sogenannten „Smart Home“ Geräten auf dem Weltmarkt nimmt auch die Anzahl der Plattformen stetig zu, die Zuständig für die Steuerung der vernetzten Geräten sind. Mit dieser wachsenden Vielfalt steigt auch der Bedarf an benutzerfreundlichen und möglichst wenig komplexen Nutzerschnittstellen für die Kommunikation mit dem intelligenten Eigenheim. 
+
+Dass das sogenannte "Smart Home" zunehmend and Relevanz gewinnt und zukünftig allgegenwärtig sein wird belegen unter anderem die Zahlen des  Marktforschungsunternehmens IDC. Der weltweite Smart Home Markt wird im Jahr 2019 voraussichtlich um 26,9\% auf 832,7 Millionen verkaufte Geräte wachsen \cite{IDC}.
+ 
+Einer breiten Adaption von intelligenter Haustechnik stehen mometan allerdings noch einige Vorbehalte der Nutzer entgegen.
+Hemmnisse für die Akzeptanz von Smart-Home-Systemen sind vordergründig Bedenken hinsichtlich des Datenschutzes sowie der Datensicherheit, so die Herausgeber einer Studie des Marktforschungsinstitut Dr. Grieger \& Cie \cite{griegercie}. Das IDC hält auch in Anbetracht der Bedenken seitens der Verbraucher an einer positiven Marktprognose fest, was durch die Angaben der Befragten begründet wird, dass der Zugewinn an Komfort durch Smart Home Geräte Sorgen bezüglich der Datensicherheit häufig überwiege.
+ 
+Um den Ansprüchen an den gestiegenen Komfort gerecht zu werden, müssen intelligente Systeme nicht nur auf die vom Nutzer genannten Wünsche reagieren, sondern dessen Bedürfnisse antizipieren, so die Maxime von marktführenden Herstellern wie Amazon oder Google \cite{IoTGoogle}. Um dies zu ermöglichen werden IoT Geräte durch Verfahren aus den Forschungsfeldern der künstlichen Intelligenz sowie der Big Data Analyse gestützt, die eine Auswertung der gesammelten Daten über die Interaktion des Nutzers mit IoT Geräten erlauben und in der Lage sind Prognosen über die Nutzung der Geräte zu machen. 
+\newpage
+Ein solches Verfahren, das dem Gebiet der Datenanalyse zuzuordnen ist, und seinen Ursprung unter Anderem in der Auswertung von Geräten in der maschinellen Produktion hat, ist das Process Mining. Process Mining ist ein Forschungsgebiet, das sowohl mit der Business Intelligence als auch mit Data Science Schnittmengen bildet\cite{PMinAction}. 
+
+Es unterscheidet sich von konventionellem Data Mining insofern, als dass der Hauptaugenmerk auf dem Erkennen von in der reellen Welt ablaufenden Prozessen liegt. Es beschäftigt sich nicht mit der Klassifizierung von Momentaufnahmen oder mit der Beantwortung von vergleichbaren, instanzbezogenen Fragestellungen. Viele Technologien zur automatisierten Datenanalyse,  wie etwa die Bilderkennung oder die linguistische Datenverarbeitung, beschäftigen sich mit Problemen, die unabhängig von einem zeitlichen Kontext zu betrachten sind. Anders das Process Mining, dessen Hauptaugenmerk auf der sogenannten \textit{process awareness}, also dem Prozessbewusstsein, liegt.
+\section{Fragestellung}
+Ein Smart Home beschreibt ein System, das den Komfort im Eigenheim durch technische Lösungen erhöht, indem ein Netzwerk aus miteinander oder mit dem Nutzer interagierenden elektronischen Geräten im Gebäude integriert wird. Diese Geräte sind neben ihrer inhärenten Funktionalität auch in der Lage einen Logeintrag aus jeder ihrer Interaktionen oder Sensoraufnahmen zu generieren. Dass Process Mining Algorithmen zu aller erst Protokolldateien derjenigen Umgebungen benötigen, die sie analysieren sollen, legt die Kombination von Process Mining und dem System Smart Home nahe.
+ 
+Bisher ist diese technologische Schnittstelle noch nicht tiefgreifend erforscht. Es sind nur vereinzelt Studien veröffentlicht worden, die die genannten Technologien miteinander in Verbindung bringen. Die vorliegende Arbeit soll untersuchen, ob bestehende Process Mining Algorithmen in einem Smart Home effektiv eingesetzt werden können, um menschliches Verhalten korrekt zu erkennen. 
+Ziel ist dabei die Analyse kleiner Datensätze mit existierenden Softwarelösungen so zu gestalten, dass sie dem Benutzerkomfort im Umgang mit IoT Geräten zuträglich sind. Ziel der Architektur ist es die Auswertung gleichzeitig so ressourcenschonend aufzubauen, dass die privaten Daten des Nutzers das lokale Netz nicht verlassen müssen.
+
+\section{Zielsetzung}
+Im Detail soll untersucht werden, ob Process Mining eingesetzt werden kann, um menschliches Verhalten auf kurze, wiederkehrende Verhaltensmuster hin zu untersuchen und welches der gängigen Process Mining Verfahren für diesen Einsatzzweck besonders geeignet erscheint. 
+Für eine Vorauswahl werden zunächst Studien herangezogen, die Process Mining bereits im Bereich des Smart Living eingesetzt haben.
+
+Anschließend werden diese systematisch in einer Testreihe miteinander verglichen, um festzustellen welche Leistungsfähigkeit von den etablierten Process Mining Algorithmen in dem darstellbaren Smart Living Szenario erwartet werden kann. Wichtige Kriterien sind dabei die Fehleranfälligkeit, die Rate vollständig akkurat erkannter Muster, sowie der Umgang mit Rauschdaten und parallel verlaufenden Prozessen.
+
+Als Simulationsumgebung für den Einsatz des Programms soll ein Modell eines Smart Home dienen, das im Rahmen einer Bachelorarbeit am IT Institut für Organisation und Management der Fachhochschule Aachen entstanden ist und über die quelloffene Software openHab\footnote{https://www.openhab.org/docs/} gesteuert wird. Nach Auswertung der Protokolldateien nach unterschiedlichen Gesichtspunkten werden die Erkenntnisse genutzt, um einen sogenannten Proof of Concept\footnote{Im Projektmanagement ist ein Proof of Concept, auch als Proof of Principle bezeichnet, ein Meilenstein, an dem die prinzipielle Durchführbarkeit eines Vorhabens belegt ist. In der Regel ist mit dem Proof of Concept meist die Entwicklung eines Prototyps verbunden, der die benötigte Kernfunktionalität aufweist.\cite{poc}} zu erstellen. Der Proof of Concept wird auf einem einfachen Einplatinenrechner realisiert, welcher über eine Android App mit dem Anwender interagiert.
+
+Der Vorteil, den Process Mining dem Smart Home Anwender bieten kann, liegt primär in der automatisierten Erkennung von Prozessmustern im Umgang mit IoT Geräten. Bisher bieten eine Reihe von Unternehmen Plattformen an, dem Anwender lediglich duch manuelle Eingabe von Abläufen ermöglichen Prozesse im Eigenheim zu automatisieren. Häufig findet dafür das sogenannte If This Then That Muster anwendung, wie es beispielsweise in Webthings von Mozilla\footnote{IoT.mozilla.org},  oder Stringify \footnote{stringify.com} eingesetzt wird. 
+\newpage
+Eine Regel wird also aus Bedingungen zusammengestellt, die jeweils vorkonfigurierte Aktionen auslösen. Diese müssen jeweils vom Anwender selbstständig erkannt und über eine Eingabemaske konfiguriert werden. Nutzt man die Fähigkeit von Process Mining, Modelle aus aufgezeichneten Protokolldateien zu bilden, kann man diese nutzen um dem Anwender Konfigurationen in seinem Smart Home automatisch vorzuschlagen. Dieser kann dann vorgeschlagene Regel bestätigen oder ablehnen. Zum einen hätte eine solche Erweiterung den Vorteil, dass es weniger Konfigurationsaufwand seitens des Nutzers bedarf, um einen neuen automatisierten Ablauf in seinem Smart Home zu integrieren, zum anderen ist es so möglich, dass ein Algorithmus Muster erkennt, die der Aufmerksamkeit des Anwenders entgangen wären, aber durch eine Implementierung dennoch den Komfort im Smart Home erhöhen.
+
+%Die Ergebnisse aus der Auswertung des Process Mining auf den Smart Home Daten sollen nicht allein Muster im Tagesablauf des Anwenders erkennen, sondern auch Zusammenhänge zwischen gemessenen Sensorwerten wie etwa aus  Temperatur- oder Helligkeitssensoren und den Nutzeraktionen feststellen. Dies kann zahlreiche weitere Konfigurationsschritte seitens des Anwenders erübrigen und hat das Potential, es dem Anwender zu erlauben die Möglichkeiten des Smart Homes weiter auszuschöpfen, als es bei rein manueller Eingabe möglich wäre, da nicht jedes Muster vom Anwender bewusst wahrgenommen wird, welches Teil seiner Routine im Smart Home geworden ist.
+
+%\section{Template Structure}
+%\begin{itemize}
+%    \item To compile the document either run the makefile or run your compiler on the file %`thesis\_main.tex'. The included makefile requires latexmk which automatically runs %bibtex and recompiles your thesis as often as needed. Also it automatically places all %output files (aux, bbl, ...) in the folder `out'. As the pdf also goes in there, the %makefile copies the pdf file to the parent folder. There is also a makefile in the %chapters folder, to ensure you can also compile from this directory.
+%
+%    \item The file `setup.tex' includes the packages and defines commands. For more details %see \secref{sec:setup}.
+%
+%    \item Each chapter goes into a separate document, the files can be found in the folder %chapters.
+%
+%    \item The bib folder contains the .bib files, I'd suggest to create multiple bib files %for different topics. If you add some or rename the existing ones, don't forget to also %change this in thesis\_main.tex. You can then cite as usual~\cite{kingma2014adam, %bromley1993siamesesignature,muja2009flann}.
+%
+%    \item The template is written in a way that eases the switch from scrbook to book %class. So if you're not a fan of KOMA you can just replace the documentclass in the %main file. The only thing that needs to be changed in setup.tex is the caption styling, %see the comments there.
+%\end{itemize}
+%
+%
+%\section{setup.tex}\label{sec:setup}
+%Edit setup.tex according to your needs. The file contains two sections, one for package %includes, and one for defining commands. At the end of the includes and commands there is a %section that can safely be removed if you don't need algorithms or tikz. Also don't forget %to adapt the pdf hypersetup!!\\
+%setup.tex defines:
+%\begin{itemize}
+%    \item some new commands for remembering to do stuff:
+%    \begin{itemize}
+%        \item \verb|\todo{Do this!}|: \todo{Do this!}
+%        \item \verb|\extend{Write more when new results are out!}|:\\ \extend{Write more %when new results are out!}
+%        \item \verb|\draft{Hacky text!}|: \draft{Hacky text!}
+%    \end{itemize}
+%
+%    \item some commands for referencing, `in \verb|\chapref{chap:introduction}|' produces %'in \chapref{chap:introduction}'
+%    \begin{itemize}
+%        \item \verb|\chapref{}|
+%        \item \verb|\secref{sec:XY}|
+%        \item \verb|\eqref{}|
+%        \item \verb|\figref{}|
+%        \item \verb|\tabref{}|
+%    \end{itemize}
+%
+%    \item the colors of the Uni's corporate design, accessible with\\ \verb|{\color{UniX} %Colored Text}|
+%    \begin{itemize}
+%        \item {\color{UniBlue}UniBlue}
+%        \item {\color{UniRed}UniRed}
+%        \item {\color{UniGrey}UniGrey}
+%    \end{itemize}
+%
+%    \item a command for naming matrices \verb|\mat{G}|, $\mat{G}$, and naming vectors %\verb|\vec{a}|, $\vec{a}$. This overwrites the default behavior of having an arrow over %vectors, sticking to the naming conventions  normal font for scalars, bold-lowercase %for vectors, and bold-uppercase for matrices.
+%
+%    \item named equations:
+%        \begin{verbatim}
+%\begin{align}
+%    d(a,b) &= d(b,a)\\ \eqname{symmetry}
+%\end{align}
+%        \end{verbatim}
+%        \begin{align}
+%            d(a,b) &= d(b,a)\\ \eqname{symmetry}
+%        \end{align}
+%\end{itemize}
+%
+%\section{Advice}\label{sec:advice}
+%This section gives some advice how to write a thesis ranging from writing style to %formatting. To be sure, ask your advisor about his/her preferences.\\
+%For a more complete list we recommend to read Donald Knuth's paper on mathematical writing. %(At least the first paragraph). %\url{http://jmlr.csail.mit.edu/reviewing-papers/knuth_mathematical_writing.pdf}
+%
+%
+%        \item Usually  in a thesis you don't write `In [24] the data is..'. You have more %space than a paper has, so write `AuthorXY et al. prepare the data... [24]'. Also %pay attention to the placement: The citation is at the end of the sentence before %the full stop with a no-break space. \verb|... last word~\cite{XY}.|
+%
+%
+%
+%
+%        \item Use \verb|``''| for citing, not \verb|""|.
+%
+%    \end{itemize}
+%

@@ -1,0 +1,74 @@
+\begin{lstlisting}[language=Python, caption=Parser: von CSV nach XES]
+from datetime import datetime
+
+
+records = []
+fh = open('input.csv')
+for line in fh:
+    parts = line.split(';')
+    case = parts[0]
+    timestamp = parts[1]
+    resource = parts[2]
+    activity = parts[3].rstrip()
+
+    datetime_object = datetime.strptime(timestamp, '%d.%m.%Y %H:%M:%S')
+
+    record = {"case":case, "timestamp":datetime_object, "resource":resource, "activity":activity}
+    print(datetime_object)
+
+    records.append(record)
+fh.close()
+
+
+
+header = """<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file has been generated with the OpenXES library. It conforms -->
+<!-- to the XML serialization of the XES standard for log storage and -->
+<!-- management. -->
+<!-- XES standard version: 1.0 -->
+<!-- OpenXES library version: 1.0RC7 -->
+<!-- OpenXES is available from http://www.openxes.org/ -->
+<log xes.version="1.0" xes.features="nested-attributes" openxes.version="1.0RC7">
+	<extension name="Lifecycle" prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext"/>
+	<extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext"/>
+	<extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext"/>
+	<classifier name="Event Name" keys="concept:name"/>
+	<classifier name="(Event Name AND Lifecycle transition)" keys="concept:name lifecycle:transition"/>
+	<string key="concept:name" value="XES Event Log"/>"""
+footer = "</log>"
+f= open("output.xes","w+")
+f.write(header)
+currentday=None
+currentmonth=None
+currentyear=None
+id = 100
+for record in records:
+    if currentday is None:
+        f.write('\t<trace>\n')
+        currentday = record['timestamp'].day
+        currentmonth= record['timestamp'].month
+        currentyear= record['timestamp'].year
+        case = 'A'
+        f.write('\t\t<string key="concept:name" value="'+case+'"/>\n')
+    else:
+        if currentday != record['timestamp'].day or currentmonth != record['timestamp'].month or currentyear != record['timestamp'].year:
+            f.write('\t</trace>\n')
+            f.write('\t<trace>\n')
+            f.write('\t\t<string key="concept:name" value="'+case+'"/>\n')
+            case = chr(ord(case)+1)
+            currentday = record['timestamp'].day
+            currentmonth= record['timestamp'].month
+            currentyear= record['timestamp'].year
+    f.write('\t\t<event>\n')
+    f.write('\t\t\t<string key="resource" value="'+record['resource']+'"/>\n')
+    f.write('\t\t\t<string key="lifecycle:transition" value="start"/>\n')
+    f.write('\t\t\t<string key="concept:name" value="'+record['activity']+'"/>\n')
+    datestring = record['timestamp'].strftime('%Y-%m-%dT%H:%M:%S.000+02:00')
+    f.write('\t\t\t<date key="time:timestamp" value="'+datestring+'"/>\n')
+    f.write('\t\t\t<int key="Event ID" value="'+str(id)+'"/>\n')
+    id +=1
+    f.write('\t\t</event>\n')
+f.write('\t</trace>')    
+f.write(footer)
+\end{lstlisting}
+
