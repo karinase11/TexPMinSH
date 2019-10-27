@@ -221,16 +221,21 @@ Der Heuristics Miner kann im Gegensatz zum $\alpha$-Miner auch kurze und lange S
 \subsection{Inductive Process Miner}
 Der Inductive Miner ist nach dem Heuristic Miner entwickelt worden und verfolgt die Strategie des 'divide and conquer', um ein Modell aus einem gegebenen Eventlog zu erzeugen \cite{inducMining}. 
 Die Strategie des Inductive Miners ist es, jedes Eventlog $L$ rekursiv in SubEventlogs $A_1 , ... , A_n$ zu unterteilen, diese Sub-Eventlogs isoliert zu betrachten und dann in weitere Sub-Eventlogs zu teilen. 
-Ziel der Betrachtung eines Sub-Eventlogs ist es zu erkennen, an welcher Stelle des Modells ein sogenannter \textit{Split} notwendig ist, der definiert, an welcher Stelle das betrachtete Eventlog in Sub-Eventlogs unterteilt wird. An die Stelle des Splits setzt der Algorithmus eine von mehreren Übergänge. Die Menge an Übergangsmöglichkeiten im Prozess zwischen einzelnen Knoten sind dabei konkret $Oder$, $exklusives  Oder$, $Und$ sowie $Sequenzen$ und $Schleifen$. 
+Ziel der Betrachtung eines Sub-Eventlogs ist es zu erkennen, an welcher Stelle des Modells ein sogenannter \textit{Cut} notwendig ist, der definiert, an welcher Stelle das betrachtete Eventlog in Sub-Eventlogs unterteilt wird. An die Stelle des Cuts setzt der Algorithmus eine von mehreren Übergängen. Die Menge an Übergangsmöglichkeiten im Prozess zwischen einzelnen Knoten sind dabei konkret $Oder$, $exklusives  Oder$, $Und$ sowie $Sequenzen$ und $Schleifen$. 
 
-\todo{cut statt split, bild einfügen}
-
+\newpage
 Gibt es einen Pfad von $A_i$ nach $A_j$, so dass gilt $ i < j $, besteht eine Sequenz der Form $ → (A_1 , ... , A_n)$ in dem betrachteten Sub-Eventlog.
-
-Besteht beispielsweise keine Abhängigkeit zwischen betrachteten Sub-Eventlogs wird ein Exklusiv Oder als Split zwischen den Teilelementen, also $ × (A_1 , ... , A_n)$ gesetzt. 
+Besteht beispielsweise keine Abhängigkeit zwischen betrachteten Sub-Eventlogs wird ein Exklusiv Oder als Cut zwischen den Teilelementen, also $ × (A_1 , ... , A_n)$ gesetzt. 
 Hat jedes betrachtete Sub-Eventlog einen erkennbaren Anfangs- und Endknoten und ihre Elemente sind einer eindeutigen Sequenz angeordnet, deutet dies auf einen parallelen Übergang $ ∧ (A_1 , ... , A_n)$ hin. 
 
-Dieser rekursive Vorgang wird fortgesetzt bis das betrachtete Sub-Eventlog atomar ist. Im letzten Schritt des Inductive Miner Verfahrens werden alle Elemente und ihre Übergänge zu einem einzigen kohärenten Modell zusammengesetzt, Vgl. \cite{inducMining}. Das Inductive Mining Verfahren zeichnet sich dadurch aus, dass es sich besonders für den Umgang mit großen Datensätzen und selten auftretenden Ereignissen eignet, Vgl.\cite{minerEval}.
+Dieser rekursive Vorgang wird fortgesetzt bis das betrachtete Sub-Eventlog atomar ist. Ein solcher Cut, bei dem eines der resultierenden Eventlogs atomar ist, ist in Abbildung \ref{imExample} zu sehen. Im letzten Schritt des Inductive Miner Verfahrens werden alle Elemente und ihre Übergänge zu einem einzigen kohärenten Modell zusammengesetzt, Vgl. \cite{inducMining}. Das Inductive Mining Verfahren zeichnet sich dadurch aus, dass es sich besonders für den Umgang mit großen Datensätzen und selten auftretenden Ereignissen eignet, Vgl.\cite{minerEval}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.5]{figures/Appbildungen/im_example.PNG}
+    \caption{Beispiel einer Trennung eines Eventlogs nach dem Inductive Miner Verfahren}
+    \label{fig:imExample}
+\end{figure}
 
 Mehrere Varianten des Inductive Miners sind entwickelt worden, die das hier vorgestellte Verfahren erweitern. Sie werden entwickelt, um bestimmte Schwächen des Verfahrens zu umgehen oder den Algorithmus für spezifische Anwendungsfälle anzupassen. 
 Beispielsweise kann das Protokoll selten auftretendes, aber für den Kontext wichtiges Verhalten enthalten, was Algorithmen zwingt, diese Einträge entweder auszuschließen oder komplizierte, unlesbare Modelle auszugeben, die jeden beliebigen Prozess beschreiben, also in einem  Blumenmodell wie in Appbildung \ref{fig:exampleFlower} entsprechen. Um dieses Problem schnell und effektiv zu lösen ist der Inductive Miner infrequent, kurz IMf\cite{inducFMining} entwickelt worden.

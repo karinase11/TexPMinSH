@@ -1,59 +1,75 @@
 \chapter{Untersuchung geeigneter Process Miner}\label{chap:approach}
-Um systematisch nach einen geeigneten Algorithmus zu finden, der automatisiert Regeln aus Smart Home Prozessen extrahiert, soll eine begrenze Anzahl an Process Mining Verfahren in Testdurchläufen miteinander verglichen werden. Der Testaufbau ist derart gestaltet, dass dieser sich mit einem preisgünstigen Einplatinencomputer (Raspberry PI, etc.) in einem realen Smart Home realisieren ließe. 
+Um systematisch einen geeigneten Algorithmus zu finden, der automatisiert Regeln aus Smart Home Prozessen extrahiert, soll eine begrenze Anzahl an Process Mining Verfahren in Testdurchläufen miteinander verglichen werden. Der Testaufbau ist derart gestaltet, dass dieser sich mit einem preisgünstigen Einplatinencomputer, wie etwa des Herstellers Raspberry PI, in einem realen Smart Home realisieren ließe. Zunächst soll eine Software für die Ausführung des Process Mining Verfahrens gefunden werden.
 
-\section{Auswahl Softwarelösung}
-Essentiell für die Analyse ist ein Werkzeug, mit dem sich die Rohdaten über einen einheitlichen, vom verwendeten Algorithmus unabhängigen, Workflow verarbeiten lassen. Um eine geeignete Softwarelösung für die Durchführung des Prozess Mining Schritts zu bestimmen, wurden zunächst Publikationen ausgewertet, die bereits Process Mining Software unter relevanten Gesichtspunkten verglichen haben. 
-Die Softwarepakete mit dem Namen ProM, Disco und Celonis sind die drei in der Literatur am häufigsten untersuchten Lösungen für den vorliegenden Anwendungsfall. Die Erkenntnisse dieser vergleichenden Studien werden in dieser Arbeit bei der Auswahl berücksichtigt und im Folgenden kurz zusammengefasst. 
-Die Ergebnisse einer Veröffentlichungen der Universität Gent mit dem Titel „Process Mining in Practice: Comparative Study of Process Mining Software“ von 2014 \cite{compPM}, die durch Umfragen unter Forschern und industriellen Anwendern erforscht hat, welche Process Mining Software besonders bekannt, genutzt bzw. verbreitet ist und den Befragten am nutzerfreundlichsten erschien.
+\section{Auswahl der Softwarelösung}
+Essentiell für die Analyse ist ein Werkzeug, mit dem sich die Rohdaten über einen einheitlichen, vom verwendeten Algorithmus unabhängigen, Workflow verarbeiten lassen. Um eine geeignete Softwarelösung für die Durchführung der Process Mining Auswertung zu bestimmen, werden eine Reihe von Publikationen herangezogen, die  Process Mining Software, unter für den Anwendungsfall relevanten Gesichtspunkten, verglichen haben. Sie sollen dazu beitragen eine Vorauswahl unter den gegenwärtig verfügbaren Process Mining Lösungen zu treffen, aus der dann über einen Kriterienkatalog eine Software für den Einsatz in der Auswertung gewählt wird. 
+Zunächst werden die Ergebnisse einer Abschlussarbeit der Universität Gent mit dem Titel „Process Mining in Practice: Comparative Study of Process Mining Software“ \cite{verstraete} betrachtet. Hier wurde anhand von Umfragen, unter Forschern und Anwendern in der freien Wirtschaft, untersucht, welche der neun genanneten Process Mining Lösungen den Befragten persönlich bereits bekannt war, ob und wie häufig sie von ihnen eingesetzt wurde und ob das Programm den Befragten nutzerfreundlich erschien.
 
-Hier zeichnen sich ProM und Disco als Führend unter den untersuchten Kandidaten ab. ProM liegt der Umfrage nach bei den Befragten in der Forschung besonders weit vorne, während Anwender in der Industrie häufiger auf kommerzielle Lösungen zurückgreift, allen voran Disco, wie der Auszug der Tabelle aus \ref{comparison} zeigt.
+Hier zeichnen sich ProM und Disco als Führend unter den vorgestellten Softwarelösungen ab. ProM wird der Umfrage nach bei von Befragten aus der Forschung besonders häufig einesetzt, während Anwender aus der Industrie meist auf kommerzielle Lösungen zurückgreifen, wie in Tabelle \ref{comparison} zu sehen ist.
 
 \begin{table}[!h]
 \centering
-\resizebox{0.55\textwidth}{!}{%
-\begin{tabular}{l c c c }
+\resizebox{0.57\textwidth}{!}{%
+\begin{tabular}{l  c c c }
 \hline
 Einsatzhäufigkeit & \textbf{Disco }& \textbf{ProM} & \textbf{Celonis} \\  
 \hline\hline
-häufig genutzt & 26 &  13 & 2  \\
-gelegentlich genutzt & 13 &  17 & 0  \\
-einmal genutzt & 6 & 12 & 0 \\
-bekannt & 9  & 11 & 16  \\
-unbekannt & 1 & 2 & 34  \\
+\textit{häufig genutzt} & 26 &  13 & 2  \\
+\textit{gelegentlich genutzt} & 13 &  17 & 0  \\
+\textit{einmal genutzt} & 6 & 12 & 0 \\
+\textit{bekannt} & 9  & 11 & 16  \\
+\textit{unbekannt} & 1 & 2 & 34  \\
 \hline
 \end{tabular}%
 }
-\caption{Auszug aus Tabelle 5 aus "Process Mining in Practice" \cite{compPM} }
+\caption{Angaben von Anwendern zu ihrem Umgang mit Process Mining Software (Quelle: Auszug aus Tabelle 5: Fragenkatalog 5, Verstraete, Comparative Study of Process Mining Software, S. 29 \cite{compPM} }
 \label{comparison}
 \end{table}
 
-Die Autoren der Arbeit „An Informative and Comparative Study of Process Mining Tools”, die im International Journal of Scientific and Engineering Research veröffentlicht wurde, stellen ebenfalls die oben genannten Softwarelösungen in einem Vergleich gegenüber und kommen zu dem Ergebnis, dass Celonis wie auch Disco sehr ausgereifte graphische Nutzerschnittstellen für Process Mining bieten, welche einen leichten Einstieg für unerfahrene Anwender in dem Gebiet gewährleisten, und ProM in diesem Aspekt überlegen sind. Jedoch ist ProM, aufgrund der Tatsache, dass es sich um ein Open Source Projekt handelt, das mit Abstand am umfangreichsten ausgestattete Tool hinsichtlich Konfigurationmöglichkeiten und Erweiterungen. Im Laufe seiner Entwicklung wurden zahlreiche Plugins, die verschiedenste Process Mining Algorithmen implementieren, an das Projekt angebunden und die Auswahl an Ausgabeformaten stetig erweitert, so dass das Funktionsspektrum von ProM dem von Disco oder Celonis deutlich überlegen ist, so die Autoren. Im Rahmen der Masterarbeit „Comparative Evaluation of Process Mining Tools“, die 2015 an der Universität von Tartu \cite{ComparativeEO} entstanden ist, wurden die selben drei Kandidaten anhand ihres Funktionsumfangs und ihrer Nutzerfreundlichkeit miteinander verglichen.
+Jedoch ist ProM, aufgrund der Tatsache, dass es sich um ein Open Source Projekt handelt, das mit Abstand am umfangreichsten ausgestattete Werkzeug,  hinsichtlich seiner Konfigurationmöglichkeiten und zahlreichen Erweiterungen. 
+Im Laufe seiner Entwicklung wurden zahlreiche Plugins, die verschiedenene Process Mining Algorithmen implementieren, an das Projekt angebunden und die Auswahl an Ausgabeformaten stetig erweitert, so dass das Funktionsspektrum von ProM dem von Disco oder Celonis deutlich überlegen ist, so die Autoren. 
+
+Eine ausführliche Analyse von Process Mining Software unter verschiedenen Gesichtspunkten ist in dem Buch "Advances in Intelligent Process-Aware Information Systems - Concepts, Methods, and Technologies" von J. Schobel und M.  Reichert, erschienen 2017 im Springer Verlag, enthalten\cite{Schobel2017}. Es werden auch neben weiteren Anbietern wieder Celonis, Disco und ProM verglichen, allerdings fassen die Autoren Disco und ProM als Einheit auf, da sie von der selben Organisation entwickelt wurden. Auch in dieser Auswertung sticht ProM durch seine Bandbreite an Erweiterungen hervor, wird von den Autoren aber für die mangelnde Echtzeitüberwachung abgemahnt, die Celonis anbietet.
+
+ProM, Disco sowie Celonis werden desweiteren, mit Abstand zu den anderen Lösungen, positiv für die Umsetzung der im Rahmen dieser Arbeit untersuchten Process Discovery Funktion bewertet. Eine graphische Übersicht über die Ergebnisse der Auswertung der Autoren ist in Abbildung \ref{fig:toolEval} zu sehen.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.62]{figures/Appbildungen/toolEval.PNG}
+    \caption{Bewertung von Process Mining Software: "Long term usage—overall rating" (Quelle: J. Schobel, M. Reichert, 2017, S.244, \cite{Schobel2017})}
+    \label{fig:toolEval}
+\end{figure}
+
+Neben der Nutzerfreundlichkeit und dem Umfang der Software sind die ausschlaggebenden Kriterien für die Auswahl der Software diejenigen technischen Daten, die sich direkt auf die Umsetzung der Testreihe und den Proof of Concept auswirken. Sie wurden der Abschlussarbeit "Vergleich und Evaluation von Process Mining Software" der Universität Passau entnommen \cite{compPM} und in Tabelle \ref{comparison2} zusammengefasst.
 
 \begin{table}[!h]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lccc}
+\hline
 Kriterium & \multicolumn{1}{c}{\textbf{ProM (V. 6.9)}} & \multicolumn{1}{c}{\textbf{Disco }} & \multicolumn{1}{c}{\textbf{Celonis}} \\
 \hline\hline
-Typ des Logs & Mxml,xes & Csv,xls, mxml, fxl & Csv,xls \\
-Process Discovery & Ja & Ja & Ja \\
-Lizenz & Open source & Kommerziell & Kommerziell \\
-Notation der Ergebnisse & BPMN,Petri nets, EPCs, ... & Fuzzy model & Fuzzy model, Schaubilder \\
-Visualisierung der Prozesse & Ja & Ja & Ja \\
-Command Line Interface & Ja & Nein & Nein \\
+\textit{Typ des Eingangslogs} & Mxml,xes & Csv,xls,XES,xml, fxl & Csv,Xls,XES \\
+\textit{Process Discovery} & Ja & Ja & Ja \\
+\textit{Lizenz} & Quelloffen & Kommerziell & Kommerziell \\
+\textit{Notation der Ergebnisse} & BPMN, PNML, YAWL, PTML & XML & BPMN \\
+\textit{Visualisierung der Prozesse} & Ja & Ja & Ja \\
+\textit{lokale Anwendung} & Ja, Client-basiert & Ja, Client-basiert. & Nein, Cloud-basiert \\
+\textit{Kommandozeilenanbindung} & Ja & Nein & Nein \\
 \hline
 \end{tabular}%
 }
-\caption{Auszug aus Tabelle 4.9 aus „Comparative Evaluation of Process Mining Tools“\cite{ComparativeEO}}
+\caption{Gegenüberstellung von technischen Eigenschaften der populärsten Process Mining Lösungen}
 \label{comparison2}
 \end{table}
 
-Diese Arbeit kommt gleichermaßen zu dem Schluss, dass ProM ungeachtet der Gestaltung der Benutzeroberfläche den kommerziellen Kandidaten in allen Aspekten der Funktionalität überlegen ist. ProM bietet neben der Process Discovery auch Conformance Checking, sowie Social Network Mining und Trace Clustering an, und kann ermittelte Modelle als BPMN, Petri Netz und in zahlreichen weiteren Formaten darstellen, wohingegen sich Disco und Celonis auf Fuzzy Modelle beschränken. Diese Vorteile sowie die Lizenzfreiheit sind ausschlaggebend für die Entscheidung, ProM als Werkzeug in der vorliegenden Arbeit zu nutzen. 
+Ein entscheidender Vorteil von ProM ist, dass einige der integrierten Plugins eine Kommandozeilenschnittstelle bieten. Mit Hilfe dieser kann die Auswertung der Eventlogs von einem Serverseitigen Skript aus gestartet und überwacht werden. Nachteilig an dieser Lösung ist allerdings, dass ProM im Gegensatz zu Disco und Celonis Eventlogs im CSV-Format (Comma Seperated Values) nicht direkt entgegen nimmt. Dadurch muss zusätzlich vorher eine Konvertierung in das XES Format stattfinden, bevor eine Process Mining Analyse durchgeführt werden kann.
 
-ProM ist in der Programmiersprache Java implementiert und dessen Kernkomponente unter der GPL (GNU  Gerneral Public License) veröffentlicht. Die Dokumentation für Endanwender weist eine für gängige Szenarien ausreichende Tiefe auf, jedoch beschränkt sich die Dokumentation der Schnittstellen für Entwickler auf eine reine Aufzählung von Java-Klassen, und -Methoden, wodurch ein umfangreiches Studium des Quellcodes erforderlich ist, um eigene Erweiterungen beziehungsweise Anpassungen vorzunehmen.
+ProM ist in der Programmiersprache Java implementiert und dessen Kernkomponente unter der GPL, der GNU  Gerneral Public License,  veröffentlicht. Die Dokumentation für Endanwender weist eine für gängige Szenarien ausreichende Tiefe auf, jedoch beschränkt sich die Dokumentation der Schnittstellen für Entwickler auf eine reine Aufzählung von Java-Klassen, und -Methoden, wodurch ein umfangreiches Studium des Quellcodes erforderlich ist, um eigene Erweiterungen beziehungsweise Anpassungen vorzunehmen. ProM kann jedoch ermittelte Modelle als BPMN, Petri Netz und in zahlreichen weiteren Formaten ausgeben, wohingegen sich Disco und Celonis auf XML oder BPMN beschränken. 
 
-Ein weiterer Vorteil von ProM ist, dass einige der integrierten Plugins eine Kommandozeilenschnittstelle bieten, mit Hilfe dieser kann die Auswertung der Eventlogs von einem Serverseitigen Skript aus gestartet und überwacht werden. Nachteilig an dieser Lösung ist allerdings, dass ProM im Gegensatz zu Disco und Celonis Eventlogs im CSV-Format (Comma Seperated Values) nicht direkt entgegen nimmt. Dadurch muss zusätzlich vorher eine Konvertierung in das XES Format stattfinden, bevor eine Process Mining Analyse durchgeführt werden kann.
+Die quelloffene Lizensierung von ProM, die teils Cloud-basierte Architektur von Celonis und der Mangel einer Kommandozeilenanbindung von Disco sind letztendlich ausschlaggebend für die Entscheidung, ProM als Werkzeug in der vorliegenden Arbeit zu nutzen. 
 
+\newpage
 \section{Wahl des Process Mining Verfahrens}
 
 Es soll ein Process Mining Verfahren identifiziert werden, welches unter den in den Vergleich einbezogenen Minern am besten geeignet ist Modelle derart zu erzeugen, dass sie kurze, häufig auftretende Ereignis und Aktionen korrekt erkennen und abbilden. Ziel ist es, diejenigen Interaktionen mit den Smart Home Geräten des Anwenders herauszufiltern, die innerhalb eines beschränkten Zeitraums wiederholt beobachtet wurden und in einer einfachen Wenn-Dann Beziehung beschrieben werden können. 
