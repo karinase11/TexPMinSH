@@ -1,5 +1,5 @@
 \chapter{Untersuchung geeigneter Process Miner}\label{chap:approach}
-Um systematisch einen geeigneten Algorithmus zu finden, der automatisiert Regeln aus Smart Home Prozessen extrahiert, soll eine begrenze Anzahl an Process Mining Verfahren in Testdurchläufen miteinander verglichen werden. Der Testaufbau ist derart gestaltet, dass dieser sich mit einem preisgünstigen Einplatinencomputer, wie etwa des Herstellers Raspberry PI, in einem realen Smart Home realisieren ließe. Zunächst soll eine Software für die Ausführung des Process Mining Verfahrens gefunden werden.
+Um systematisch einen geeigneten Algorithmus zu finden, der automatisiert Regeln aus den Protokolldateien eines Smart Home extrahiert, soll eine begrenze Anzahl an Process Mining Verfahren in Testdurchläufen miteinander verglichen werden. Der Testaufbau ist derart gestaltet, dass dieser sich mit einem preisgünstigen Einplatinencomputer, wie etwa des Herstellers Raspberry PI, in einem realen Smart Home realisieren ließe. Zunächst soll eine Software für die Ausführung des Process Mining Verfahrens gefunden werden.
 
 \section{Auswahl der Softwarelösung}
 Essentiell für die Analyse ist ein Werkzeug, mit dem sich die Rohdaten über einen einheitlichen, vom verwendeten Algorithmus unabhängigen, Workflow verarbeiten lassen. Um eine geeignete Softwarelösung für die Durchführung der Process Mining Auswertung zu bestimmen, werden eine Reihe von Publikationen herangezogen, die  Process Mining Software, unter für den Anwendungsfall relevanten Gesichtspunkten, verglichen haben. Sie sollen dazu beitragen eine Vorauswahl unter den gegenwärtig verfügbaren Process Mining Lösungen zu treffen, aus der dann über einen Kriterienkatalog eine Software für den Einsatz in der Auswertung gewählt wird. 
@@ -29,18 +29,17 @@ Einsatzhäufigkeit & \textbf{Disco }& \textbf{ProM} & \textbf{Celonis} \\
 Jedoch ist ProM, aufgrund der Tatsache, dass es sich um ein Open Source Projekt handelt, das mit Abstand am umfangreichsten ausgestattete Werkzeug,  hinsichtlich seiner Konfigurationmöglichkeiten und zahlreichen Erweiterungen. 
 Im Laufe seiner Entwicklung wurden zahlreiche Plugins, die verschiedenene Process Mining Algorithmen implementieren, an das Projekt angebunden und die Auswahl an Ausgabeformaten stetig erweitert, so dass das Funktionsspektrum von ProM dem von Disco oder Celonis deutlich überlegen ist, so die Autoren. 
 
-Eine ausführliche Analyse von Process Mining Software unter verschiedenen Gesichtspunkten ist in dem Buch "Advances in Intelligent Process-Aware Information Systems - Concepts, Methods, and Technologies" von J. Schobel und M.  Reichert, erschienen 2017 im Springer Verlag, enthalten\cite{Schobel2017}. Es werden auch neben weiteren Anbietern wieder Celonis, Disco und ProM verglichen, allerdings fassen die Autoren Disco und ProM als Einheit auf, da sie von der selben Organisation entwickelt wurden. Auch in dieser Auswertung sticht ProM durch seine Bandbreite an Erweiterungen hervor, wird von den Autoren aber für die mangelnde Echtzeitüberwachung abgemahnt, die Celonis anbietet.
+Eine ausführliche Analyse von Process Mining Software unter verschiedenen Gesichtspunkten ist in dem Buch "Advances in Intelligent Process-Aware Information Systems - Concepts, Methods, and Technologies" von J. Schobel und M.  Reichert, erschienen 2017 im Springer Verlag, enthalten\cite{Schobel2017}. Es werden auch, neben weiteren Anbietern, wieder Celonis, Disco und ProM in den Vergleich miteinbezogen, allerdings fassen die Autoren Disco und ProM als Einheit auf, da sie von der selben Organisation entwickelt wurden. Auch in dieser Auswertung sticht ProM durch seine Bandbreite an Erweiterungen hervor, wird von den Autoren aber für die mangelnde Echtzeitüberwachung abgemahnt, die Celonis anbietet.
 
-ProM, Disco sowie Celonis werden desweiteren, mit Abstand zu den anderen Lösungen, positiv für die Umsetzung der im Rahmen dieser Arbeit untersuchten Process Discovery Funktion bewertet. Eine graphische Übersicht über die Ergebnisse der Auswertung der Autoren ist in Abbildung \ref{fig:toolEval} zu sehen.
-
+ProM, Disco sowie Celonis werden außerdem, mit Abstand zu den anderen verglichenen Lösungen, positiv für die Umsetzung der Process Discovery Funktion bewertet, was die Entscheidung sie in die nähe Auswahl zu nehmen bestärkt. Eine graphische Übersicht über die Ergebnisse der Auswertung der Autoren ist in Abbildung \ref{fig:toolEval} zu sehen.
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.62]{figures/Appbildungen/toolEval.PNG}
-    \caption{Bewertung von Process Mining Software: "Long term usage—overall rating" (Quelle: J. Schobel, M. Reichert, 2017, S.244, \cite{Schobel2017})}
+    \includegraphics[scale=0.6]{figures/Appbildungen/toolEval.PNG}
+    \caption{Bewertung von Process Mining Software (Eigene Darstellung in Anlehnung an: J. Schobel, M. Reichert, 2017, S.244, \cite{Schobel2017})}
     \label{fig:toolEval}
 \end{figure}
-
-Neben der Nutzerfreundlichkeit und dem Umfang der Software sind die ausschlaggebenden Kriterien für die Auswahl der Software diejenigen technischen Daten, die sich direkt auf die Umsetzung der Testreihe und den Proof of Concept auswirken. Sie wurden der Abschlussarbeit "Vergleich und Evaluation von Process Mining Software" der Universität Passau entnommen \cite{compPM} und in Tabelle \ref{comparison2} zusammengefasst.
+\newpage
+Neben der Bedienfreundlichkeit und dem Umfang der Software sind die ausschlaggebenden Kriterien für die Auswahl der Software diejenigen technischen Daten, die sich direkt auf die praktische Umsetzbarkeit der Testreihe und des Proof of Concept auswirken. Die technischen Eckdaten wurden einer  Abschlussarbeit mit dem Titel "Vergleich und Evaluation von Process Mining Software" der Universität Passau entnommen \cite{compPM} und in Tabelle \ref{comparison2} zusammengefasst.
 
 \begin{table}[!h]
 \centering
@@ -59,32 +58,56 @@ Kriterium & \multicolumn{1}{c}{\textbf{ProM (V. 6.9)}} & \multicolumn{1}{c}{\tex
 \hline
 \end{tabular}%
 }
-\caption{Gegenüberstellung von technischen Eigenschaften der populärsten Process Mining Lösungen}
+\caption{Gegenüberstellung von technischen Eigenschaften der populärsten Process Mining Lösungen(Quelle: Erling C., Vergleich und Evaluation von Process Mining Software, 2019, S. 36,37,44,83 \ref{comparison2})}
 \label{comparison2}
 \end{table}
 
-Ein entscheidender Vorteil von ProM ist, dass einige der integrierten Plugins eine Kommandozeilenschnittstelle bieten. Mit Hilfe dieser kann die Auswertung der Eventlogs von einem Serverseitigen Skript aus gestartet und überwacht werden. Nachteilig an dieser Lösung ist allerdings, dass ProM im Gegensatz zu Disco und Celonis Eventlogs im CSV-Format (Comma Seperated Values) nicht direkt entgegen nimmt. Dadurch muss zusätzlich vorher eine Konvertierung in das XES Format stattfinden, bevor eine Process Mining Analyse durchgeführt werden kann.
+Ein entscheidender Vorteil von ProM ist, dass einige der integrierten Plugins eine Kommandozeilenschnittstelle bieten. Mit Hilfe dieser kann die Auswertung der Eventlogs von einem Serverseitigen Skript aus gestartet und überwacht werden. Nachteilig an dieser Lösung ist allerdings, dass ProM im Gegensatz zu Disco und Celonis Eventlogs im CSV-Format (Comma Seperated Values) nicht direkt entgegen nimmt. Das heißt es muss eine Konvertierung in das XES Format stattfinden, bevor eine Process Mining Analyse durchgeführt werden kann.
 
-ProM ist in der Programmiersprache Java implementiert und dessen Kernkomponente unter der GPL, der GNU  Gerneral Public License,  veröffentlicht. Die Dokumentation für Endanwender weist eine für gängige Szenarien ausreichende Tiefe auf, jedoch beschränkt sich die Dokumentation der Schnittstellen für Entwickler auf eine reine Aufzählung von Java-Klassen, und -Methoden, wodurch ein umfangreiches Studium des Quellcodes erforderlich ist, um eigene Erweiterungen beziehungsweise Anpassungen vorzunehmen. ProM kann jedoch ermittelte Modelle als BPMN, Petri Netz und in zahlreichen weiteren Formaten ausgeben, wohingegen sich Disco und Celonis auf XML oder BPMN beschränken. 
+Die quelloffene Lizensierung von ProM, die teils Cloud-basierte Architektur von Celonis und der Mangel einer Kommandozeilenanbindung von Disco sind letztendlich ausschlaggebend für die Entscheidung, ProM als Werkzeug für die Durchführung des Process Mining zu nutzen. 
 
-Die quelloffene Lizensierung von ProM, die teils Cloud-basierte Architektur von Celonis und der Mangel einer Kommandozeilenanbindung von Disco sind letztendlich ausschlaggebend für die Entscheidung, ProM als Werkzeug in der vorliegenden Arbeit zu nutzen. 
-
-\newpage
 \section{Wahl des Process Mining Verfahrens}
 
-Es soll ein Process Mining Verfahren identifiziert werden, welches unter den in den Vergleich einbezogenen Minern am besten geeignet ist Modelle derart zu erzeugen, dass sie kurze, häufig auftretende Ereignis und Aktionen korrekt erkennen und abbilden. Ziel ist es, diejenigen Interaktionen mit den Smart Home Geräten des Anwenders herauszufiltern, die innerhalb eines beschränkten Zeitraums wiederholt beobachtet wurden und in einer einfachen Wenn-Dann Beziehung beschrieben werden können. 
+Es soll ein Process Mining Verfahren identifiziert werden, welches unter den in den Vergleich einbezogenen Minern am besten geeignet ist Modelle derart zu erzeugen, dass sie kurze, häufig auftretende Ereignis und Aktionen korrekt erkennen und abbilden. Ziel ist es, diejenigen Interaktionen mit den Smart Home Geräten des Anwenders herauszufiltern, die innerhalb eines beschränkten Zeitraums wiederholt beobachtet wurden und in einer einfachen Wenn-Dann (If This Then That) Beziehung beschrieben werden können. 
 
-Mining Verfahren, deren Modelle zwar korrekt, aber zu komplex sind um eine für den Anwender leicht interpretierbare Regel zu beschreiben oder solche, die auftretende Muster zu früh als Regel interpretieren, sind für diesen Anwendungsfall ungeeignet. In Anbetracht der im Eingangskapitel erläuterten Gütekriterien werden hier Modelle gefordert, die ein hohes Maß an ‚Simplicity‘ (Einfachheit) mitbringen und weniger Gewicht auf ,Fitness' legen, also kein Modell erstellen, das dazu neigt alle möglichen, selten auftretenden Prozesschritte mit einzuschließen. 
+Mining Verfahren, deren Modelle zwar korrekt, aber zu komplex sind um eine für den Anwender leicht interpretierbare Regel zu beschreiben sind für diesen Anwendungsfall ungeeignet. In Anbetracht der im Eingangskapitel erläuterten Gütekriterien werden hier Modelle gefordert, die ein hohes Maß an ‚Simplicity‘ (Einfachheit) mitbringen und weniger Gewicht auf ,Fitness' legen, also kein Modell erstellen, das dazu neigt alle möglichen, selten auftretenden Prozesschritte mit einzuschließen. 
 
-Ein weiterer Faktor, der die Auswahl an Minern einschränkt, ist die praktische Umsetzbarkeit in einer realen Anwendung. Es werden nur solche Miner berücksichtigt, für die zum Zeitpunkt dieser Arbeit ein Plugin in der ProM 6.9 Version angeboten wird und die in der Lage sind, über Kommandozeilenbefehle so aufgerufen zu werden, dass sie eine Ergebnisdatei erzeugen, ohne, dass es einer zusätzlichen Intervention seitens des Anwenders bedarf.
+Ein weiterer Faktor, der die Auswahl an Minern einschränkt, ist die praktische Umsetzbarkeit in einer realen Anwendung. Es werden nur solche Miner berücksichtigt, für die zum Zeitpunkt dieser Arbeit ein Plugin in der ProM 6.9 Version angeboten werden und die in der Lage sind, über Kommandozeilenbefehle so aufgerufen zu werden, dass sie ein Ausgabemodell erzeugen. Da das Ziel ist, einen automatisiert ablaufenden Dienst einzurichten, so dass Process Mining ohne zusätzlichen Intervention seitens des Anwenders durchgeführt werden kann.
 
-Für eine Vorauswahl werden Veröffentlichungen herangezogen, die sich bereits mit der Fragestellung des Process Mining von ADL auseinandergesetzt haben.
+Es stehen Implementationen des Heuristic, Local, Inductive und des Transitions System Miner zur Verfügung. Um beurteilen zu können, welche der Verfahren sich besonders für die Analyse von Eventlogs eignen, die menschliches Verhalten protokollieren, werden Veröffentlichungen herangezogen, die Process Mining im ADL Kontext eingesetzt haben, insbesondere wenn es sich dabei direkt um den Smart Home Bereich handelt. Die Ergebnisse sind in Tabelle \ref{tab:miningPaper} gelistet. 
 
+Der Local Process Miner ist in der Übersicht nicht aufgeführt, da es bisher keine Veröffentlichungen gibt, die dieses noch junge Verfahren in einem vergleichbaren Kontext untersucht haben. 
+
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.7\hsize}c}
+\begin{table}[ht]\small
+\centering
+\begin{tabularx}{\textwidth}{b ccc}
+Titel                                                                                                               & \multicolumn{1}{l}{\textbf{Heuristic}} & \multicolumn{1}{l}{\textbf{Inductive}} & \multicolumn{1}{l}{\textbf{Transition}} \\ \hline\hline
+\textit{Discovering process models of activities of daily living from sensors}                                      & x                                      &                                        &                                         \\
+\textit{Context-based similarity measure on human behavior pattern analysis}                                        & x                                      &                                        &                                         \\
+\textit{Mining insights from weakly-structured event data}                                                          & x                                      & x                                      &                                         \\
+\textit{A novel human autonomy assessment system}                                                                   &                                        &                                        & x                                       \\
+\textit{SAMDY–Technologies to support“Care On Demand”}                                                              &                                        &                                        & x                                       \\
+\textit{Mining process model descriptions of daily life through event abstraction}                                  &                                        & x                                      &                                         \\
+\textit{Recompiling learning processes from event logs}                                                             &                                        & x                                      &                                         \\
+\textit{Event Abstraction for Process Mining Using Supervised Learning Techniques}                                  &                                        & x                                      &                                         \\
+\textit{Visual process maps: a visualization tool for discovering habits in smart homes}                            &                                        & x                                      &                                         \\
+\textit{Data Mining for Behavioural Changes and Monitoring Requirements in Residential Healthcare}                  & x                                      &                                        &                                         \\
+\textit{Prozess-Mining und Prozessbewertung zur Verbesserung klinischer Workflows im Umfeld bilderzeugender Fächer} & x                                      &                                        &                                         \\ \hline
+
+\end{tabularx}
+
+\caption{Übersicht über Veröffentlichungen mit dem Thema Process Mining und ADL und das jeweils eingesetzte Process Mining Verfahren}
+ \label{tab:miningPaper}
+\end{table}
+\normalsize
+Betrachtet wurden Studien, die einen der ein Process Mining Algorithmen eingesetzt haben, für das ein Plugin in ProM 6.9 existieren, welches sich über eine Kommandozeilenanbindung ansprechen lässt, und deren Absicht es war Daten, die menschliches Verhalten widerspiegeln, über Process Mining zu analysieren. Die Suche erfolgte über Google Scholar, die gesuchten Begriffe waren eine Kombination des Verfahrens und den Begriffen "ADL", "Smart Home", "Smart Living" und "Human Activities". 
 \begin{table}[!h]
 \centering
 \resizebox{0.9\textwidth}{!}{%
 \begin{tabular}{lcccc}
- Kategorie & \textbf{Heuristic} & \textbf{Fuzzy} & \textbf{Inductive} & \textbf{Local}   \\
+ Kategorie & \textbf{Heuristic} & \textbf{Transition} & \textbf{Inductive} & \textbf{Local}   \\
 %Betrachtete Plugin Version & F. Mannhardt, Interactive Data Aware Heur. M. & H.M.W. Verbeek, Mine for a fuzzy Model & S.J.Leemans, Mine with Inductive Visual Miner & N.Tax, Search for Local Process Models \\
 \hline\hline
 Nebenläufigkeit & + & - & + & + \\
@@ -93,7 +116,7 @@ Eignung für unvollständige &  &  &  &  \\
 Event-Logs & + & + & + & + \\
 Eignung für fehlerbehaftete &  &  &  &  \\
 Event-Logs & + & + & ? & ? \\
-automatisierbar & + & + &  & \\
+automatisierbar & + & + &  + & +\\
 \hline
 \end{tabular}%
 }
@@ -101,7 +124,7 @@ automatisierbar & + & + &  & \\
 \label{tab:my-table}
 \end{table}
 
-Um zu untersuchen, inwieweit die Modelle der gewählten Miner sich für den im Rahmen dieser Arbeit geplanten Anwendungsfall eignen, werden sie zunächst mit künstlich erzeugten Ereignisprotokollen evaluiert. Die Testreihe setzt sich zusammen aus systematisch generierten XES Dateien, die an Ereignislogs angelehnt sind, die im Smart Home Model des ITOM Instituts entstanden sind.
+Um zu untersuchen, inwieweit die Modelle der gewählten Miner sich für den im Rahmen dieser Arbeit geplanten Anwendungsfall eignen, werden sie zunächst mit künstlich erzeugten Ereignisprotokollen evaluiert. Die Testreihe setzt sich zusammen aus systematisch generierten XES Dateien, die an Ereignislogs angelehnt sind, die im Smart Home Model des ITOM Instituts entstanden sind. Die Erge
 
 
 \clearpage
@@ -113,52 +136,52 @@ Um eine Vergleichbarkeit mit realen Eventlos zu ermöglichen, wurden die Logs um
 
 Hervorzuheben ist an dieser Stelle, dass die Miner den Inhalt einzelner Einträge nicht deuten, sie unterscheiden die Ressourcen, die den Eintrag erstellen und die zugehörigen Eigenschaften nur Anhand der Zeichenkette im Protokoll. Dementsprechend werden die Namen der IoT Ressourcen und ihrer Aktivitäten hier beispielhaft für gängige vernetzte Geräte gewählt, sie haben keine direkte Auswirkung auf das Ergebnis des Mining Verfahrens und sind beliebig austauschbar. Signifikant für die Auswertung ist zunächst nur die Häufigkeit, mit der eine Ressource einen Eintrag erstellt, und der Zeitpunkt des Eintrags im Protokoll, der zu dieser Ressource gehört.
 
-Die Eventlogs der Testreihe werde mit Hilfe eines im Rahmen dieser Arbeit entstandenen Python Skript generiert, welches folgende Parameter entgegen nimmt: das eingebettete, zu erkennende Verhaltensmuster, die Menge an konsekutiven Kalendertagen (30 o. 90 Tage) und der Anteil an Rauscheinträgen (15 o. 50), siehe Anhang \ref{lst:generate}.
+Die Eventlogs der Testreihe werde mit Hilfe eines im Rahmen dieser Arbeit entstandenen Python Skripts generiert, welches folgende Parameter entgegen nimmt: das eingebettete, zu erkennende Verhaltensmuster, die Menge an konsekutiven Kalendertagen (30 o. 90 Tage) und den Anteil an Rauscheinträgen (15 o. 50), siehe Anhang \ref{lst:generate}. 
 
 Die Testreihe setzt sich aus zwölf verschiedenen Modellen zusammen, die in künstlich erzeugte Eventlogs eingebettet werden. Diese werden inkrementell komplexer und enthalten eine jeweils unterschiedliche Menge an Knoten, die die Elemente einer Regel darstellen. Je Modell (benannt „A“ - „M“) entstehen so 4 unterschiedliche Eventlogs .Für die Durchführung der Testreihe wurden insgesamt 40 Eventlogs generiert, welche 84 individuelle Regeln enthielten; mit minimal einer, maximal vier Regeln pro Eventlog, siehe Tabellen im Anhang \ref{results}. 
 
-\subsection{Auswertung der Messreihe}
-Um die Güte der Modelle, die in der Messreihe mit den verschiedenen Minern entstanden sind zu evaluieren, werden die Ausgaben der Process Mining Plugins mit dem ursprünglich eingebetteten Modell verglichen und der Grad der Abweichung für jeden Datensatz dokumentiert.
+\subsection{Auswertung der Versuchsreihe}
+Um die Güte der Modelle, die in der Messreihe mit den verschiedenen Minern entstanden sind, zu evaluieren, werden die Ausgaben der Process Mining Plugins mit dem ursprünglich eingebetteten Modell verglichen und der Grad der Abweichung für jeden Datensatz dokumentiert. Um die Performanz der Miner zu quantifizieren, wird die Wiedergabe der eingebetteten Muster im Ausgabemodell über ein Punktesystem bewertet. Als Bewertungsgrundlage der Miner soll der Grad der Genauigkeit, mit der das Modell des jeweiligen Verfahrens die gesuchten Regeln abbildet, herangezogen. 
 
-Um die Performanz der Miner zu quantifizieren, wird  die Wiedergabe der eingebetteten Muster im Ausgabemodell über ein Punktesystem bewertet. Entspricht das Modell vollständig dem erwarteten Modell wird es mit voller Punktzahl bewertet, für Abweichungen werden Punkte abgezogen.
+Entscheidend für den im Rahmen dieser Arbeit betrachteten Anwendungsfall der automatisierten Regelerkennung im Smart Home ist, dass der Mining Algorithmus in der Lage ist, Rauschen aus dem Modell herauszufiltern und korrekt kurze Pfade und sowie ihre Parallelität zu identifizieren. 
 
-Als Maß für die Performanz der Miner wird die Anzahl korrekt identifizierter Regeln, die in den Eventlogs eingebettet sind, herangezogen. Für jedes der generierten Eventlogs werden die korrekt erkannten Knoten (True Positive), sowie die fälschlicherweise im Modell enthaltenen Elemente (False Postive) und diejenigen Elemente, die nicht im Modell erscheinen, aber erwartet wurden (False Negative) gezählt. 
+Für jedes Ausgabemodell wird die Anzahl der korrekt erkannten Elemente (\textit{True Positive}), sowie die fälschlicherweise im Modell enthaltenen Elemente (\textit{False Postive}) und diejenigen Elemente, die nicht im Modell erscheinen, aber erwartet wurden (\textit{False Negative}), notiert. 
+Desweiteren sind Ausgabemodelle nur dann für die Weiterverarbeitung brauchbar, wenn die Elemente, die zu unterschiedlichen Regeln gehören, auch auf unterschiedlichen Pfaden im Modell abgebildet werden. Als weitere Metrik in der Testreihe wird daher die Anzahl der korrekt erkannten Pfade im Ausgangsmodell verwendet (\textit{Parallelism}). Wenn alle Kriterien erfüllt werden, erhält der Miner die volle Punktzahl für das jeweilige Ausgabemodell. Die volle Punktzahl je Ausgabemodell entspricht der Anzahl der eingebetteten Regeln in dem Datensatz.
 
-Desweiteren ist für den Anwendungsfall von hoher Bedeutung, dass die Knoten die zu unterschiedlichen Regeln gehören auf unterschiedlichen Pfaden im Modell erscheinen. Als weitere Metrik in der Testreihe wird daher die Anzahl der korrekt erkannten Pfade im Ausgangsmodell verwendet (Parallelism). 
+Die Durchführung der Testreihe hat gezeigt, dass es signifikante Unterschiede in der Fähigkeit der untersuchten Mining Algorithmen gibt, Abläufe mit vielen kurzen Pfaden zu identifizieren und im Ausgabemodell korrekt wiederzugeben. Lediglich für fünf der zwölf Reihen geben beide Miner das gesuchte Resultat fehlerfrei aus (konkret: A,B,D,E,F), siehe Abbildung\ref{tab1} und Abbildung \ref{tab2} im Anhang. In den sieben Reihen, in denen einer der beiden Miner Plugins fehlerhafte Ausgabemodelle produzierte, handelte es sich in fünf Fällen (aus 16 Eventlogs, Reihen: H,J,K,L,M) um das ‚Inductive Visual Miner Plugin‘, wohingegen das ‚Interactive Data-aware Heuristics Miner‘ Plugin lediglich in zwei Modellen, in allen vier zugehörigen Eventlogs (Reihen C,G), unterlag. Die Auswertung der Testreihe hat auch gezeigt, dass beide Miner gut geeignet sind bis zu zwei Regeln in einem Eventlog zu erkennen. Bei regelmäßigem Auftreten der Regel konnten auch kurze Auswertungszeitspannen und ein hohes Maß an Rauscheinträgen das Ausgabemodell nicht verzerren.
 
-Entscheidend für den im Rahmen dieser Arbeit betrachteten Anwendungsfall der automatisierten Regelerkennung im Smart Home ist das der Mining Algorithmus in der Lage ist, Rauschen aus dem Modell herauszufiltern und korrekt kurze Pfade und sowie ihre Parallelität (sog. Splits) zu identifizieren. 
-Die Durchführung der Testreihe hat zum Vorschein gebracht, dass es einen signifikanten Unterschied in der Fähigkeit der untersuchten Mining Algorithmen gibt, Abläufe mit vielen kurzen Pfaden zu identifizieren und im Ausgabemodell korrekt wiederzugeben. Lediglich in fünf der zehn Modelle geben beide Miner in allen vier Eventlogs das gesuchte Resultat fehlerfrei aus (konkret Reihe: A,B,D,E,F), siehe Abb.\ref{tab1} und Abb. \ref{tab2} im Anhang.
+Im Unterschied zum Heuristic Miner Plugin gelang es dem Inductive Miner Plugin nicht, mehr als zwei kurze Regeln, die in die Eventlogs der Testreihen H,J,K,L,M eingebettet waren, korrekt in parallel verlaufende Pfaden zu unterteilen. Stattdessen gab der Miner häufig alle gesuchten Elemente auf einem einzigen Pfad des Petri Netzes aus, es gelang ihm nicht, die Parallelität der gesuchten Abläufe zu identifizieren. 
+Aus der Perspektive des Inductive Miner Verfahrens betrachtet lies sich also beobachten, dass es dem Inductive Miner Verfahren hier nicht gelang, einen \textit{XOR Cut}, siehe \ref{sec:inducMiner}, an der Stelle zu setzen, an der mehr als zwei kurze parallele Abläufe beginnen. 
 
-In den fünf Modellen, in denen einer der beiden Miner Plugins nicht das erwartete Modell ausgeben konnte, handelte es sich in vier Fällen (16 Eventlogs, Modell H,J,K,L,M) um das ‚Inductive Visual Miner Plugin‘, wohingegen das ‚Interactive Data-aware Heuristics Miner‘ Plugin lediglich in zwei Modellen in allen vier Eventlogs (C,G) unterlag.
-
-Die Auswertung der Testreihe hat gezeigt, dass beide Miner gut geeignet sind bis zu zwei Regeln in einem Eventlog zu erkennen, und dass bei regelmäßigem Auftreten der Regel auch kurze Auswertungszeitspannen und ein hohes Maß an Rauscheinträgen das Ergebnismodell nicht verzerren. Dies ergibt sich aus der konsisten Ausgabequalität der Modelle über eine Messreihe hinweg. Wird die selbe Regel mehrfach in einem Eventlog eingebettet, treten nur insignifikante oder keine Unterschiede in der Ausgabe auf, unabhängig davon ob der Rauschanteil besonders hoch oder niedrig war, oder dem Miner deutlich mehr Tage zur Verfügung standen um ein Muster zu erkennen.
-
-Im Unterschied zum Heuristic Miner Plugin gelingt es dem Inductive Miner Plugin nicht, mehr als zwei kurze Regeln korrekt in parallel verlaufende Pfaden zu unterteilen, stattdessen bestehen die resultierenden Petri Netze meist aus jeweils einem einzigen Pfad, dessen Knoten aufeinanderfolgen, und nicht wie erwartet nebeneinander verlaufen. Es gelingt dem Inductive Miner also nicht, den Split zwischen kurzen Pfaden korrekt zu setzen, sollten mehr als zwei kurze parallel verlaufende Pfade im Modell vorliegen. Da genau diese Art der Modellierung aber das gesuchte Szenario abbildet, dass ein Eventlog mehrere regelmäßige Abläufe aus zwei bis vier Eventeinträgen enthält, deuten die Ergebnisse dieser Testreihe darauf hin, dass der Heuristic Miner besser geeignet ist, kurze Regeln nach dem If This Then That Schema in einem Smart Home zu identifizieren.
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.7\textwidth,]{figures/Appbildungen/K_inductive_erronousPNG.PNG}
-    \caption{Modellierung der Testreihe K aus dem Inductive Miner Plugin}
+    \includegraphics[width=0.9\textwidth,]{figures/Appbildungen/K_inductive_erronousPNG.PNG}
+    \caption{Modellierung eines Datensatzes der Testreihe K mit dem Inductive Miner Plugin}
     \label{fig:K_inductive}
 \end{figure}
-Beispielhaft für diesen Fehlerfall wird das Modell 'K' betrachtet, eingebettet in die generierten Eventlogs wurden drei separate regelmäßige Wenn-Dann Abfolgen aus zwei beziehungsweise drei Elementen. Für alle vier Kombinationsmöglichkeiten zur Konfiguration des Eventlogs (30 Tage, Rauschanteil 15 oder 50 und 90 Tage mit Rauschanteil 15 oder 50) ergab der Heuristic Miner ein Modell, welches die drei erwarteten Abfolgen enthält und alle Rauscheinträge herausfiltert, wie in Abb. \ref{fig:K_heuristic} zu sehen ist.
+Beispielhaft für diesen Fehlerfall wird das Modell 'K' betrachtet. Eingebettet in die hier eingesetzten Eventlogs lagen drei separate, regelmäßig auftretende Wenn-Dann Abfolgen, bestehend aus jeweils zwei oder drei Elementen. 
+Für alle vier Kombinationsmöglichkeiten zur Konfiguration des Eventlogs (30 Tage simulierter Aufnahmezeitraum mit einem Rauschanteil von 15 oder 50 Einträgen und ein Zeitraum von  90 Tagen mit einem Rauschanteil von 15 oder 50) berechnete der Heuristic Miner ein Modell, welches die drei erwarteten Abfolgen enthielt und alle Rauscheinträge herausfiltern konnte, wie in Abbildung \ref{fig:K_heuristic} zu sehen ist.
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.7\textwidth,]{figures/Appbildungen/K_heuristic_correct.PNG}
-    \caption{Modellierung der Testreihe K aus dem Heuristic Miner Plugin}
+    \includegraphics[width=0.8\textwidth,]{figures/Appbildungen/K_heuristic_correct.PNG}
+    \caption{Modellierung eines Datensatzes der Testreihe K mit dem Heuristic Miner Plugin}
     \label{fig:K_heuristic}
 \end{figure}
-Auch das Inductive Miner Plugin ist in der Lage das Rauschen herauszufiltern, modelliert aber, bei Eingabe der selben Eventlog Dateien wie das Heuristic Miner Plugin, ein für den Einsatzzweck ungeeignetes Modell. 
-Auf Abb. \ref{fig:K_inductive} ist zu sehen, dass nur eine Regel korrekt in der Wenn-Dann Folge abgebildet wird: auf eine 'Smart Alarm Clock' Aktivität folgt eine 'Coffee Maker' Aktivität. Die Komponenten der restlichen eingebetteten Regeln werden zwar erkannt, aber nicht in der korrekten Abfolge, sondern parallel abgebildet. Diese Form der Abweichung hat sich als charakteristisch für den Inductive Miner herausgestellt. Auch die resultierenden Modelle des Inductive Miner der Reihen H,J,L,M enthielten zwar meist die korrekten Knoten, allerdings nicht in der gewünschten Abfolge. Es entstehen vielmehr sog. Blumenmodelle, wie sie Eingangs beschrieben wurden, siehe Abschnitt \ref{quality}.
+Auch das Inductive Miner Plugin ist in der Lage gewesen das Rauschen herauszufiltern, modellierte aber, bei Eingabe der selben Eventlog Dateien, die das Heuristic Miner Plugin genutzt hat, ein für den Einsatzzweck ungeeignetes Modell. 
 
-Auch der Heuristic Miner generiert nicht für jedes Eventlog das erwartete Modell, beispielsweise gelingt es ihm in der Testreihe M nicht, alle Rauscheinträge herauszufiltern, jedoch werden alle erwarteten Regeln korrekt dargestellt, siehe Abb. \ref{fig:M_heuristic}. 
-Die Testreihe M enthielt nur an jedem dritten Tag Einträge zum gesuchten Muster, d.h. das Verhältnis von Rauscheinträgen zu Regeleinträgen war hier besonders hoch, was aller Wahrscheinlichkeit nach zu der fehlerhaften Modellierung geführt hat.
+Auf Abbildung \ref{fig:K_inductive} ist zu sehen, dass nur eine Regel korrekt in der Wenn-Dann Folge abgebildet wird: auf eine 'Smart Alarm Clock' Aktivität folgt eine 'Coffee Maker' Aktivität. 
+Die Komponenten der restlichen eingebetteten Regeln werden zwar erkannt, aber nicht in der korrekten Abfolge, sondern parallel, abgebildet. Diese Form der Abweichung hat sich als charakteristisch für den Inductive Miner herausgestellt. Auch die resultierenden Modelle des Inductive Miner der Reihen H,J,L,M enthielten zwar häufig  die korrekten Elemente, allerdings nicht in der gesuchten Reihenfolge. Es enstanden häufig sogenannte Blumenmodelle, wie sie Eingangs beschrieben wurden, siehe Abschnitt \ref{quality}. Die Modellierung fiel also zu allgemein aus, als dass sie gebraucht werden könnte, um in ein If This Then That Schema überführt zu werden.
+
+Auch der Heuristic Miner generierte nicht für jedes Eventlog das erwartete Modell, beispielsweise gelang es ihm in der Testreihe M nicht, alle Rauscheinträge herauszufiltern. Dennoch wurden alle erwarteten Regeln korrekt dargestellt, siehe Abbildung \ref{fig:M_heuristic}. 
+Hierbei ist anzumerken, dass die Testreihe M nur an jedem dritten Tag Einträge zum gesuchten Muster enthielt, das heißt das Verhältnis von Rauscheinträgen zu Regeleinträgen war hier besonders hoch, was höchstwahrscheinlich zu der fehlerhaften Modellierung beigetragen hat.
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.7\textwidth,]{figures/Appbildungen/M_Heuristic.PNG}
     \caption{Modellierung der Testreihe M aus dem Heuristic Miner Plugin}
     \label{fig:M_heuristic}
 \end{figure}
-Aus der Auswertung der gesammten Testreihen geht hervor, dass aus insg. 104 Regeln, die in den 48 Eventlogs eingebettet waren, der Heuristic Miner 96 korrekt identifiziert hat, der Inductive Miner hingegen nur in 48 Fällen die gesuchten Regeln korrekt abbilden konnte.
+
+Aus der Auswertung der Testreihe geht hervor, dass aus insgesamt 104 Regeln, die in den 48 Eventlogs eingebettet wurden, der Heuristic Miner 96 korrekt identifiziert hat, der Inductive Miner hingegen nur in 48 Fällen die gesuchten Regeln korrekt abbilden konnte.
 
 \begin{table}[!htbp]
 \centering
@@ -169,13 +192,25 @@ Auswertung                & \multicolumn{1}{l}{\textbf{Testreihen}} & \multicolu
 \textit{Heuristics M.} & 48                                      & 104                                 & 2                                                & 96                                                 & 8                                            
 \end{tabular}%
 }
-\caption{Zusammenfassung der Auswertung der Versuchreihe}
+\caption{Ergebnisse der Auswertung der Versuchsreihe}
 \label{tab:results_short}
 \end{table}
 
-Desweiteren deutet die Auswertung der Testreihe darauf hin, dass der Einsatz des Heuristic Miners gegenüber dem Inductive Miner zu bevorzugen ist, wenn nach einer Modellierung gesucht wird, welche parallel und unabhängig voneinander verlaufende Prozesse in Eventlogs aufdecken soll, die jeweils aus nur wenigen, aufeinanderfolgenden Elementen bestehen.
+Da ein Verfahren gesucht wurde, welches kurze Regeln, also Abläufe bestehend aus zwei bis vier Elementen, erkennt und außerdem in der Lage ist mehrere Regeln, die in einem Eventlog eingebettet sind klar voneinander zu trennen, ging das Heuristic Miner Plugin aus der hier vorgestellten Testreihe als zu bevorzugendes Verfahren hervor.
 
-Basierend auf den Erkenntnissen dieser Testreihe wird ein Heuristic Miner Plugin im praktischen Teil dieser Bachelorarbeit eingesetzt.
+Neben den Erkenntnissen über die wahrscheinliche Eignung der untersuchten Process Mining Verfahren für den den Einsatz zur automatisierten Regelerkennung, konnte außerdem beobachtet werden, welche Parameter, die den Process Mining Verfahren eigen sind, eine positive oder negative Auswirkung auf die Auswertung haben. 
+
+So gibt es beispielsweise die Möglichkeit, dem Heuristic Miner Plugin "all tasks connected", also "Verbinde alle Abläufe" auf \textit{wahr} zu setzen, was konsistent zu Modellen führt, die von Anwendern und Entwicklern des Process Mining gemeinhin als "Spaghettimodell" bezeichnet werden, wie es hier für einen Datensatz der Testreihe A in Abbildung \ref{fig:A_heuristic_spagh} zu sehen ist.
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.9\textwidth,]{figures/Appbildungen/A_underfitted.PNG}
+    \caption{Modellierung der Testreihe A aus dem Heuristic Miner Plugin}
+    \label{fig:A_heuristic_spagh}
+\end{figure}
+
+Basierend auf den Erkenntnissen dieser Testreihe wurde das Heuristic Miner Plugin gewählt, um ihn für die Konstruktion des Proof of Concept einzusetzen und desweiteren notiert, dass der Parameter "all tasks connected" auf \textit{false} zu setzen ist.
+%Desweiteren deutet die Auswertung der Testreihe darauf hin, dass der Einsatz des Heuristic Miners möglicherweise Prinzipiell gegenüber dem Inductive Miner zu bevorzugen ist, wenn nach einer Modellierung gesucht wird, die dem If This Then That Schema entspricht, also Muster enthält, die jeweils aus mehreren Ketten besttenur wenigen aufeinanderfolgenden Elementen bestehen.
+
 
 
 

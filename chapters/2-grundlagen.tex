@@ -1,23 +1,23 @@
 \chapter{Theoretische Grundlagen}\label{chap:relatedwork}
-\fontsize{11}{12}\selectfont\begin{quote}„Process Mining ist eine vergleichsweise junge Wissenschaftsdisziplin, angesiedelt zwischen Computational Intelligence und Data Mining auf der einen Seite und Prozessmodellierung und Analyse auf der anderen. Die Grundidee von Process Mining ist es, reale Prozesse (im Gegensatz zu vermuteten oder angenommenen Prozessen) durch Extrahieren von Wissen aus EreignisEventlogs heutiger (Informations-)systeme zu erkennen, zu überwachen und zu verbessern.(...) 
+\fontsize{11}{12}\selectfont\begin{quote}„Process Mining ist eine vergleichsweise junge Wissenschaftsdisziplin, angesiedelt zwischen Computational Intelligence und Data Mining auf der einen Seite und Prozessmodellierung und Analyse auf der anderen. Die Grundidee von Process Mining ist es, reale Prozesse (im Gegensatz zu vermuteten oder angenommenen Prozessen) durch Extrahieren von Wissen aus Ereignislogs heutiger (Informations-)systeme zu erkennen, zu überwachen und zu verbessern.(...) 
 
 Mit Hilfe von Methoden des Process Mining können Einsichten aus Ereignisdaten gewonnen werden, welche heutzutage in vielen Informationssystemen anfallen. Diese Methoden eröffnen neue Möglichkeiten, um Prozesse in einer Vielzahl von Anwendungsszenarien zu erkennen, zu überwachen und zu verbessern.“
 
 - Process Mining Manifest \cite{PMManifesto}\end{quote}
 \section{Prozessorientierte Datenanalyse}
-Process Mining ist als Antwort auf die wachsende Nachfrage der Industrie entstanden, mehr Informationen über Prozesse, die sich im Unternehmens- und Produktionsalltag abspielen, verarbeiten, analysieren und zur Optimierung nutzen zu können. Es kann als technoEventlogisches Forschungsgebiet verstanden werden, das an dem Schnittpunkt zwischen Process Modelling und der Process Analysis sitzt und gemeinsame Merkmale mit den Bereichen des Data Mining und Machine Learning teilt, Vgl.\cite{Ailenei}.
+Process Mining ist als Antwort auf die wachsende Nachfrage der Industrie entstanden, mehr Informationen über Prozesse, die sich im Unternehmens- und Produktionsalltag abspielen, verarbeiten, analysieren und zur Optimierung nutzen zu können. Es kann als technologisches Forschungsgebiet verstanden werden, das an dem Schnittpunkt zwischen Process Modelling und der Process Analysis sitzt und gemeinsame Merkmale mit den Bereichen des Data Mining und Machine Learning teilt, Vgl.\cite{Ailenei}.
 
-Im Zuge der Digitalisierung in der Wirtschaftswelt hat auch das Erfassen und Speichern von kleinteiligen Informationen in zahlreichen Geschäftszweigen Einzug erhalten. Während das Sammeln von Daten aufgrund des informationstechnoEventlogischen Fortschritts kostengünstig geworden ist und sich mit wenig Aufwand implementieren lässt, ist die Auswertung der gesammelten Datenmengen für Unternehmen weiterhin ein resourcen- und zeitintensives Unterfangen. 
-Eine rein statistische Analyse kann nur einen kleinen Teil der Informationen aufdecken, die sich hinter den erfassten Daten verbergen. Da diese Informationen von bedeutendem wirtschaftlichem Nutzen sein können, ist das Interesse an TechnoEventlogien, die das Problem der Auswertung lösen, groß.
+Im Zuge der Digitalisierung in der Wirtschaftswelt hat auch das Erfassen und Speichern von kleinteiligen Informationen in zahlreichen Geschäftszweigen Einzug erhalten. Während das Sammeln von Daten aufgrund des informationstechnologischen Fortschritts kostengünstig geworden ist und sich mit wenig Aufwand implementieren lässt, ist die Auswertung der gesammelten Datenmengen für Unternehmen weiterhin ein resourcen- und zeitintensives Unterfangen. 
+Eine rein statistische Analyse kann nur einen kleinen Teil der Informationen aufdecken, die sich hinter den erfassten Daten verbergen. Da diese Informationen von bedeutendem wirtschaftlichem Nutzen sein können, ist das Interesse an Technologien, die das Problem der Auswertung lösen, groß.
 
-Eine TechnoEventlogie die sich mit dieser Aufgabe befasst ist das Data Mining. Process Mining kann hierbei als Spezialgebiet des Data Minings aufgefasst werden, dessen Einsatz immer dann sinnvoll ist, wenn die gesammelten Rohdaten, über die man mehr erfahren möchte, in einem zeitlichen Kontext miteinander in Verbindung stehen und einen Prozess beschreiben.
+Eine Technologie die sich mit dieser Aufgabe befasst ist das Data Mining. Process Mining kann hierbei als Spezialgebiet des Data Minings aufgefasst werden, dessen Einsatz immer dann sinnvoll ist, wenn die gesammelten Rohdaten, über die man mehr erfahren möchte, in einem zeitlichen Kontext miteinander in Verbindung stehen und einen Prozess beschreiben.
 Process Mining Modelle unterscheiden sich von traditionelleren Sequenz Mining Methoden wie Hidden Markov Modellen\cite{hmm} und Recurrent Neural Networks\cite{rnn} dadurch, dass sie visuell dargestellt werden können und ihre visuelle Darstellung für eine einfache und direkte Kommunikation zwischen prozessbeteiligten Stakeholdern genutzt werden kann, Vgl.\cite{localMining}.
 
 Zusammenfassend betrachtet kann Process Mining als Werkzeug verstanden werden, welches eingesetzt wird, um Daten, die von den Informationssystemen in Form von Protokolldateien, im folgenden auch Eventlogs genannt, aufgenommen werden, auszuschöpfen. Es hat zum Ziel  Informationen über den den Daten innewohnenden Prozessablauf zu gewinnen, wie es auch im "Process Mining Manifest", das von der IEEE Task Force on Process Mining 2011 veröffentlicht wurde, beschrieben wird \cite{PMManifesto}. 
 
-Protokolldateien allein sind, insbesondere wenn sie unsystematisch in großen Mengen erfasst wurden, nur durch manuelle Nachverarbeitung in der Lage Antworten auf prozessrelevante Fragen zu liefern. Die Antwort auf Fragen danach, wie ein gewöhnlicher Arbeitsablauf aufgebaut ist, wann es an welchen Stellen zu Abweichungen kommt und wodurch diese provoziert werden, oder wie ein verbesserter Ablauf gestaltet werden könnte, liegt meist in diesen Informationen eingebettet. Die in der Protokolldatei verankerten Daten dienen dem Process Mining dazu die entsprechenden Antworten systematisch aufzudecken. 
+Protokolldateien allein sind, insbesondere wenn sie unsystematisch in großen Mengen erfasst wurden, nur durch manuelle Nachverarbeitung in der Lage Antworten auf prozessrelevante Fragen zu liefern. Die Antwort auf Fragen danach, wie ein gewöhnlicher Arbeitsablauf aufgebaut ist, wann es an welchen Stellen zu Abweichungen kommt und wodurch diese provoziert werden, oder wie ein verbesserter Ablauf gestaltet werden könnte, liegt meist in diesen Informationen eingebettet. Die in der Protokolldatei verankerten Daten ermöglichen es dem Process Mining die entsprechenden Antworten systematisch aufzudecken. 
 
-Beim Process Mining wird zwischen drei unterschiedlichen Funktionen unterschieden:  \textit{discovery, conformance} and \textit{enhancement}, also dem Entdecken, Einhalten und Optimieren von Prozessen, siehe Abbildung \ref{fig:pm_functions}, Vgl.\cite{PMManifesto}.
+Bei der Anwendung von Process Mining wird zwischen drei unterschiedlichen Funktionen unterschieden:  \textit{discovery, conformance} und \textit{enhancement}, also dem Entdecken, Einhalten und Optimieren von Prozessen, siehe Abbildung \ref{fig:pm_functions}, Vgl.\cite{PMManifesto}.
 \vspace{10mm}
 
 \begin{figure}[!ht]
@@ -41,7 +41,7 @@ Die drei unterschiedlichen Typen kennzeichenen folgende Eigenschaften und Abläu
 Ausgabe der Discovery Funktion und Grundlage für alle weiteren Schritte ist die Umwandlung des aufgenommenen Protokolls in ein graphisches Modell, in der Regel handelt es sich dabei um ein Petri Netz. Petri Netze sind eine methodische Darstellungsform, die dazu dient nebenläufige Prozesse zu beschreiben. Da Petri Netze auch im folgenden praktischen Teil der Arbeit eingesetzt werden, werden sie hier kurz erläutert. 
 
 \subsection{Petri Netze}
-Formell werden Petri Netze als gerichtete, bipartite Graphen definiert, die aus Stellen  und  Transitionen  bestehen und durch  gerichtete  Kanten  verbunden sind, wie sie in \textit{Software Engineering durch Modellierung wissensintensiver Entwicklungsprozesse} beschrieben sind \cite{freund2007software}. 
+Formal werden Petri Netze als gerichtete, bipartite Graphen definiert, die aus Stellen  und  Transitionen  bestehen und durch  gerichtete  Kanten  verbunden sind, wie sie in \textit{Software Engineering durch Modellierung wissensintensiver Entwicklungsprozesse} beschrieben sind \cite{freund2007software}. 
 
 \begin{figure}[!h]
     \centering
@@ -55,7 +55,7 @@ $T$ ist eine endliche Menge von Übergängen für die gilt: $S ∩ T =  ∅.$
 
 $F ⊆(S × T) ∪ (T × S)$ beschreibt eine zweistellige Relation.
 
-Eine  Stelle  $s∈S$  ist  Eingabestelle  einer  Transition  $t∈T$,  wenn  eine  gerichtete  Kante  von $s$ nach $t$ existiert. Eine Stelle $s$ ist Ausgabestelle einer Transition $ t$, wenn eine gerichtete Kante von $t$ nach $s$ existiert. Die Menge aller Eingabestellen einer Transition t wird mit $\cdot t$ bezeichnet und Vorbereich genannt. Die Menge aller Ausgabestellen einer Transition $t$ wird mit $t \cdot$ bezeichnet und Nachbereich genannt.
+Eine  Stelle  $s∈S$  ist  Eingabestelle  einer  Transition  $t∈T$,  wenn  eine  gerichtete  Kante  von $s$ nach $t$ existiert. Eine Stelle $s$ ist Ausgabestelle einer Transition $ t$, wenn eine gerichtete Kante von $t$ nach $s$ existiert. Die Menge aller Eingabestellen einer Transition t wird mit $\cdot t$ bezeichnet und Vorbereich genannt. Die Menge aller Ausgabestellen einer Transition $t$ wird mit $t \cdot$ bezeichnet und Nachbereich genannt. Ein Beispiel für ein Petri Netz bestehend aus drei Stellen und sechs Transition ist in Abbildung \ref{fig:exampleFlower} zu sehen.
 
 Markierungen definieren die Semantik der Netze. Jede Stelle kann eine oder mehr Markierungen beinhalten, die illustriert als Punkt auf der jeweiligen Stelle markiert werden. Eine Transition kann aktiv werden, wenn auf jeder Stelle, von der aus eine Kante zu dieser Transition führt, mindestens eine solche Markierung liegt. Eine aktive Transition kann schalten, indem sie von allen Eingangsstellen eine Markierung entfernt und zu jeder Ausgangsstelle eine Markierung hinzufügt. Damit sind Transitionen aktive Einheiten und ermöglichen so die Darstellung der legitimen Aktivitäten eines Prozesses, Vgl. \cite{Petrinetze}.
 \newpage
@@ -69,19 +69,19 @@ Für die Bewertung der Qualität eines Ausgabemodels  bedarf es fester Kriterien
 
 \item \textbf{Generalization}: Die Generalisierung gibt an, in wie weit das Verhalten aus dem Eventlog im Ausgabemodell verallgemeinert wurde. Ein Modell soll generalisieren, dabei aber nicht das Verhalten welches in dem Eventlog vorhanden ist einschränken. Man sagt ein "überformtes" Modell generalisiert nicht genug - Abläufe die Teil des Modells sein sollten, werden nicht repräsentiert.
 
-\item \textbf{Simplicity}: Die Komplexität des Ausgabemodells sollte auf das Nötigste reduziert werden. Dieses Attribut steht in einem engen Konflikt mit den anderen genannten Dimensionen. Ihr Maß sollte gemeinhin der Zielgruppe und dem Anwendungsfall angepasst werden. Ein Modell, das die Wirklichkeit akkurat wieder gibt, aber vom Anwender nicht interpretiert werden kann, erfüllt seinen Zweck nicht. Wird das Modell wiederum zu stark vereinfacht, können für den Anwender relevante Informationen ausgeblendet werden.
+\item \textbf{Simplicity}: Die Komplexität des Ausgabemodells sollte auf das Nötigste reduziert werden. Dieses Attribut steht in einem engen Konflikt mit den anderen zuvor genannten Dimensionen. Ihr Maß sollte gemeinhin der Zielgruppe und dem Anwendungsfall angepasst werden. Ein Modell, das die Wirklichkeit akkurat wieder gibt, aber vom Anwender nicht interpretiert werden kann, erfüllt seinen Zweck nicht. Wird das Modell wiederum zu stark vereinfacht, können für den Anwender relevante Informationen ausgeblendet werden.
 \end{itemize}
 
 Da diese Dimensionen in einer Wechselbeziehung zueinander stehen und sich gegenseitig beeinflussen, ist es je nach Kontext notwendig sie gegeneinander abzuwägen. In vielen Fällen soll das Ausgabemodell ein möglichst detailgetreues Abbild des Verhaltens aus dem Eventlog nachbilden, also auch die Mehrzahl der auftretenden Muster wiedergeben. 
-Es kann je nach Anwendungsfall auch wünschenswert sein, eine möglichst einfache und wenig komplexe Abstraktion aus dem Eventlog zu generieren, welches dann bewusst auf selten auftretende Muster  verzichtet und aus einer möglichst geringen Anzahl an Knoten und Kanten im Netz besteht. Diese Frage sollte vom Anwender des Process Mining beantwortet werden, bevor die Prozessanalyse beginnt.
+Es kann je nach Anwendungsfall aber wünschenswert sein, eine möglichst einfache und wenig komplexe Abstraktion aus dem Eventlog zu generieren, welches dann bewusst auf selten auftretende Muster verzichtet und aus einer möglichst geringen Anzahl an Elementen im Netz besteht. Diese Frage sollte vom Anwender des Process Mining beantwortet werden, bevor die Prozessanalyse beginnt.
 
 \subsection{Herausforderungen}\label{challanges}
 Process Mining kann nur dann aufschlussreiche Antworten auf Fragen nach Prozesstrukturen liefern, wenn die Daten, mit denen es arbeitet, vordefinierte Kriterien erfüllen. Wie in anderen Gebieten der Datenanalyse gilt auch hier das Prinzip \textit{Garbage in, Garbage out} \cite{GIGO}. 
 
 \subsubsection{Rauschen}
-Eine der größten Fehlerquellen des Process Mining ist Rauschen in den zur Verfügung stehenden Daten. Um ein Modell zu erzeugen, das möglichst wenig von dem reellen Prozess abweicht, muss angenommen werden, dass das Eventlog, welches als Input dient, alle reellen Vorgänge vollständig widerspiegelt. Wenn viele Einträge, relativ zur insgesamt erfassten Datenmenge gemessen, im Eventlog vorliegen, die irrelevant sind oder als Ausnahmesituation gewertet werden, wird der Process Mining Algorithmus nicht oder nur schlecht in der Lage sein, diese als Rauschen zu identifizieren. Es ist dann wahrscheinlich, dass fehlerbehaftete Muster erkannt werden, die dem realen Prozess nur teilweise entsprechen oder in gravierenden Fällen vollkommen widersprechen.
+Eine der größten Fehlerquellen des Process Mining ist Rauschen in den zur Verfügung stehenden Daten. Um ein Modell zu erzeugen, das möglichst wenig von dem reellen Prozess abweicht, muss angenommen werden, dass das Eventlog, welches als Input dient, alle tatsächlich auftretende Vorgänge vollständig widerspiegelt. Wenn viele Einträge, relativ zur insgesamt erfassten Datenmenge gemessen, im Eventlog vorliegen, die irrelevant sind oder als Ausnahmesituation gewertet werden, wird der Process Mining Algorithmus nicht oder nur schlecht in der Lage sein, diese als Rauschen zu identifizieren. Es ist dann wahrscheinlich, dass fehlerbehaftete Muster erkannt werden, die dem realen Prozess nur teilweise entsprechen oder in gravierenden Fällen vollkommen widersprechen.
 
-Ein Ansatz um Rauschdaten zu umgehen ist es systematisch Schwellwerte für ihre Auftrittshäufigkeit zu finden, so dass Rauschdatensätze herausgefiltert werden, bevor die eigentliche Analyse einsetzt. 
+Ein Ansatz um den Einfluss von Rauschdaten zu reduzieren ist es, systematisch Schwellwerte für ihre Auftrittshäufigkeit zu finden, so dass Rauschdatensätze herausgefiltert werden, bevor die eigentliche Analyse einsetzt. 
 
 \subsubsection{Unvollständigkeit}
 Sind zu wenige Daten vorhanden oder werden umfangreiche Prozesse nicht detailgetreu dokumentiert, kann Process Mining nicht garantieren, dass das resultierende Modell vollständig ist. 
@@ -91,13 +91,13 @@ Nicht nur Mangel an korrekt deklarierten Attributen, auch im Protokoll nicht dok
 
 Ein Prozesschritt kann auch unerkannt bleiben, obwohl er im Eventlog dokumentiert wird. Dies kann geschehen wenn die Dokumentation zu kleinschrittig bleibt, als dass erkannt werden kann, um welchen übergreifenden Prozesschritt es sich handelt. 
 
-Um das Problem der Unvollständigkeit zu vermeiden, muss vor der Analyse sichergestellt werden, dass jede für den Prozess relevante Instanz automatisch Einträge im Eventlog generiert, sobald neue Aktionen eintreten und verhindert werden dass Einträge entstehen, die nicht der Realität entsprechen.
+Um das Problem der Unvollständigkeit zu vermeiden, muss vor der Analyse sichergestellt werden, dass jede für den Prozess relevante Instanz automatisch Einträge im Eventlog generiert, sobald neue Aktionen eintreten. Außerdem muss  verhindert werden dass Einträge entstehen, die nicht der Realität entsprechen.
 
 \subsubsection{Parallele Abläufe}
 Die Einträge eines Eventlogs liegen stets in sequentieller Form vor, was das Aufdecken von parallel ablaufenden Vorgängen erschwert. Falls Anfang und Ende der Aktivitäten protokolliert werden, erleichtert dies die korrekte Modellierung. In den allermeisten Systemen werden Aktivitäten jedoch als atomare Vorkommnisse im Eventlog vermerkt. Dann muss in der Analyse, aus dem verschachtelten auftreten von Prozessen in einer Vielzahl von Einträgen, auf die Parallelität geschlossen werden. Liegen nur wenige Einträge vor, sinkt auch die Wahrscheinlichkeit, dass parallele Abläufe korrekt klassifiziert werden. Die Strategie mit der parallele Sequenzen von Process Mining Algorithmen erkannt werden, kann sich von Verfahren zu Verfahren stark unterscheiden und unterschiedlich zuverlässig ausfallen.
 
 \subsubsection{Schleifen}
-Ein weiteres Hindernis für Process Mining Algorithmen ist die korrekte Identifizierung von zyklischen Abläufen in einem Eventlog, besonders kurze Schleifen, bestehend aus nur einer oder zwei Aktivitäten, sind für einfache Process Mining Verfahren schwierig zu erkennen. 
+Ein weiteres Hindernis für Process Mining Algorithmen ist die korrekte Identifizierung von zyklischen Abläufen in einem Eventlog. Insbesonders kurze Schleifen, bestehend aus nur einer oder zwei Aktivitäten, sind für einfache Process Mining Verfahren schwierig zu erkennen. 
 Wenn der Protokollierungsmechanismus um die Funktion erweitert wird, zyklische Abläufe zu nummerieren, kann die korrekte Modellierung erleichtert werden. Diese Funktion kann aber nicht in jedem System als gegeben vorausgesetzt werden.
 
 %Im Gegensatz zu Rauschdaten, die durch einen Fehlerhaften  Protokollierungsvorgang hervorgerufen werden, können Ausnahmefälle und fehlerhafte Instanzen für eine Evaluation des Prozesses von größerem Interesse sein, wenn der Andwendungsfall vorsieht Abweichungen zu einem organisierten Prozess zu entdecken. 
@@ -107,7 +107,7 @@ Wenn der Protokollierungsmechanismus um die Funktion erweitert wird, zyklische A
 %Der erfolgreiche Einsatz von Process Mining Algorithmen setzt außerdem voraus, dass der Prozess vom EreignisEventlog bis hin zur Interpretation des Modells begleitet wird von Personen, die sowohl mit den Stärken und Schwächen der Process Mining Methode vertraut sind, als auch den Eigenschaften der untersuchten Umgebung sowie den Einsatzzweck des Process Mining kennen und darüber hinaus wissen, wie gegebene Parameter des eingesetzten Verfahrens anzupassen sind, wie die Eingangsdaten aufbereitet werden müssen und wie weit die Aussagekraft des Ergebnismodells reicht. (entfernen?)
 \section{Process Mining Algorithmen}
 Die Grundlage für die allermeisten algorithmischen Verfahren zur Konstruktion von Prozessmodellen sind Ordnungsrelationen. Im Process Mining beschreiben sie die Beziehung, oder das fehlen einer Beziehung, zwischen zwei Elementen eines Prozesses. 
-Als ein verbreitetes  Beispiel für ein rein algorithmisches Verfahren zur Prozessentdeckung, das auf Ordnungsrelationen basiert, kann der $\alpha$-Algorithmus genannt werden, dessen Ablauf unter Algorithmus \ref{alg:alphaminer} einzusehen ist.
+Als ein verbreitetes  Beispiel für ein rein algorithmisches Verfahren zur Prozessentdeckung, das auf Ordnungsrelationen basiert, kann der $\alpha$-Algorithmus genannt werden, dessen Ablauf unter \textbf{ Algorithmus }\ref{alg:alphaminer} einsehbar ist.
 Es handelt sich dabei um eine sehr einfache Variante eines Process Mining Algorithmus, der für wenig komplexe Eventlogs aber, nach den zuvor beschriebenen Qualitätskriterien, korrekte Modelle erstellen kann. Er soll hier als einleitendes Beispiel für Process Mining Discovery im Allgemeinen näher betrachtet werden. \newline
 
 \providecommand\algorithmname{alphaminer}
@@ -144,7 +144,7 @@ In Schritt 6 werden außerdem die Knoten $i_L$ und $o_L$ festgelegt, dabei hande
 \subsection{Beispiel einer Analyse einer Protokolldatei}
 Das Ausgabemodell einer Process Mining Discovery Analyse über der selben Protokolldatei kann, in Abhängigkeit von der Strategie des eingesetzten Process Mining Verfahrens, variieren. Process Mining Algorithmen ähneln sich jedoch größtenteils in ihrer grundlegenden Struktur. Um den im vorangegangen Abschnitt vorgestellten Algorithmus verständlich zu machen, soll hier exemplarisch eine Auswertung durch den $\alpha$-Miner Algorithmus schrittweise nachvollzogen werden.
 
-Da der Schwerpunkt dieser Arbeit auf dem Entdecken von Prozessen, also dem Process Mining Typ der \textit{ Discovery} liegt, werden im Rahmen dieser Arbeit Process Mining Verfahren betrachtet, die auf der Definition des 'General Process Discovery Problem' beruhen, zu Deutsch 'Problem der allgemeinen Prozessentdeckung', Vgl. Process Mining in Action, 2016, S.163 \cite{PMinAction}:
+Da der Schwerpunkt dieser Arbeit auf dem Entdecken von Prozessen, also dem Process Mining Typ \textit{ Discovery} liegt, werden im Rahmen dieser Arbeit Process Mining Verfahren betrachtet, die auf der Definition des 'General Process Discovery Problem' beruhen, zu Deutsch 'Problem der allgemeinen Prozessentdeckung', Vgl. Process Mining in Action, 2016, S.163 \cite{PMinAction}:
 \begin{addmargin}[20pt]{20pt} 
 Man betrachte ein Eventlog $L$ und eine Menge $A$ an Aktivitäten. Eine einfache Sequenz $\sigma$ sei eine Folge von Aktivitäten, sprich $\sigma ∈ A $. Ein Eventlog $L$ setzt sich zusammen aus mehreren Sequenzen über $A$, also ist $L ∈ B(A)$. Ein Process Discovery Algorithmus ist eine Funktion $\gamma$ die einen Input $L$ auf ein Prozess Modell derart abbildet, das es das aufgenommene Verhalten repräsentiert.
 \end{addmargin}
@@ -176,7 +176,7 @@ $ X_L={ [({a}, {b}), ({a}, {c}), ({a}, {e}), ({a}, {b, e}),
 ({a}, {c, e}), ({b}, {d}), ({c}, {d}), ({e}, {d}),
 ({b, e}, {d}), ({c, e}, {d}) ]}$
 
-Wenn ein Knoten für jedes Element der Menge entstünde, würde die Anforderung der Generalisierung verletzt werden. Aus diesem Grund wird eine Bedingung „Maximales Pair“ $(A,B)$ definiert und die Elementmenge gefiltert, konkret werden alle redundanten Elemente der Menge der Länge zwei entfernt. Es entsteht:
+Wenn ein Knoten für jedes Element der Menge entstünde, würde die Anforderung der Generalisierung verletzt werden. Aus diesem Grund wird eine Bedingung „Maximales Pair“ $(A,B)$ definiert und die Elementmenge gefiltert. Konkret werden alle redundanten Elemente der Menge der Länge zwei entfernt. Es entsteht:
 
 $ X_L={ [({a}, {b, e}), ({a}, {c, e}),
 ({b, e}, {d}), ({c, e}, {d}) ]}$
@@ -199,7 +199,7 @@ Ein Beispiel für einen Algorithmus der auf der Basis vom Alpha Miner entwickelt
 \subsection{Heuristic Process Miner}
 Der Heuristic Miner basiert auf den Grundlagen des $\alpha$-Miner, arbeitet aber mit zusätzliche Kriterien, die beim Erzeugen des Modells berücksichtigt werden. Wie der Name des Verfahrens vermuten lässt, nutzt der Miner eine Heuristik um zu bewerten, welche Abfolgen tatsächlich Teil des resultierenden Modells werden sollten, konkret wird hierfür die Häufigkeit von Nachfolgerelationen berücksichtigt, Vgl.\cite{heurMining}.
 
-Das Verfahren unterscheidet sich kaum von der Vorgehensweise des $\alpha$-Miners, allerdings wird statt allein zu unterscheiden, ob eine direkte Folge zwischen zwei Knoten besteht oder nicht, eine Beziehung zwischen zwei Elementen $a$ und $b$ über einen numerischen Wert gewichtet. Das Gewicht der Kante entspricht der Relevanz der Folgebeziehung im Modell. Das Gewicht der Kante wird berechnet über die Formel: 
+Das Verfahren unterscheidet sich kaum von der Vorgehensweise des $\alpha$-Miners, allerdings wird statt lediglich zu unterscheiden, ob eine direkte Folge zwischen zwei Knoten besteht oder nicht, eine Beziehung zwischen zwei Elementen $a$ und $b$ über einen numerischen Wert gewichtet. Das Gewicht der Kante entspricht der Relevanz der Folgebeziehung im Modell. Das Gewicht der Kante wird berechnet über die Formel: 
 \begin{equation}
  {a} \Rightarrow _L {b} = \left(\frac{ | {a} >_L {b} - {b} >_L {a} }{|{a} >_L {b}| + |{b} >_L {a}| + 1 }\right)
  \end{equation}
@@ -207,7 +207,7 @@ Das Verfahren unterscheidet sich kaum von der Vorgehensweise des $\alpha$-Miners
  \begin{equation}
  {a} \Rightarrow _L {b} =  -1 \cdot ( {b} \Rightarrow _L{a} )
  \end{equation}
-Schleifen der Länge eins stellen bis hier hin weiterhin ein Problem für das Verfahren dar, da die Kante von einem Knoten a zu sich selbst mit niedrigen Werten Gewichtet wird. Um dies zu umgehen wird eine Abwandlung der Formel (1) für kurze Schleifen eingeführt:
+Schleifen der Länge eins stellen bis hier hin weiterhin ein Problem für das Verfahren dar, da die Kante von einem Knoten a zu sich selbst mit niedrigen Werten gewichtet wird. Um dies zu umgehen wird eine Abwandlung der Formel (1) für kurze Schleifen eingeführt:
  \begin{equation}
  {a} \Rightarrow _L {a} = \left(\frac{ | {a} >_L {a}}{
 |{a} >_L {a}| + 1 }\right)
@@ -218,7 +218,7 @@ Als nächstes berechnet das Verfahren drei Schwellwerte, die jeweils dazu dienen
 
 Der Heuristics Miner kann im Gegensatz zum $\alpha$-Miner auch kurze und lange Schleifen korrekt wiedergeben, muss aber mit zusätzlichen Metriken arbeiten um sogenannte\textit{ long distance dependencies}, also Abhängigkeiten in großer zeitlicher Distanz, zu erkennen.
 
-\subsection{Inductive Process Miner}
+\subsection{Inductive Process Miner}\label{sec:inducMiner}
 Der Inductive Miner ist nach dem Heuristic Miner entwickelt worden und verfolgt die Strategie des 'divide and conquer', um ein Modell aus einem gegebenen Eventlog zu erzeugen \cite{inducMining}. 
 Die Strategie des Inductive Miners ist es, jedes Eventlog $L$ rekursiv in SubEventlogs $A_1 , ... , A_n$ zu unterteilen, diese Sub-Eventlogs isoliert zu betrachten und dann in weitere Sub-Eventlogs zu teilen. 
 Ziel der Betrachtung eines Sub-Eventlogs ist es zu erkennen, an welcher Stelle des Modells ein sogenannter \textit{Cut} notwendig ist, der definiert, an welcher Stelle das betrachtete Eventlog in Sub-Eventlogs unterteilt wird. An die Stelle des Cuts setzt der Algorithmus eine von mehreren Übergängen. Die Menge an Übergangsmöglichkeiten im Prozess zwischen einzelnen Knoten sind dabei konkret $Oder$, $exklusives  Oder$, $Und$ sowie $Sequenzen$ und $Schleifen$. 
@@ -228,7 +228,7 @@ Gibt es einen Pfad von $A_i$ nach $A_j$, so dass gilt $ i < j $, besteht eine Se
 Besteht beispielsweise keine Abhängigkeit zwischen betrachteten Sub-Eventlogs wird ein Exklusiv Oder als Cut zwischen den Teilelementen, also $ × (A_1 , ... , A_n)$ gesetzt. 
 Hat jedes betrachtete Sub-Eventlog einen erkennbaren Anfangs- und Endknoten und ihre Elemente sind einer eindeutigen Sequenz angeordnet, deutet dies auf einen parallelen Übergang $ ∧ (A_1 , ... , A_n)$ hin. 
 
-Dieser rekursive Vorgang wird fortgesetzt bis das betrachtete Sub-Eventlog atomar ist. Ein solcher Cut, bei dem eines der resultierenden Eventlogs atomar ist, ist in Abbildung \ref{imExample} zu sehen. Im letzten Schritt des Inductive Miner Verfahrens werden alle Elemente und ihre Übergänge zu einem einzigen kohärenten Modell zusammengesetzt, Vgl. \cite{inducMining}. Das Inductive Mining Verfahren zeichnet sich dadurch aus, dass es sich besonders für den Umgang mit großen Datensätzen und selten auftretenden Ereignissen eignet, Vgl.\cite{minerEval}.
+Dieser rekursive Vorgang wird fortgesetzt bis das betrachtete Sub-Eventlog atomar ist. Ein solcher Cut, bei dem eines der resultierenden Eventlogs atomar ist, ist in Abbildung \ref{fig:imExample} zu sehen. Im letzten Schritt des Inductive Miner Verfahrens werden alle Elemente und ihre Übergänge zu einem einzigen kohärenten Modell zusammengesetzt, Vgl. \cite{inducMining}. Das Inductive Mining Verfahren zeichnet sich dadurch aus, dass es sich besonders für den Umgang mit großen Datensätzen und selten auftretenden Ereignissen eignet, Vgl.\cite{minerEval}.
 
 \begin{figure}[!h]
     \centering
@@ -238,7 +238,7 @@ Dieser rekursive Vorgang wird fortgesetzt bis das betrachtete Sub-Eventlog atoma
 \end{figure}
 
 Mehrere Varianten des Inductive Miners sind entwickelt worden, die das hier vorgestellte Verfahren erweitern. Sie werden entwickelt, um bestimmte Schwächen des Verfahrens zu umgehen oder den Algorithmus für spezifische Anwendungsfälle anzupassen. 
-Beispielsweise kann das Protokoll selten auftretendes, aber für den Kontext wichtiges Verhalten enthalten, was Algorithmen zwingt, diese Einträge entweder auszuschließen oder komplizierte, unlesbare Modelle auszugeben, die jeden beliebigen Prozess beschreiben, also in einem  Blumenmodell wie in Appbildung \ref{fig:exampleFlower} entsprechen. Um dieses Problem schnell und effektiv zu lösen ist der Inductive Miner infrequent, kurz IMf\cite{inducFMining} entwickelt worden.
+Beispielsweise kann das Protokoll selten auftretendes, aber für den Kontext wichtiges Verhalten enthalten, was Algorithmen zwingt, diese Einträge entweder auszuschließen oder komplizierte, unlesbare Modelle auszugeben, die jeden beliebigen Prozess beschreiben, also in einem  Blumenmodell wie in Abbildung \ref{fig:exampleFlower} entsprechen. Um dieses Problem schnell und effektiv zu lösen ist der Inductive Miner infrequent, kurz IMf\cite{inducFMining} entwickelt worden.
 
 Eine anderes Problem, welches häufig auftritt, ist ein Protokoll das unzureichende Informationen enthält, um ein Prozessmodell zu finden, das das System gut repräsentiert. Unvollständigkeit zwingt Algorithmen, entweder das fehlende Verhalten auszuschließen und damit das noch unsichtbare Verhalten zu reduzieren, das das Modell erzeugen kann, oder das fehlende, unbekannte Verhalten dort einzubeziehen, indem sie das Risiko eingehen, falsch zu raten. Im Hinblick auf diese Problematik ist der Inductive Miner incomplete, kurz IMc \cite{inducIMining} entstanden.
 
