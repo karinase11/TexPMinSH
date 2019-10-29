@@ -26,6 +26,7 @@ Einsatzhäufigkeit & \textbf{Disco }& \textbf{ProM} & \textbf{Celonis} \\
 \label{comparison}
 \end{table}
 
+\normalsize
 Jedoch ist ProM, aufgrund der Tatsache, dass es sich um ein Open Source Projekt handelt, das mit Abstand am umfangreichsten ausgestattete Werkzeug,  hinsichtlich seiner Konfigurationmöglichkeiten und zahlreichen Erweiterungen. 
 Im Laufe seiner Entwicklung wurden zahlreiche Plugins, die verschiedenene Process Mining Algorithmen implementieren, an das Projekt angebunden und die Auswahl an Ausgabeformaten stetig erweitert, so dass das Funktionsspektrum von ProM dem von Disco oder Celonis deutlich überlegen ist, so die Autoren. 
 
@@ -74,27 +75,28 @@ Mining Verfahren, deren Modelle zwar korrekt, aber zu komplex sind um eine für 
 
 Ein weiterer Faktor, der die Auswahl an Minern einschränkt, ist die praktische Umsetzbarkeit in einer realen Anwendung. Es werden nur solche Miner berücksichtigt, für die zum Zeitpunkt dieser Arbeit ein Plugin in der ProM 6.9 Version angeboten werden und die in der Lage sind, über Kommandozeilenbefehle so aufgerufen zu werden, dass sie ein Ausgabemodell erzeugen. Da das Ziel ist, einen automatisiert ablaufenden Dienst einzurichten, so dass Process Mining ohne zusätzlichen Intervention seitens des Anwenders durchgeführt werden kann.
 
+
 Es stehen Implementationen des Heuristic, Local, Inductive und des Transitions System Miner zur Verfügung. Um beurteilen zu können, welche der Verfahren sich besonders für die Analyse von Eventlogs eignen, die menschliches Verhalten protokollieren, werden Veröffentlichungen herangezogen, die Process Mining im ADL Kontext eingesetzt haben, insbesondere wenn es sich dabei direkt um den Smart Home Bereich handelt. Die Ergebnisse sind in Tabelle \ref{tab:miningPaper} gelistet. 
 
 Der Local Process Miner ist in der Übersicht nicht aufgeführt, da es bisher keine Veröffentlichungen gibt, die dieses noch junge Verfahren in einem vergleichbaren Kontext untersucht haben. 
 
 \newcolumntype{b}{X}
 \newcolumntype{s}{>{\hsize=.7\hsize}c}
-\begin{table}[ht]\small
+\begin{table}[!ht]\small
 \centering
 \begin{tabularx}{\textwidth}{b ccc}
 Titel                                                                                                               & \multicolumn{1}{l}{\textbf{Heuristic}} & \multicolumn{1}{l}{\textbf{Inductive}} & \multicolumn{1}{l}{\textbf{Transition}} \\ \hline\hline
-\textit{Discovering process models of activities of daily living from sensors}                                      & x                                      &                                        &                                         \\
-\textit{Context-based similarity measure on human behavior pattern analysis}                                        & x                                      &                                        &                                         \\
-\textit{Mining insights from weakly-structured event data}                                                          & x                                      & x                                      &                                         \\
-\textit{A novel human autonomy assessment system}                                                                   &                                        &                                        & x                                       \\
-\textit{SAMDY–Technologies to support“Care On Demand”}                                                              &                                        &                                        & x                                       \\
-\textit{Mining process model descriptions of daily life through event abstraction}                                  &                                        & x                                      &                                         \\
-\textit{Recompiling learning processes from event logs}                                                             &                                        & x                                      &                                         \\
-\textit{Event Abstraction for Process Mining Using Supervised Learning Techniques}                                  &                                        & x                                      &                                         \\
-\textit{Visual process maps: a visualization tool for discovering habits in smart homes}                            &                                        & x                                      &                                         \\
-\textit{Data Mining for Behavioural Changes and Monitoring Requirements in Residential Healthcare}                  & x                                      &                                        &                                         \\
-\textit{Prozess-Mining und Prozessbewertung zur Verbesserung klinischer Workflows im Umfeld bilderzeugender Fächer} & x                                      &                                        &                                         \\ \hline
+\textit{Discovering process models of activities of daily living from sensors} \cite{adl1}                                      & x                                      &                                        &                                         \\
+\textit{Context-based similarity measure on human behavior pattern analysis} \cite{adl2}                                        & x                                      &                                        &                                         \\
+\textit{Mining insights from weakly-structured event data} \cite{adl3}                                                          & x                                      & x                                      &                                         \\
+\textit{A novel human autonomy assessment system} \cite{adl4}                                                                   &                                        &                                        & x                                       \\
+\textit{SAMDY–Technologies to support “Care On Demand”} \cite{adl5}                                                              &                                        &                                        & x                                       \\
+\textit{Mining process model descriptions of daily life through event abstraction} \cite{adl6}                                  &                                        & x                                      &                                         \\
+\textit{Recompiling learning processes from event logs} \cite{adl7}                                                             &                                        & x                                      &                                         \\
+\textit{Event Abstraction for Process Mining Using Supervised Learning Techniques} \cite{adl8}                                  &                                        & x                                      &                                         \\
+\textit{Visual process maps: a visualization tool for discovering habits in smart homes} \cite{adl9}                            &                                        & x                                      &                                         \\
+\textit{Data Mining for Behavioural Changes and Monitoring Requirements in Residential} Healthcare \cite{adl10}                  & x                                      &                                        &                                         \\
+\textit{Prozess-Mining und Prozessbewertung zur Verbesserung klinischer Workflows im Umfeld bilderzeugender Fächer} \cite{adl11} & x                                      &                                        &                                         \\ \hline
 
 \end{tabularx}
 
@@ -102,37 +104,41 @@ Titel                                                                           
  \label{tab:miningPaper}
 \end{table}
 \normalsize
-Betrachtet wurden Studien, die einen der ein Process Mining Algorithmen eingesetzt haben, für das ein Plugin in ProM 6.9 existieren, welches sich über eine Kommandozeilenanbindung ansprechen lässt, und deren Absicht es war Daten, die menschliches Verhalten widerspiegeln, über Process Mining zu analysieren. Die Suche erfolgte über Google Scholar, die gesuchten Begriffe waren eine Kombination des Verfahrens und den Begriffen "ADL", "Smart Home", "Smart Living" und "Human Activities". 
+Betrachtet werden hier diejenigen Studien, die eines der Process Mining Algorithmen eingesetzt haben, für das ein Plugin in ProM 6.9 existiert, welches sich über eine Kommandozeilenanbindung ansprechen lässt. Ein weiteres Kriterium war, dass in der Kurzfassung der Veröffentlichung die Absicht beschrieben wurde Daten, die menschliches Verhalten widerspiegeln, über einen Process Mining zu analysieren. Die Suche erfolgte über die Suchmaschine Google Scholar, die gesuchten Begriffe waren eine Kombination des jeweiligen Verfahrens und den Begriffen "ADL", "Smart Home", "Smart Living", "Human Activities" und "Human Behaviour". 
+
+Es lässt sich ein eindeutiger Trend beobachten, der zeigt, dass sowohl der Heuristics als auch der Inductive Miner ein vergleichsweise populäres Mittel sind, um Protokolldateien, die menschliches Verhalten enthalten, auszuwerten, während der Transitions Miner weniger Beachtung findet. Zusätzlich sollen einige Eckdaten zu den Stärken und Schwächen der Verfahren betrachtet werden, wie sie in Tabelle \ref{tab:my-table} aufgeführt sind. Die Informationen wurden den Veröffentlichungen entnommen, die das jeweilige Verfahren vorstellen (Heuristics \cite{heurMining}, Transitions\cite{transMiner}, Inductive \cite{inducIMining}, Local \cite{localMining}). 
+
 \begin{table}[!h]
 \centering
-\resizebox{0.9\textwidth}{!}{%
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccc}
- Kategorie & \textbf{Heuristic} & \textbf{Transition} & \textbf{Inductive} & \textbf{Local}   \\
+ Kategorie & \textbf{Heuristic} & \textbf{Transitions} & \textbf{Inductive} & \textbf{Local}   \\
 %Betrachtete Plugin Version & F. Mannhardt, Interactive Data Aware Heur. M. & H.M.W. Verbeek, Mine for a fuzzy Model & S.J.Leemans, Mine with Inductive Visual Miner & N.Tax, Search for Local Process Models \\
 \hline\hline
 Nebenläufigkeit & + & - & + & + \\
 kurze Iterationen (Schleifenlänge ≤ 2) & + & + & - & + \\
 Eignung für unvollständige &  &  &  &  \\
-Event-Logs & + & + & + & + \\
+Eventlogs & + & + & + & + \\
 Eignung für fehlerbehaftete &  &  &  &  \\
-Event-Logs & + & + & ? & ? \\
-automatisierbar & + & + &  + & +\\
+Eventlogs & + & + & ? & ? \\
+automatisierbar & + & + & + & +\\
 \hline
 \end{tabular}%
 }
-\caption{Vergleich von Process Mining Verfahren hinsichtlich ihrer Eignung für den Einsatz im Smart Home}
+\caption{Eigenschaften von Process Mining Verfahren zur Beurteilung ihrer Eignung für den Einsatz im Smart Home}
 \label{tab:my-table}
 \end{table}
 
-Um zu untersuchen, inwieweit die Modelle der gewählten Miner sich für den im Rahmen dieser Arbeit geplanten Anwendungsfall eignen, werden sie zunächst mit künstlich erzeugten Ereignisprotokollen evaluiert. Die Testreihe setzt sich zusammen aus systematisch generierten XES Dateien, die an Ereignislogs angelehnt sind, die im Smart Home Model des ITOM Instituts entstanden sind. Die Erge
+Die Beschaffenheit der Miner und vorrangig der Trend, der in Tabelle \ref{tab:miningPaper} zu erkennen ist, wurde als hinreichende Bewertungsgrundlage angenommen, um den Heuristic Miner und den Inductive Miner zu wählen und sie in einer Testreihe einem Vergleich zu unterziehen. Ziel des Vergleichs ist es zu überprüfen, ob sich eines dieser Mittel eignet, repetitive menschliche Verhaltensmuster bestehend aus nur wenigen Aktionen mit Process Mining zu erkennen.
 
-
-\clearpage
+\newpage
 \section{Testreihe}
-\subsection{Aufbau und Durchführung}
-Aufgrund der nahezu unbegrenzten Anzahl möglicher Szenarien in einem Smart Home kann nur an einem Ausschnitt an potentiell möglichen zusammengesetzten Ereignisprotokollen getestet werden. Um dennoch eine hohe Aussagekraft der Testreihe zu erhalten, sind die Ereignislogs deart gestaltet, dass sie gegenüber dem Miner inkrementell komplexer werden und so Performanzunterschiede zwischen den Algorithmen deutlich werden können. Die Abweichung zwischen gewünschtem Modell und der Ausgabe des jeweiligen Miners soll hier als Grundlage für die Bewertung dienen, um festzustellen inwieweit die untersuchten Miner geeignet sind im Smart Home Kontext zur Erzeugung von Wenn-Dann Regeln eingesetzt zu werden. 
+Um zu untersuchen, inwieweit die Modelle der gewählten Miner sich für den im Rahmen dieser Arbeit geplanten Anwendungsfall eignen, werden sie zunächst mit künstlich erzeugten Ereignisprotokollen evaluiert. Die Testreihe basiert systematisch generierten XES Dateien, die an Eventlogs angelehnt sind, die in einem Smart Home Model des ITOM Instituts entstanden sind. 
 
-Um eine Vergleichbarkeit mit realen Eventlos zu ermöglichen, wurden die Logs um Rauscheinträge ergänzt, welche jeweils in ihrem relativen Anteil varrieren. Zusätzlich wurde auch die Zeitspanne der Logs in Kalendertagen varriiert. Eine erfolgreiche Auswertung durch einen Miner hat stattgefunden, wenn das im Ereignisprotokoll eingebettete Muster vollständig im Modell wiedergegeben wird, parallele Abläufe korrekt dargestellt werden und keine überschüssigen (Rausch-) Einträge als Knoten im entstandenen Netz enthalten sind.
+\subsection{Aufbau und Durchführung}
+Aufgrund der nahezu unbegrenzten Anzahl möglicher Szenarien in einem Smart Home kann nur an einem Ausschnitt an potentiell möglichen zusammengesetzten Ereignisprotokollen getestet werden. Um dennoch eine hohe Aussagekraft der Testreihe zu erhalten, sind die Eventlogs derart gestaltet, dass sie gegenüber dem Miner inkrementell komplexer werden und so Performanzunterschiede zwischen den Algorithmen deutlich werden können. Die Abweichung zwischen gewünschtem Modell und der Ausgabe des jeweiligen Miners soll hier als Grundlage für die Bewertung dienen, um festzustellen inwieweit die untersuchten Miner geeignet sind im Smart Home Kontext zur Erzeugung von Wenn-Dann Regeln eingesetzt zu werden. 
+
+Um eine Vergleichbarkeit mit realen Eventlogs zu ermöglichen, wurden die Logs um Rauscheinträge ergänzt, welche jeweils in ihrem relativen Anteil varrieren. Zusätzlich wurde auch die Zeitspanne der Logs in Kalendertagen varriiert. Eine erfolgreiche Auswertung durch einen Miner hat stattgefunden, wenn das im Ereignisprotokoll eingebettete Muster vollständig im Modell wiedergegeben wird, parallele Abläufe korrekt dargestellt werden und keine überschüssigen (Rausch-) Einträge als Knoten im entstandenen Netz enthalten sind.
 
 Hervorzuheben ist an dieser Stelle, dass die Miner den Inhalt einzelner Einträge nicht deuten, sie unterscheiden die Ressourcen, die den Eintrag erstellen und die zugehörigen Eigenschaften nur Anhand der Zeichenkette im Protokoll. Dementsprechend werden die Namen der IoT Ressourcen und ihrer Aktivitäten hier beispielhaft für gängige vernetzte Geräte gewählt, sie haben keine direkte Auswirkung auf das Ergebnis des Mining Verfahrens und sind beliebig austauschbar. Signifikant für die Auswertung ist zunächst nur die Häufigkeit, mit der eine Ressource einen Eintrag erstellt, und der Zeitpunkt des Eintrags im Protokoll, der zu dieser Ressource gehört.
 

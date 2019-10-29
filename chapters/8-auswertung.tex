@@ -44,29 +44,6 @@ Die im Rahmen dieser Arbeit eingesetzte Process Mining Analyse ist, wie die alle
 
 Technologien, die es hingegen ermöglichen, semantische Informationen aus Rohdaten zu extrahieren werden für viele Datenanalyseverfahren gebraucht und entwickelt, entsprechende Lösungen sind jedoch meist auf das jeweilige Verfahren und die gegebene Fragestellung zugeschnitten und sind selten auf andere Anwendungsfälle übertragbar. 
 
-Hieraus ergibt sich der Bedarf an verbesserten Verfahren, die es ermöglichen semantisches Process Mining zu betreiben, welches nicht auf eine einzige Domäne allein zugeschnitten, sondern universell einsetzbar wäre. Die Suche nach kontextuellen Informationen ist aktueller Forschungsgegenstand, dabei werden bereits Ansätze verfolgt, die beispielsweise auf die Berechnung der Levenshtein-Distanz oder dem \textit{  Context Aware Trace Clustering} fußen.
+Hieraus ergibt sich der Bedarf an verbesserten Verfahren, die es ermöglichen semantisches Process Mining zu betreiben, die nicht auf eine einzige Domäne zugeschnitten werden, sondern in der Lage sind kontextuelle Zusammenhänge domänenübergreifend zu erkennen.
 
-\todo{The Heuristics Miner (Weijters and Ribeiro 2011) and the Fodina algorithm (Vanden
-Broucke and De Weerdt 2017), in addition to the directly-follows relation, defines an
-eventually-follows relation between activities and allows the process analyst to filter out
-infrequent directly-follows and eventually follows relations. Two activities A and B are in
-an eventually-follows relation when A is eventually followed by B, before the next appearance
-of A or B. The eventually-follows relation, unlike the directly-follows relation, is not
-impacted by the presence of chaotic activities. The Heuristic Miner (Weijters and Ribeiro
-2011) and Fodina (Vanden Broucke and De Weerdt 2017) both include filtering methods
-for the directly-follows and eventually-follows relations that are similar in nature to the filtering
-mechanism that is used in the Inductive Miner infrequent (Leemans et al. 2013b).
-However, the use of sequential orderings and parallel constructs in the mining approaches
-of the Heuristic Miner (DeWeerdt et al. 2011) and Fodina (Vanden Broucke and DeWeerdt
-2017) is based on the directly-follows relations only, with the eventually follows relations
-being used for the mining of long-term dependencies. Furthermore, in contrast to the Inductive
-Miner, the process models discovered with the Heuristic Miner (Weijters and Ribeiro
-2011) or Fodina (Vanden Broucke and DeWeerdt 2017) can be unsound, i.e., the can contain
-deadlocks}
-
-
-% https://hal.archives-ouvertes.fr/hal-01298125/
-% https://iris.unito.it/handle/2318/1668973
-
-
-% Existing analysis techniques are purely syntax oriented, i.e., much time is spent on filtering, translating, interpreting, and modifying event logs given a particular question.
+Die Umsetzung der praktischen Anwendung hat außerdem zum Vorschein gebracht, dass das Filtern von ungeordneten Daten, wie denen eines Smart Homes, ein schwieriges Problem darstellen. Nur den Häufigkeitswert zu berücksichtigen führt zu teils unzureichenden Ausgabemodellen, wie es auch die Autoren der Studie "Discovering more precise process models from event logs by filtering out chaotic activities", die in Abschnitt \ref{har} bereits erwähnt wurde, anmerken \cite{Tax2019}. Es ist eine verbesserte Analyse menschlicher Verhaltensmuster durch Process Mining zu erwarten, wenn zunächst die Filterverfahren für die Vorverarbeitung der Daten verbessert werden.

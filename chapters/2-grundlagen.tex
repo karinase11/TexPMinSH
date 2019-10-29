@@ -322,7 +322,7 @@ Ein XES Dokument enthält jeweils eine Protokolldatei mit einer beliebigen Anzah
 Der Anwender kann Attribute als erforderlich deklarieren, eigene Attribute definieren oder auf die vom XES Modell definierten Typen zugreifen. XES  wird von einer weiten Bandbreite an Process Mining Software unterstützt und zählt gemeinhin als favorisiertes Datenformat für die Verarbeitung durch Process Mining Algorithmen hin zu Process Modellen.
 
 Konvertiert man das Ereignisprotokoll aus Tabelle \ref{tab:example-Eventlog} in ein XES Dokument erhält man eine Datei mit einer Struktur wie in Auszug 2.1:
-
+\small
 \lstset{language=XML}
 \begin{lstlisting}[label=lst:xes,caption=Auszug aus XES Datei zu Eventlog in Tabelle 2,captionpos=b]
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -343,11 +343,6 @@ Konvertiert man das Ereignisprotokoll aus Tabelle \ref{tab:example-Eventlog} in 
 			<date key="time:timestamp" value="2019-01-01T07:32:24.000+02:00"/>
 			<int key="Event ID" value="100"/>
 		</event>
-		<event>
-			<string key="resource" value="Appliance c"/>
-			<string key="lifecycle:transition" value="start"/>
-			<string key="concept:name" value="Appliance r read 44"/>
-			<date key="time:timestamp" value="2019-01-01T07:32:48.000+02:00"/>
-			<int key="Event ID" value="101"/>
-		</event>
+	
 \end{lstlisting}
+\normalsize

@@ -21,30 +21,29 @@ Diese Konvertierung ist ein simpler Vorgang, bei dem jeder Eintrag, der in der c
 
 %Bei der Untersuchung von unverarbeiteten Eventlogs, die im Smart Living Modellhaus des ITOM Institus entstanden sind, ist erkennbar, dass es bei einigen der im Haus integrierten Geräte dazu kommt, dass sie ein Zeitstempelformat nutzen, welches die Sekunden nicht angibt. Hier ist also vor der Konvertierung ein Vorverarbeitungssschritt notwendig, der über jede Zeile iteriert und die Stempel einander angleicht. Da kein universeller Standard für IoT Logs Branchenweit akzeptiert wird und die Hersteller diese beliebig formatieren können, sind mit jedem weiteren angeschlossenen Gerät auch weitere Abweichungen von der erwarteten Form nicht auszuschließen. Um diesem Problem entgegenzuwirken können Tools wie ‚syslog-ng‘ eingesetzt werden, die in der Lage sind die meisten Formen von Eventlogs auf ein einheitliches Format zu bringen.
 
-Im nächsten Schritt ruft das Script ein in der Programmiersprache Java geschriebenes Programm auf, welches Process Mining auf dem neu entstandenen XES Dokument durchführt. Konkret wird dafür ProM auf dem Server gestartet und das Inductive Visual Miner Plugin ausgewählt.
-Das Inductive Visual Miner Plugin erlaubt es Prozessmodelle in Eventlogs mithilfe des Inductive Miners zu entdecken. Über die GUI des Plugins können auch Vorverarbeitungsschritte vorgenommen werden, um Rauschdaten zu unterdrücken oder weitere Attribute zur Berücksichtigung bei der Datenanalyse auszuwählen, falls diese im Log gegeben sind. Der Vorverarbeitungsschritt der Rauschreduzierung ist unerlässlich für die Regelfindung. Es sollten keine Knoten als Teil des Regelvorschlags an den Nutzer gelangen, die nicht definitiv auch Teil seines regulären Ablaufs sind. 
+Im nächsten Schritt ruft das Script ein in der Programmiersprache Java geschriebenes Programm auf, welches Process Mining auf dem neu entstandenen XES Dokument durchführt. Konkret wird dafür ProM auf dem Server gestartet und das Heuristics Miner Plugin ausgewählt.
+Über die Parameter kann die Analyse durch das Heuristic Miner Plugin angepasst werden, eta um Rauschdaten zu unterdrücken oder weitere Attribute zur Berücksichtigung bei der Datenanalyse auszuwählen, falls diese im Eventlog gegeben sind. Der Vorverarbeitungsschritt der Rauschreduzierung ist unerlässlich für die Regelfindung. Es sollten keine Knoten als Teil des Regelvorschlags an den Nutzer gelangen, die nicht definitiv auch Teil seines regulären Ablaufs sind. 
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=\textwidth,origin=c]{figures/Appbildungen/ServerSchritte.PNG}
     \caption{Verarbeitungsschritte zur Auswertung der Smart Home Daten auf dem Server}
-    \label{fig:4}
+    \label{fig:server}
 \end{figure}
 
 In dieser Arbeit wird der Schwellwert für Rauschdaten über einen iterativen Prozess gesucht. Da es im Vorfeld keine Information über die Menge der Rauschdaten im zu untersuchenden Eventlog geben kann, wird wie folgt verfahren. 
 
-Ziel ist es ein Modell der häufigsten und kurzen Routinen zu finden. Genauer soll eine Regel mindestens eine Vorbedingung und eine Aktion enthalten, maximal drei Vorbedingungen werden akzeptiert. Nachdem ein Modell aus zwei Knoten gefunden wurde wird nur dann um einen weiteren Knoten erweitert, wenn dieser genauso häufig Teil des Ablaufs ist wie die bisherigen Elemente. Der Regler für den Häufigkeitsschwellwert (im Plugin 'frequency' genannt) wird mit einem Startwert von 0.9 belegt, ein Petri Netz erzeugt und dessen Knoten gezählt. Der um 0.1 addiert, bis zwei Knoten ein Modell binden und ihre Häufigkeit im Gesamtlog in einer Variable gespeichert. Der Schwellwert wird weiter um 0.001 addiert, bis ein weiteres Element in das Modell aufgenommen wird. Hat sich die Häufigkeit dieses Modells im Vergleich zum Vorangegangen reduziert, wird das Modell aus zwei Knoten als korrekte Regel akzeptiert, wenn nicht wird weiter Verfahren bis ein weiterer Knoten erscheint und die Häufigkeiten und wie im vorangegangen Schritt verfahren.
-Ist dieser Schritt abgeschlossen, ist eine Regel gefunden worden.
-Das Modell des Miners wird in ein PNML Format übertragen, welches Petri Netze nach dem XML Schema beschreibt.
+Ziel ist es ein Modell der häufigsten und kurzen Routinen zu finden. Genauer soll eine Regel mindestens eine Vorbedingung und eine Aktion enthalten, maximal drei Vorbedingungen werden akzeptiert. Nachdem ein Modell aus zwei Knoten gefunden wurde wird nur dann um einen weiteren Knoten erweitert, wenn dieser genauso häufig Teil des Ablaufs ist wie die bisherigen Elemente. Der Regler für den Häufigkeitsschwellwert (im Plugin 'frequency' genannt) wird mit einem Startwert von 0.9 belegt, ein Petri Netz erzeugt und dessen Knoten gezählt. Der Wert wird inkrementell (Schritte von 0.1) iteriert, bis zwei Knoten ein Modell binlden. Ihre Häufigkeit im Eventlog wird in einer Variable gespeichert. Der Schwellwert iteriert, bis ein weiteres Element in das Modell aufgenommen wird. Hat sich die Häufigkeit dieses Modells im Vergleich zum Vorangegangen reduziert, wird das Modell aus zwei Knoten als korrekte Regel akzeptiert, wenn nicht wird weiter Verfahren bis ein neuer Knoten im Modell erscheint.
 
-Abschließend enthält das Script einen Aufruf eines kurzen in Python geschriebenen Programms, welches den Firebase Dienst dazu auffordert eine Benachrichtigung an das Mobile Gerät des Anwenders zu senden, welche den Inhalt des PNML Dokuments enthält.
+Ist dieser Prozess abgeschlossen, ist eine Regel gefunden worden.
+Das Modell des Miners wird in das PNML Format übertragen, welches Petri Netze nach dem XML Schema beschreibt.
+
+Abschließend enthält das Script einen Aufruf eines kurzen in Python geschriebenen Programms, welches den Firebase Dienst dazu auffordert eine Benachrichtigung an das Mobile Gerät des Anwenders zu senden, welche den Inhalt des PNML Dokuments enthält. Der Prozess, der auf dem Server stattfindet, ist in wenigen Schritten auf Abbildung  \ref{fig:server} dargestellt.
 
 \section{Mobile Anwendung als Steuerungs- und Kommunikationsschnittstelle}
 
-Um die Regeleditor Anwendung um die Kommunikation mit einem dedizierten Firebase Dienst zu erweitern, wird eine Klasse PMFireBaseMessagingService angelegt, welche im Anhang hinterlegt ist. \todo{ Ref und Die Authentifizierung erfolgt über ein token system ...}
-
-Gleichzeitig ist diese Klasse verantwortlich dafür die Regel entgegenzunehmen und übergibt Sie in die an die im Rahmen dieser Arbeit erzeugte PMRule Klasse, welche verantwortlich für das Parsen des empfangenen Textes in eine Regelform ist. Konkret wird dies von der Funktion parseReceivedRule() übernommen.
-
+Um die Regeleditor Anwendung um die Kommunikation mit einem dedizierten Firebase Dienst zu erweitern, wird eine Klasse PMFireBaseMessagingService angelegt. Diese Klasse ist neben der dafür verantwortlich dafür die Regel entgegenzunehmen und übergibt Sie an die an die, im Rahmen dieser Arbeit erzeugte, \textit{PMRule} Klasse, welche verantwortlich für das Übertragen des empfangenen PNML Textes in eine Regelform ist. Konkret wird dies von der Funktion parseReceivedRule() übernommen.
+\small
 \begin{lstlisting}[language=Java]
        private void parseReceivedRule(JSONArray ruleJSON) throws JSONException {
         PMRule r = new PMRule();
@@ -80,13 +79,16 @@ Gleichzeitig ist diese Klasse verantwortlich dafür die Regel entgegenzunehmen u
   \label{fig:appdialog}
   \caption{Proof of Concept: Dialog bei Eingang neuer erkannter Regel}
 \end{wrapfigure}
+\normalsize
 
-Nachdem der Endanwender die Benachrichtigung auf dem Mobilen Gerät anwählt, wird ein Dialog innerhalb der „Grafischer Regeleditor“ Anwendung gestartet. Ein Beispiel ist auf Abbildung \ref{fig:appdialog} zu sehen. Die Vorbedingungen und Aktionen der Regel werden im Wenn – Dann Format dargestellt. Der Nutzer hat zunächst die Möglichkeit die Regel zu akzeptieren oder abzulehnen. Wird sie abgelehnt, wird die Regel nicht ins lokale openHab System aufgenommen und eine Feedback Nachricht an den Server übermittelt. Dies soll verhindern dass eine ungewünschte Regel wiederholt vorgeschlagen wird. Der Server soll neue Regeln zunächst gegen bestehende und abgelehnte abgleichen, bevor eine neue Anfrage gestellt wird.
+Diese Funktion erlaubt das trennen der Elemente in Vor- und Nachbedingungen, die dann direkt in die vorhandene Datenbank der Anwendung "Grafischer Regeleditor" eingefügt werden können.
+
+Nachdem der Endanwender die Benachrichtigung, die auf dem Mobilen Gerät angezeigt wird, wenn der Firebase Dienst eine neue Regel versendet, wird ein Dialog innerhalb der „Grafischer Regeleditor“ Anwendung gestartet. Ein Beispiel für den Dialog ist auf Abbildung \ref{fig:appdialog} zu sehen. Die Vorbedingungen und Aktionen der Regel werden im Wenn – Dann Format dargestellt. Der Nutzer hat zunächst die Möglichkeit die Regel zu akzeptieren oder abzulehnen. Wird sie abgelehnt, wird die Regel nicht ins lokale openHab System aufgenommen und eine entsprechende Feedback Nachricht an den Server übermittelt. Dieser Schritt soll verhindern dass eine vom Anwender nicht erwünschte Regel wiederholt vorgeschlagen wird. Der Server soll neue Regeln zunächst gegen bestehende und abgelehnte abgleichen, bevor eine neue Anfrage gestellt wird.
 
 Wird der Vorschlag vom Anwender akzeptiert, wird er zu einem weiteren Fenster weitergeleitet, welches ihm die Option bietet, die Regel ohne Anpassungen zu übernehmen, oder aber die vorgeschlagene Regel zu editieren. Beispielsweise können weitere Vorbedingungen oder Aktionen hinzugefügt oder entfernt werden, für diese Funktionalität wird auf das Regelwerk der zur Verfügung gestellten „Grafischer Regeleditor“ App zurückgegriffen. 
 Nachdem die Regel vom Nutzer akzeptiert worden ist, wird sie wie in der Vorgängerversion der Anwendung auch in die sqLite Datenbank eingetragen. openHab empfängt die aktualisierte Datenbank und wird nun die Aktion ausführen, sobald die vermerkten Vorbedingungen erfüllt sind.
 Weitere Funktionen wie das nachträgliche Entfernen oder Editieren der Regeln stehen dem Anwender wie bereits in der Vorgängerversion zur Verfügung.
-Dieser Prozess ist in Abbildung \ref{fig:Kommunikationsablauf} noch einmal im BPMN Format graphisch dargestellt.
+Der Clientseitige Prozess ist in Abbildung \ref{fig:Kommunikationsablauf} noch einmal im BPMN Format graphisch dargestellt.
 
 
 
