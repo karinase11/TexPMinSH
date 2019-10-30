@@ -1,7 +1,7 @@
 \chapter{Untersuchung geeigneter Process Miner}\label{chap:approach}
 Um systematisch einen geeigneten Algorithmus zu finden, der automatisiert Regeln aus den Protokolldateien eines Smart Homes extrahiert, soll eine begrenzte Anzahl an Process Mining Verfahren in Testdurchläufen miteinander verglichen werden. 
 
-Die Durchführung der Testreihe soll sich am Leitfaden für Studien im Bereich des Software Enginieering von Runeson und Höst orientieren \cite{runh}. Der Leitfaden klassifiziert Studien zunächst nach ihrer Fragestellung. Es wird unterschieden zwischen erkundenden (\textit{exploratory}), beschreibenden (\textit{descriptive}), erklärenden (\textit{explanatory}) und verbessernden (\textit{improving}) Forschungsfragen. Der Zweck der hier geplanten Testreihe lässt sich als erkundend beschreiben, denn es soll festgestellt werden, ob einer der zu untersuchenden Miner überhaupt in der Lage ist, Verhaltensmuster nach dem If This Then That Schema zu modellieren und desweiteren, ob es Vorteile in einem der untersuchten Verfahren gegenüber einem anderen gibt. 
+Die Durchführung der Testreihe soll sich am Leitfaden für Studien im Bereich des Software Enginieering von Runeson und Höst orientieren \cite{runh}. Der Leitfaden klassifiziert Studien zunächst nach ihrer Fragestellung. Es wird unterschieden zwischen erkundenden (\textit{exploratory}), beschreibenden (\textit{descriptive}), erklärenden (\textit{explanatory}) und verbessernden (\textit{improving}) Forschungsfragen. Der Zweck der hier geplanten Testreihe lässt sich als erkundend einordnen, denn es soll festgestellt werden, ob einer der zu untersuchenden Miner überhaupt in der Lage ist, Verhaltensmuster nach dem If This Then That Schema zu modellieren und die Frage beantworten, ob es Vorteile in einem der untersuchten Verfahren gegenüber einem anderen gibt. 
 Der Leitfaden für Informationen erkundende Studien umfasst im wesentlichen fünf Schritte: 
 
 \begin{enumerate}
@@ -12,25 +12,23 @@ Der Leitfaden für Informationen erkundende Studien umfasst im wesentlichen fün
   \item \textbf{Zusammenfassung}: Bericht zur Studie.
 \end{enumerate}
 
-Das Ziel wird in Abschnitt \ref{sec:def}, die Vorbereitung zur Durchführung dieser Testreihe  in Abschnitt \ref{sec:prep} beschreiben. Die Durchführung und Auswertung folgt in Abschnitt  \ref{sec:tests}, das Ergebnis in Abschnitt \ref{sec:res}. Dieses Kapitel soll gleichzeitig als Dokumentation der Testreihe dienen.
+Das Ziel wird in Abschnitt \ref{sec:def} und die Vorbereitung zur Durchführung dieser Testreihe  in Abschnitt \ref{sec:prep} beschrieben. Die Durchführung und Auswertung folgt in Abschnitt  \ref{sec:tests}, das Ergebnis in Abschnitt \ref{sec:res}. Dieses Kapitel soll gleichzeitig als Dokumentation der Testreihe dienen.
 
 \section{Ziel der Testreihe}\label{sec:def}
 Das Ziel der Testreihe ist es festzustellen, ob es Process Mining Verfahren gelingt aus Datensätzen, die aus einem Smart Home stammen, kurze und repetitive Verhaltensmuster zu modellieren. Die Anforderung an die Modellierung ist, dass häufig auftretende Muster, die in einer sogenannten einseitig kausalen Relation stehen, aus dem untersuchten Datensatz extrahiert werden können. Einseitig kausale Relationen beschreiben eine Wenn-Dann Beziehung, englisch auch \textit{If This Then That}, die für den Einsatz im Smart Home besonders interessant sind. 
 
-Diese Form der Beziehung kann auch als "Vorbedingung und Aktion" interpretiert werden. Sie entspricht damit auch dem Schema von Regeln, wie sie von vielen Hausautomatisierungsanwendungen eingesetzt werden, um automatische Abfolgen in dem Verhalten von vernetzten Objekten in einem Smart Home zu definieren. Wenn die Vorbedingung Eintrifft, wird automatisch auch die Aktion ausgelöst.
-
-Sollte es möglich sein ein Process Mining Verfahren zu finden, welches aus Smart Home Datensätzen Ausgabemodelle erzeugt, die diese Form einer kausale Beziehung eindeutig widerspiegeln und nicht durch Rauschdaten oder anderweitige Abweichungen verfälschen, dann ist es auch möglich diese Modelle in Regeln zu überführen. Dies hätte den praktischen Nutzen, dass dem Bewohner eines Smart Home Konfigurationsarbeit in der Hausautomatisierungsplattform abgenommen werden kann.
+Diese Form der Beziehung kann auch als "Vorbedingung und Aktion" interpretiert werden. Sie entspricht damit dem Schema von Regeln, wie sie von vielen Hausautomatisierungsanwendungen eingesetzt werden, um automatische Abfolgen in dem Verhalten von vernetzten Objekten in einem Smart Home zu definieren. Wenn die Vorbedingung eintrifft, wird automatisch auch die Aktion ausgelöst. Sollte es möglich sein ein Process Mining Verfahren zu finden, welches aus Smart Home Datensätzen Ausgabemodelle erzeugt, die diese Form einer kausale Beziehung eindeutig widerspiegeln und nicht durch Rauschdaten oder anderweitige Abweichungen verfälscht sind, dann ist es auch möglich diese Modelle in Regeln zu überführen. Dies hätte den praktischen Nutzen, dass dem Bewohner eines Smart Home Konfigurationsarbeit in der Hausautomatisierungsplattform abgenommen werden kann.
 
 \section{Vorbereitung und Planung}\label{sec:prep}
 Für die Suche nach einem geeignet Process Miner ist es zunächst notwendig, eine geeignete Software zu finden, die für die Durchführung des Discovery Process Mining verantwortlich ist. 
 Dann soll eine Vorauswahl an Process Mining Algorithmen identifiziert werden, die für den hier skizzierten Einsatzzweck möglichst geeignet sind. Desweiteren werden Protokolldateien benötigt, die aus einem Smart Home stammen oder künstlich erzeugt werden und an Protokolle aus einem Smart Home angelehnt sind.
 
 \subsection{Auswahl der Softwarelösung}
-Um eine geeignete Softwarelösung für die Durchführung der Process Mining Auswertung zu bestimmen, wird zunächst eine Reihe von Publikationen herangezogen, die entsprechende Lösungen bereits miteinander verglichen haben. Sie sollen dazu beitragen eine Vorauswahl unter der gegenwärtig verfügbaren Process Mining Software zu treffen, aus der dann über einen Kriterienkatalog eine Lösung für den Einsatz in der Durchführung gewählt wird. 
+Um eine geeignete Softwarelösung für die Durchführung der Process Mining Auswertung zu bestimmen, wird zunächst eine Reihe von Publikationen herangezogen, die entsprechende Lösungen bereits miteinander verglichen haben. Sie sollen dazu beitragen eine Vorauswahl unter der gegenwärtig verfügbaren Process Mining Software zu treffen, aus der dann über einen Kriterienkatalog eine Lösung für den Einsatz in der Durchführung der nachfolgenden Testreihe gewählt wird. 
 
-Zunächst werden die Ergebnisse einer Abschlussarbeit der Universität Gent mit dem Titel „Process Mining in Practice: Comparative Study of Process Mining Software“ \cite{verstraete} betrachtet. Hier wurde anhand von Umfragen, unter Forschern und Anwendern in der freien Wirtschaft, untersucht, welche der neun genannten Process Mining Lösungen den Befragten persönlich bereits bekannt war, ob und wie häufig sie von ihnen eingesetzt wurde und ob das Programm den Befragten nutzerfreundlich erschien.
+Zunächst werden die Ergebnisse einer Abschlussarbeit der Universität Gent mit dem Titel „Process Mining in Practice: Comparative Study of Process Mining Software“ \cite{verstraete} betrachtet. Hier wurde anhand von Umfragen, unter Forschern und Anwendern in der freien Wirtschaft, untersucht, welche von neun genannten Process Mining Lösungen den Befragten persönlich bereits bekannt war, ob und wie häufig sie von ihnen eingesetzt wurde und ob das Programm den Befragten nutzerfreundlich erschien.
 
-Hier zeichnen sich ProM, Disco und Celonis als Führend unter den vorgestellten Softwarelösungen ab. ProM wird der Umfrage nach dem Bekanntheitsgrad bei von Befragten aus der Forschung besonders häufig einesetzt, während Anwender aus der Industrie meist auf kommerzielle Lösungen zurückgreifen, wie in Tabelle \ref{comparison} zu sehen ist.
+Hier zeichnen sich ProM, Disco und Celonis als Führend unter den vorgestellten Softwarelösungen ab. ProM wird gemäß dieser Untersuchung bei Befragten aus der Forschung besonders häufig einesetzt, während Anwender aus der Industrie meist auf kommerzielle Lösungen zurückgreifen, wie in Tabelle \ref{comparison} zu sehen ist.
 
 \begin{table}[!h]
 \centering
@@ -52,13 +50,13 @@ Einsatzhäufigkeit & \textbf{Disco }& \textbf{ProM} & \textbf{Celonis} \\
 \end{table}
 
 \normalsize
-ProM wird aufgrund der Tatsache, dass es sich um ein Open Source Projekt handelt, als das am umfangreichsten ausgestattete Werkzeug beschrieben, hinsichtlich seiner Konfigurationmöglichkeiten und zahlreichen Erweiterungen. Das Funktionsspektrum von ProM ist dem von Disco oder Celonis deutlich überlegen ist, so die Autoren. 
+ProM wird aufgrund seiner zahlreichen einer Konfigurationmöglichkeiten und als das am umfangreichsten ausgestattete Werkzeug beschrieben. Das Funktionsspektrum von ProM ist dem von Disco oder Celonis deutlich überlegen ist, so die Autoren. 
 
-Eine ausführliche Analyse von Process Mining Software unter verschiedenen Gesichtspunkten ist in dem Buch "Advances in Intelligent Process-Aware Information Systems - Concepts, Methods, and Technologies" von J. Schobel und M.  Reichert, erschienen 2017 im Springer Verlag, enthalten\cite{Schobel2017}. Es werden, neben weiteren Anbietern, wieder Celonis, Disco und ProM in den Vergleich miteinbezogen, allerdings fassen die Autoren Disco und ProM als Einheit auf, da sie ursprünglich von der selben Organisation entwickelt wurden. 
+Eine detaillierte Analyse von Process Mining Software unter verschiedenen Gesichtspunkten ist in dem Buch "Advances in Intelligent Process-Aware Information Systems - Concepts, Methods, and Technologies" von J. Schobel und M.  Reichert, erschienen 2017 im Springer Verlag, enthalten\cite{Schobel2017}. Es werden, neben weiteren Anbietern, erneut Celonis, Disco und ProM in den Vergleich miteinbezogen, allerdings fassen die Autoren Disco und ProM als Einheit auf, da sie ursprünglich von der selben Organisation entwickelt wurden. 
 
-Auch in dieser Auswertung sticht ProM durch seine Bandbreite an Erweiterungen hervor, wird von den Autoren aber für die mangelnde Echtzeitüberwachung abgemahnt, die Celonis hingegen anbietet.
+Auch in dieser Auswertung sticht ProM durch seine Bandbreite an Erweiterungen hervor, wird von den Autoren aber für die mangelnde Echtzeitüberwachung kritisiert, die Celonis hingegen anbietet.
 
-ProM, Disco sowie Celonis werden von den Autoren außerdem, mit Abstand zu den anderen verglichenen Lösungen, positiv für die Umsetzung der Process Discovery Funktion bewertet. Da die Discovery Funktion entscheidend für den hier untersuchten Anwendungsfall ist, werden diese Lösungen in die engere Auswahl genommen.
+ProM, Disco sowie Celonis werden von den Autoren außerdem, im Gegensatz zu den anderen verglichenen Lösungen, positiv für die Umsetzung der Process Discovery Funktion bewertet. Da die Discovery Funktion entscheidend für den hier untersuchten Anwendungsfall ist, werden diese drei Lösungen in die engere Auswahl genommen.
 Eine graphische Übersicht über die Ergebnisse von Schobel und Reichert ist in Abbildung \ref{fig:toolEval} zu sehen.
 \begin{figure}[!ht]
     \centering
@@ -67,7 +65,7 @@ Eine graphische Übersicht über die Ergebnisse von Schobel und Reichert ist in 
     \label{fig:toolEval}
 \end{figure}
 \newpage
-Neben der Bedienfreundlichkeit und dem Umfang der Software sind die ausschlaggebenden Kriterien für die Auswahl der Software diejenigen technischen Daten, die sich direkt auf die praktische Umsetzbarkeit der Testreihe und des Proof of Concept auswirken. Die technischen Eckdaten wurden einer  Abschlussarbeit mit dem Titel "Vergleich und Evaluation von Process Mining Software" der Universität Passau entnommen \cite{compPM} und in Tabelle \ref{comparison2} zusammengefasst.
+Neben der Bedienfreundlichkeit und dem Funktionsumfang sind die ausschlaggebenden Kriterien für die Auswahl der Software jene technischen Daten, die sich direkt auf die praktische Umsetzbarkeit der Testreihe und des Proof of Concept auswirken. Die technischen Eckdaten wurden einer Abschlussarbeit mit dem Titel "Vergleich und Evaluation von Process Mining Software" der Universität Passau entnommen \cite{compPM} und in Tabelle \ref{comparison2} zusammengefasst.
 
 \begin{table}[!h]
 \centering
@@ -90,18 +88,18 @@ Kriterium & \multicolumn{1}{c}{\textbf{ProM (V. 6.9)}} & \multicolumn{1}{c}{\tex
 \label{comparison2}
 \end{table}
 
-Ein entscheidender Vorteil von ProM ist, dass einige der integrierten Plugins eine Kommandozeilenschnittstelle bieten. Mit Hilfe dieser kann die Auswertung der Eventlogs von einem Serverseitigen Skript aus gestartet und überwacht werden. Nachteilig an dieser Lösung ist allerdings, dass ProM im Gegensatz zu Disco und Celonis Eventlogs im CSV-Format (Comma Seperated Values) nicht direkt entgegen nimmt. Das heißt, es muss eine Konvertierung in das XES Format stattfinden, bevor eine Process Mining Analyse durchgeführt werden kann.
+Ein entscheidender Vorteil von ProM ist, dass einige der integrierten Plugins eine Kommandozeilenschnittstelle bieten. Mit Hilfe dieser kann die Auswertung der Eventlogs von einem serverseitigen Skript aus gestartet und überwacht werden. Nachteilig an dieser Lösung ist allerdings, dass ProM im Gegensatz zu Disco und Celonis Eventlogs im CSV-Format (Comma Seperated Values) nicht direkt entgegen nimmt. Das heißt, es muss eine Konvertierung in das XES Format stattfinden, bevor eine Process Mining Analyse durchgeführt werden kann.
 
-Die quelloffene Lizensierung von ProM, die teils Cloud-basierte Architektur von Celonis und der Mangel einer Kommandozeilenanbindung von Disco sind letztendlich ausschlaggebend für die Entscheidung, ProM als Werkzeug für die Durchführung des Process Mining zu nutzen. 
+Die quelloffene Lizensierung von ProM, die teils Cloud-basierte Architektur von Celonis und der Mangel einer Kommandozeilenanbindung von Disco sind letztendlich ausschlaggebend für die Entscheidung, ProM als Werkzeug für die Durchführung des Process Mining in dieser Arbeit zu nutzen. 
 
 \subsection{Wahl des Process Mining Verfahrens}
 Es soll ein Process Mining Verfahren identifiziert werden, welches unter den in den Vergleich einbezogenen Minern am besten geeignet ist Modelle derart zu erzeugen, dass sie kurze, häufig auftretende Ereignisse und Aktionen korrekt erkennen und abbilden. 
 
 Mining Verfahren, deren Modelle zwar korrekt, aber zu komplex sind um eine für den Anwender leicht interpretierbare Regel zu beschreiben sind für diesen Anwendungsfall ungeeignet. In Anbetracht der im Grundlagenkapitel erläuterten Gütekriterien (\ref{sec:quality}) werden hier Modelle gefordert, die ein hohes Maß an ‚Simplicity‘ (Einfachheit) mitbringen und weniger Gewicht auf ,Generalization' legen, also kein Modell erstellen, das dazu neigt alle möglichen, selten auftretenden Prozesschritte mit einzuschließen. 
 
-Ein weiterer Faktor, der die Auswahl an Minern einschränkt, ist die praktische Umsetzbarkeit in einer realen Anwendung. Es werden nur solche Miner berücksichtigt, für die zum Zeitpunkt dieser Arbeit ein Plugin in der ProM 6.9 Version angeboten werden. Da das Ziel ist, einen automatisiert ablaufenden Dienst einzurichten, so dass Process Mining ohne zusätzlichen Intervention seitens des Anwenders durchgeführt werden kann, muss das Plugin in der Lage sein, über Kommandozeilenbefehle so aufgerufen zu werden, dass es direkt ein Ausgabemodell erzeugt. 
+Ein weiterer Faktor, der die Auswahl an Minern einschränkt, ist die praktische Umsetzbarkeit in einer realen Anwendung. Es werden nur solche Miner berücksichtigt, für die zum Zeitpunkt dieser Arbeit ein Plugin in der ProM 6.9 Version angeboten wird. Da das Ziel ist, einen automatisiert ablaufenden Dienst einzurichten, so dass Process Mining ohne zusätzliche Intervention seitens des Anwenders durchgeführt werden kann, muss das Plugin in der Lage sein, über Kommandozeilenbefehle so aufgerufen zu werden, dass es direkt ein Ausgabemodell erzeugt. 
 
-Es stehen Plugins des Heuristic, Local, Inductive und des Transitions System Miner zur Verfügung, die diese Anforderung erfüllen. Um beurteilen zu können, welches der Verfahren sich besonders für die Analyse von Eventlogs eignet, das menschliches Verhalten protokolliert, werden Veröffentlichungen herangezogen, die Process Mining im Activities of Daily Living Kontext eingesetzt haben, insbesondere wenn es sich dabei direkt um den Smart Home Bereich handelt. Die Ergebnisse sind in Tabelle \ref{tab:miningPaper} gelistet. 
+In ProM stehen Plugins des Heuristic, Local, Inductive und des Transitions System Miner zur Verfügung, die diese Anforderung erfüllen. Um beurteilen zu können, welches der Verfahren sich besonders für die Analyse von Eventlogs eignet, die menschliches Verhalten protokollieren, werden Veröffentlichungen herangezogen, die Process Mining im Activities of Daily Living Kontext eingesetzt haben. Die Ergebnisse sind in Tabelle \ref{tab:miningPaper} gelistet. 
 
 Der Local Process Miner ist in der Übersicht nicht aufgeführt, da es bisher keine Veröffentlichungen gibt, die dieses noch junge Verfahren in einem vergleichbaren Kontext eingesetzt haben. 
 
@@ -130,7 +128,7 @@ Titel                                                                           
  \label{tab:miningPaper}
 \end{table}
 \normalsize
-Betrachtet werden hier diejenigen Studien, die eines der Process Mining Algorithmen eingesetzt haben, für das ein Plugin in ProM 6.9 existiert, welches sich über eine Kommandozeilenanbindung ansprechen lässt. Ein weiteres Kriterium war, dass in der Kurzfassung der Veröffentlichung die Absicht beschrieben wurde Daten, die menschliches Verhalten widerspiegeln, über einen Process Mining zu analysieren. Die Suche erfolgte über die Suchmaschine Google Scholar, die gesuchten Begriffe waren eine Kombination des jeweiligen Verfahrens und den Begriffen "ADL", "Smart Home", "Smart Living", "Human Activities" und "Human Behaviour". 
+Betrachtet werden hier diejenigen Studien, die eines der Process Mining Algorithmen eingesetzt haben, für das ein Plugin in ProM 6.9 existiert, welches sich über eine Kommandozeilenanbindung ansprechen lässt. Ein weiteres Kriterium war, dass in der Kurzfassung der Veröffentlichung die Absicht beschrieben wurde Daten, die menschliches Verhalten widerspiegeln, über Process Mining zu analysieren. Die Suche erfolgte über die Suchmaschine Google Scholar, die gesuchten Begriffe waren eine Kombination der Bezeichnung des jeweiligen Verfahrens und den Begriffen "ADL", "Smart Home", "Smart Living", "Human Activities" und "Human Behaviour". 
 
 Es lässt sich ein eindeutiger Trend beobachten, der zeigt, dass sowohl der Heuristics als auch der Inductive Miner ein vergleichsweise populäres Mittel sind, um Protokolldateien, die menschliches Verhalten enthalten, auszuwerten, während der Transitions Miner weniger Beachtung findet. Zusätzlich sollen einige Eckdaten zu den Stärken und Schwächen der Verfahren betrachtet werden, wie sie in Tabelle \ref{tab:my-table} aufgeführt sind. Die Informationen wurden den Veröffentlichungen entnommen, die das jeweilige Verfahren vorstellen (Heuristics \cite{heurMining}, Transitions\cite{transMiner}, Inductive \cite{inducIMining}, Local \cite{localMining}). 
 
@@ -170,7 +168,7 @@ Um eine Vergleichbarkeit mit realen Eventlogs zu ermöglichen, wurden die Eventl
 
 Das Programm zur Erzeugung der Eventlogs nimmt folgende Parameter entgegem: das eingebettete, zu erkennende Verhaltensmuster, die Menge an konsekutiven Kalendertagen (30 o. 90 Tage) und den Anteil an Rauscheinträgen (15 o. 50). 
 
-Die Testreihe setzt sich aus zwölf verschiedenen Mustern zusammen. Da es pro gesuchtes Muster vier Kombinationsmöglichkeiten aus Parametern gibt, entstehen insgesamt 40 Protokolldateien, die Aufnahmen aus einem Smart Home simulieren. Die Testreihen tragen jeweils die Namen der Muster („A“ - „M“), insgesamt sind 84 einzelne Wenn-Dann regeln in den Mustern enthalten, pro Testreihe sind maximal vier Wenn-Dann Regeln enthalten. Die Regeln sind in einer Übersicht im Anhang (\ref{sec:config}) einsehbar. 
+Die Testreihe setzt sich aus zwölf verschiedenen Mustern zusammen. Da es pro gesuchtes Muster vier Kombinationsmöglichkeiten aus Parametern gibt, entstehen insgesamt 48 Protokolldateien, die Aufnahmen aus einem Smart Home simulieren. Die Testreihen tragen jeweils die Namen der Muster („A“ - „M“), insgesamt sind 104 einzelne Wenn-Dann Regeln in den Mustern enthalten, pro Testreihe sind maximal vier dieser Regeln eneingebettet. Die Regeln sind in einer Übersicht im Anhang (\ref{sec:config}) einsehbar. 
 
 \section{Bewertungskriterien und Durchführung der Testreihe}\label{sec:tests}
 Die Durchführung der Testreihe beinhaltet, jedes der zuvor generierten Eventlogs mit dem Heuristics Miner und dem Inductive Miner auszuführen und das Ergebnis zu protokollieren. Um die Güte der Modelle, die in der Messreihe mit den verschiedenen Minern entstanden sind, zu evaluieren, werden die Ausgaben der Process Mining Plugins mit dem ursprünglich eingebetteten Modell verglichen und der Grad der Abweichung für jeden Datensatz dokumentiert. Um die Performanz der Miner zu quantifizieren, wird die Wiedergabe der eingebetteten Muster im Ausgabemodell über ein Punktesystem bewertet. 
