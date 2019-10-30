@@ -1,6 +1,8 @@
-\chapter{Anhang}
-\section{Auswertung der Testreihe: Vergleich Inductive Visual Miner und Interactive Data-aware Heuristics Miner}
-\subsection{Ergebnisse der Versuchsreihe}\label{results}
+\chapter*{Anhang}
+Auswertung der Testreihe: Vergleich Inductive Visual Miner und Interactive Data-aware Heuristics Miner
+\captionsetup[table]{list=no}
+\captionsetup[figure]{list=no}
+\subsubsection{Ergebnisse der Versuchsreihe}\label{results}
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\textwidth]{figures/Appbildungen/tab1.PNG}
@@ -23,7 +25,8 @@
 \end{figure}
 
 \clearpage
-\subsection{Eventlogs generieren}\label{lst:generate}
+\subsubsection{Eventlogs generieren}\label{lst:generate}
+\small
 \begin{lstlisting}[language=Python]
 import csv
 import time
@@ -100,7 +103,7 @@ createcsv()
 \end{lstlisting}
 
 \clearpage
-\subsection{Eventlogs nach XES Parsen}
+\subsubsection{Eventlogs nach XES Parsen}
 \begin{lstlisting}[language=Python]
 def generateXes(NDUI):
     records = []
@@ -186,9 +189,10 @@ for filename in os.listdir(directory):
 \end{lstlisting}
 
 \clearpage
-\subsection{Konfiguration der Versuchsreihen}
+\subsubsection{Konfiguration der Versuchsreihen}\label{sec:config}
 Eingabedaten für den Eventloggenerator.
-Je Versuchsreihe wurden vier Eventlogs generiert, die jeweils Zeilen der Schemata 'A' - 'M' enthielten.\begin{table}[]
+Je Versuchsreihe wurden vier Eventlogs generiert, die jeweils Zeilen der Schemata 'A' - 'M' enthielten.
+\begin{table}[!ht]
 \centering
 \resizebox*{!}{0.8\textheight}{%
 \begin{tabular}{llll}
@@ -291,12 +295,11 @@ iii           & \textit{Nested Thermostat}    & \textit{SET TO 16 DEG}          
 
 
 \clearpage
-\section{Hausautomatisierung durch Regelerkennung}
+\subsubsection{Hausautomatisierung durch Regelerkennung}\small
 \begin{lstlisting}[language=Java]
 public class PMFirebaseMessagingService extends FirebaseMessagingService {
 
     static String TAG = "ProcessMining MessagingService";
-
     static String currentToken = "";
 
     /**
@@ -317,7 +320,6 @@ public class PMFirebaseMessagingService extends FirebaseMessagingService {
 
     public static void refreshID()
     {
-
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
                     @Override
@@ -326,14 +328,12 @@ public class PMFirebaseMessagingService extends FirebaseMessagingService {
                             //To do//
                             return;
                         }
-
                         // Get the Instance ID token//
                         String token = task.getResult().getToken();
                         PMFirebaseMessagingService.currentToken = token;
                         Log.d(TAG, "Got Firebase ID: " + token);
                     }
                 });
-
 
         FirebaseMessaging.getInstance().subscribeToTopic("rules")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -344,18 +344,14 @@ public class PMFirebaseMessagingService extends FirebaseMessagingService {
                             Log.d(TAG, "Sub to topic not success");
                         }
                         Log.d(TAG, "Sub to topic success");
-
                     }
                 });
-
     }
-
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage)
     {
-        //super.onMessageReceived(remoteMessage);
-
+        super.onMessageReceived(remoteMessage);
         String newRules = "";
         for(String key : remoteMessage.getData().keySet())
             Log.d(TAG, "onMessageReceived: got key: " + key);
@@ -366,8 +362,7 @@ public class PMFirebaseMessagingService extends FirebaseMessagingService {
         Log.d("onMessreceived","got a message: "+newRules);
         PowerManager pm = (PowerManager) this.getSystemService(Context.POWER_SERVICE);
         boolean isScreenOn = pm.isScreenOn();
-        //Log.e("screen on.................................", "" + isScreenOn);
-
+        Log.e("screen on.................................", "" + isScreenOn);
         if (isScreenOn == false)
         {
             @SuppressLint("InvalidWakeLockTag") PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.ON_AFTER_RELEASE, "MyLock");
@@ -377,11 +372,9 @@ public class PMFirebaseMessagingService extends FirebaseMessagingService {
             wl_cpu.acquire(10000);
 
         }
-
-        //    startActivity(new Intent(this, MainActivity.class));
+           startActivity(new Intent(this, MainActivity.class));
 
         Log.d(TAG, "onMessageReceived: " + remoteMessage.getData().get("message") + " to: " + remoteMessage.getTo());
-
 
         Intent intent = new Intent(this, PMRulesTabs.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -407,17 +400,14 @@ public class PMFirebaseMessagingService extends FirebaseMessagingService {
     }
 
     private void parseReceivedRule(String newRule) throws JSONException {
-
         JSONArray allNodes = new JSONArray(newRule);
         Log.d("process", "All Rules: "+allNodes.getJSONArray(0)+ " 1: "+allNodes.getJSONArray(1));
-
         for (int i = 0; i < allNodes.length(); i++) {
             try {
                 // JSONObject node = rules.getJSONObject(i);
                 JSONArray rule = allNodes.getJSONArray(i);
                 Log.d("process", "rule: "+i+". "+rule);
                 PMRule.processRule(rule);
-
             } catch (JSONException e) {
                 Log.d("process", "Json exception: "+e);
             }
@@ -425,3 +415,4 @@ public class PMFirebaseMessagingService extends FirebaseMessagingService {
     }
 \end{lstlisting}
 
+\normalsize
