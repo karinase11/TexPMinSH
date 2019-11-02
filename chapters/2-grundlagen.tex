@@ -5,7 +5,7 @@ Mit Hilfe von Methoden des Process Mining können Einsichten aus Ereignisdaten g
 
 - Process Mining Manifest \cite{PMManifesto}\end{quote}
 \section{Prozessorientierte Datenanalyse}
-Process Mining ist als Antwort auf die wachsende Nachfrage der Industrie entstanden, mehr Informationen über Prozesse, die sich im Unternehmens- und Produktionsalltag abspielen, verarbeiten, analysieren und zur Optimierung nutzen zu können. Es kann als technologisches Forschungsgebiet verstanden werden, das sich am Schnittpunkt zwischen Process Modelling und der Process Analysis befindet und gemeinsame Merkmale mit den Bereichen des Data Mining und Machine Learning teilt, vgl. \cite{Ailenei}.
+Process Mining ist als Antwort auf die wachsende Nachfrage der Industrie entstanden, mehr Informationen über Prozesse, die sich im Unternehmens- und Produktionsalltag abspielen, verarbeiten, analysieren und zur Optimierung nutzen zu können. Es kann als technologisches Forschungsgebiet verstanden werden, das sich am Schnittpunkt zwischen \textit{Process Modelling} und der \textit{Process Analysis} befindet und gemeinsame Merkmale mit den Bereichen des \textit{Data Mining} und \textit{Machine Learning} teilt, vgl. \cite{Ailenei}.
 
 Im Zuge der Digitalisierung in der Wirtschaftswelt hat auch das Erfassen und Speichern von kleinteiligen Informationen in zahlreichen Geschäftszweigen Einzug erhalten. Während das Sammeln von Daten aufgrund des informationstechnologischen Fortschritts kostengünstig geworden ist und sich mit wenig Aufwand implementieren lässt, ist die Auswertung der gesammelten Datenmengen für Unternehmen weiterhin ein resourcen- und zeitintensives Unterfangen. 
 Eine rein statistische Analyse kann nur einen kleinen Teil der Informationen aufdecken, die sich hinter den erfassten Daten verbergen. Da diese Informationen von bedeutendem wirtschaftlichem Nutzen sein können, ist das Interesse an Technologien, die das Problem der Auswertung lösen, groß.
@@ -35,7 +35,7 @@ Die drei unterschiedlichen Typen kennzeichenen folgende Eigenschaften und Abläu
 
 \item \textbf{Conformance Checking}: Konformität prüfen - Ein a-priori Modell des Prozesses existiert. \textit{Conformance Checking} vergleicht den real existierenden Ablauf mithilfe des Eventlogs mit dem erwünschten Prozess um festzustellen, ob das beobachtete Verhalten mit dem geplanten Prozess übereinstimmt. Dieser Vorgang ermöglicht die Aufdeckung von Abweichungen zwischen geplanten und tatsächlichen Prozessvorgängen und kann auf Abweichungen hinweisen.  \textit{Conformance Checking} schließt \textit{Compliance Checking} mit ein, d.h. der beobachtete Prozess wird auch daraufhin untersucht, ob er sich an vorgefertigte Regeln, Spezifikationen oder relevante Normen hält.
 
-\item \textbf{Enhancement}: Ein a-priori Modell des Prozesses existiert. Das Ziel ist die Optimierung oder Umgestaltung eines Modells, mithilfe der, aus der Auswertung des Eventlogs, gewonnenen Informationen. Ein Prozess kann nun in Bezug auf seine Performanz oder Einhaltung geforderter Standards hin verbessert oder erweitert werden. Informationen wie Kostenanalyse, Zeitaufwand oder Priorisierung einzelner Schritte können in die Optimierung miteinfließen, beobachtete Engpässe können umgangen werden.
+\item \textbf{Enhancement}: Ein a-priori Modell des Prozesses existiert. Das Ziel ist die Optimierung oder Umgestaltung eines Modells, mithilfe der aus der Auswertung des Eventlogs gewonnenen Informationen. Ein Prozess kann in Bezug auf seine Performanz oder Einhaltung geforderter Standards hin verbessert oder erweitert werden. Informationen wie Kostenanalyse, Zeitaufwand oder Priorisierung einzelner Schritte können in die Optimierung miteinfließen, beobachtete Engpässe können umgangen werden.
 \end{itemize}
 
 Aufgabe der Discovery-Funktion und Grundlage für alle weiteren Schritte ist die Umwandlung des aufgenommenen Protokolls in ein graphisches Modell; in der Regel handelt es sich dabei um ein Petri-Netz. Dies ist eine methodische Darstellungsform, die dazu dient, nebenläufige Prozesse zu beschreiben. Da Petri-Netze auch im folgenden praktischen Teil der Arbeit eingesetzt werden, werden sie an dieser Stelle kurz erläutert.
@@ -43,13 +43,14 @@ Aufgabe der Discovery-Funktion und Grundlage für alle weiteren Schritte ist die
 \subsection{Petri Netze}
 Formal werden Petri Netze als gerichtete, bipartite Graphen definiert, die aus Stellen  und  Transitionen  bestehen und durch  gerichtete  Kanten  verbunden sind, wie sie in \textit{Software Engineering durch Modellierung wissensintensiver Entwicklungsprozesse} beschrieben sind \cite{freund2007software}. 
 
+Ein Petri-Netz wird formal durch das Tripel $N = (S, T, F)$ definiert. $S$ ist die Menge der Stellen, $T$  ist  die  zu  $S$  disjunkte  Menge  der  Transitionen  und  $F⊆ (S ×  T) ∪ (T  ×  S) $ ist  eine Flussrelation,  welche  die  Menge  der  Kanten  bezeichnet.  Die  Elemente  aus  $S$  werden grafisch repräsentiert durch Kreise, Elemente aus $T$ durch Rechtecke und Elemente aus $F$ als gerichtete Kanten zwischen Stellen und Transitionen. Stellen,  die  sich  vor  Transitionen  befinden, werden Eingangsstellen genannt, Stellen nach Transitionen sind deren Ausgangsstellen. 
+
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.65\textwidth]{figures/Appbildungen/petriNetFlower.png}
-    \caption{Ein unmarkiertes Petri Netz mit Eingangsstelle $i_L$ und Ausgangsstelle $o_L$}.
+    \caption{Ein markiertes Petri Netz mit Eingangsstelle $i_L$ und Ausgangsstelle $o_L$}.
     \label{fig:exampleFlower}
 \end{figure}
-Ein Petri-Netz wird formal durch das Tripel $N = (S, T, F)$ definiert. $S$ ist die Menge der Stellen, $T$  ist  die  zu  $S$  disjunkte  Menge  der  Transitionen  und  $F⊆ (S ×  T) ∪ (T  ×  S) $ ist  eine Flussrelation,  welche  die  Menge  der  Kanten  bezeichnet.  Die  Elemente  aus  $S$  werden grafisch repräsentiert durch Kreise, Elemente aus $T$ durch Rechtecke und Elemente aus $F$ als gerichtete Kanten zwischen Stellen und Transitionen. Stellen,  die  sich  vor  Transitionen  befinden, werden Eingangsstellen genannt, Stellen nach Transitionen sind deren Ausgangsstellen. 
 
 $T$ ist eine endliche Menge von Übergängen für die gilt: $S ∩ T =  ∅.$
 
@@ -65,15 +66,15 @@ Für die Bewertung der Qualität eines Ausgabemodels  bedarf es fester Kriterien
 \begin{itemize}
 \item \textbf{Fitness}: Eine perfekte Fitness bedeutet, dass das Prozessmodell das Verhalten aus dem Eventlog vollständig wiedergibt. Sie beschreibt den Grad zu dem Prozesse in der Realität durch das Modell abgedeckt werden.
  
-\item \textbf{Precision}: ein Maß, das beschreibt, ob das Modell Verhalten erlaubt, das grundlegend verschieden von dem im Eventlog aufgezeichneten ist. Ein Modell mit geringer Präzision ist ‚unterformt‘, das heißt, es lässt sowohl Verhalten zu, das sich aus dem Eventlog ergibt als auch viele weitere Ereignisketten. Dadurch ist die Aussagekraft des Modells niedrig. Es entsteht dabei ein sogenanntes Blumenmodell, bei dem von einer Transition aus viele Stellen beliebig oft erreichbar sind, entsprechend Abbildung \ref{fig:exampleFlower}.
+\item \textbf{Precision}: ein Maß, das beschreibt, ob das Modell Verhalten erlaubt, das grundlegend verschieden von dem im Eventlog aufgezeichneten ist. Ein Modell mit geringer Präzision ist \textit{unterformt}, das heißt, es lässt sowohl Verhalten zu, das sich aus dem Eventlog ergibt als auch viele weitere Ereignisketten. Dadurch ist die Aussagekraft des Modells niedrig. Es entsteht dabei ein sogenanntes Blumenmodell, bei dem von einer Transition aus viele Stellen beliebig oft erreichbar sind, entsprechend Abbildung \ref{fig:exampleFlower}.
 
-\item \textbf{Generalization}: Die Generalisierung gibt an, in wie weit das Verhalten aus dem Eventlog im Ausgabemodell verallgemeinert wurde. Ein Modell soll generalisieren, dabei aber nicht das Verhalten welches in dem Eventlog vorhanden ist einschränken. Man sagt ein "überformtes" Modell generalisiert nicht genug - Abläufe die Teil des Modells sein sollten, werden nicht repräsentiert.
+\item \textbf{Generalization}: Die Generalisierung gibt an, in wie weit das Verhalten aus dem Eventlog im Ausgabemodell verallgemeinert wurde. Ein Modell soll generalisieren, dabei aber nicht das Verhalten welches in dem Eventlog vorhanden ist einschränken. Man sagt ein \textit{überformtes} Modell generalisiert nicht genug - Abläufe die Teil des Modells sein sollten, werden nicht repräsentiert.
 
 \item \textbf{Simplicity}: Die Komplexität des Ausgabemodells sollte auf ein Minimum reduziert werden. Dies steht in einem engen Konflikt mit den anderen zuvor genannten Dimensionen. Ihr Maß sollte gemeinhin der Zielgruppe und dem Anwendungsfall angepasst werden. Ein Modell, das die Wirklichkeit akkurat wieder gibt, aber vom Anwender nicht interpretiert werden kann, erfüllt seinen Zweck nicht. Wird das Modell wiederum zu stark vereinfacht, können für den Anwender relevante Informationen ausgeblendet werden.
 \end{itemize}
 
 Da diese Dimensionen in einer Wechselbeziehung zueinander stehen und sich gegenseitig beeinflussen, ist es je nach Kontext notwendig sie gegeneinander abzuwägen. In vielen Fällen soll das Ausgabemodell ein möglichst detailgetreues Abbild des Verhaltens aus dem Eventlog nachbilden, also auch die Mehrzahl der auftretenden Muster wiedergeben. 
-Es kann je nach Anwendungsfall aber wünschenswert sein, eine möglichst einfache und wenig komplexe Abstraktion aus dem Eventlog zu generieren, welches dann bewusst auf selten auftretende Muster verzichtet und aus einer möglichst geringen Anzahl an Elementen im Netz besteht. Diese Frage sollte vom Anwender des Process Mining beantwortet werden, bevor die Prozessanalyse beginnt.
+Es kann je nach Anwendungsfall aber wünschenswert sein, eine möglichst einfache und wenig komplexe Abstraktion aus dem Eventlog zu generieren, welches dann bewusst auf selten auftretende Muster verzichtet und aus einer möglichst geringen Anzahl aus Stellen und Transitionen besteht. Dieser Faktor sollte vom Anwender des Process Mining berücksichtigt werden, bevor die Prozessanalyse beginnt.
 
 \subsection{Herausforderungen}\label{challanges}
 Process Mining kann nur dann aufschlussreiche Antworten auf Fragen nach Prozesstrukturen liefern, wenn die Daten, mit denen es arbeitet, vordefinierte Kriterien erfüllen. Wie in anderen Gebieten der Datenanalyse gilt auch hier das Prinzip \textit{Garbage in, Garbage out} \cite{GIGO}. 
@@ -107,8 +108,9 @@ Wenn der Protokollierungsmechanismus um die Funktion erweitert wird, zyklische A
 %Der erfolgreiche Einsatz von Process Mining Algorithmen setzt außerdem voraus, dass der Prozess vom EreignisEventlog bis hin zur Interpretation des Modells begleitet wird von Personen, die sowohl mit den Stärken und Schwächen der Process Mining Methode vertraut sind, als auch den Eigenschaften der untersuchten Umgebung sowie den Einsatzzweck des Process Mining kennen und darüber hinaus wissen, wie gegebene Parameter des eingesetzten Verfahrens anzupassen sind, wie die Eingangsdaten aufbereitet werden müssen und wie weit die Aussagekraft des Ergebnismodells reicht. (entfernen?)
 \section{Process Mining Algorithmen}
 Die Grundlage für die allermeisten algorithmischen Verfahren zur Konstruktion von Prozessmodellen sind Ordnungsrelationen. Im Process Mining beschreiben sie die Beziehung, oder das fehlen einer Beziehung, zwischen zwei Elementen eines Prozesses. 
-Als ein verbreitetes  Beispiel für ein rein algorithmisches Verfahren zur Prozessentdeckung, das auf Ordnungsrelationen basiert, kann der $\alpha$-Algorithmus genannt werden, dessen Ablauf unter \textbf{ Algorithmus }\ref{alg:alphaminer} einsehbar ist.
-Es handelt sich dabei um eine sehr einfache Variante eines Process Mining Algorithmus, der für wenig komplexe Eventlogs aber, nach den zuvor beschriebenen Qualitätskriterien, korrekte Modelle erstellen kann. Er soll hier als einleitendes Beispiel für Process Mining Discovery im Allgemeinen näher betrachtet werden. \newline
+
+Als ein verbreitetes  Beispiel für ein rein algorithmisches Verfahren zur Prozessentdeckung, das auf Ordnungsrelationen basiert, kann der $\alpha$-Algorithmus genannt werden, dessen Ablauf unter \textbf{ Algorithmus \ref{alg:alphaminer}} einsehbar ist.
+Es handelt sich dabei um eine sehr einfache Variante eines Process Mining Algorithmus, der für wenig komplexe Eventlogs aber, nach den zuvor beschriebenen Qualitätskriterien, korrekte Modelle erstellen kann. Er soll hier als einleitendes Beispiel für Process Mining \textit{Discovery} im Allgemeinen näher betrachtet werden. \newline
 
 \providecommand\algorithmname{alphaminer}
 \begin{algorithm}
@@ -134,24 +136,24 @@ Es handelt sich dabei um eine sehr einfache Variante eines Process Mining Algori
   \end{algorithmic}
 \end{algorithm}
 
-Das Verfahren arbeitet mit verlaufsdatenbasierten Ordnungskriterien (Englisch \textit{Eventlog-based ordering relations}). Die kausale Beziehung zwischen Aktivitäten $(a→b)$ wird geschlossen, wenn zwei Aktivitäten $a$ und $b$ mindestens einmal in der Sequenz $(ab)$ im Eventlog vorkommen, und die Sequenz $(ba)$ nie auftritt. Auf parallele Ausführung zweier Aktivitäten $(a|b)$ wird durch die Verschränkung dieser Aktivitäten geschlossen. Auf die Unabhängigkeit zweier Aktivitäten $a$ und $b$ $(a\#b)$ wird geschlossen, wenn weder die Sequenz $(ab)$ noch die Sequenz $(ba)$ im Eventlog vorkommt.
+Das Verfahren arbeitet mit verlaufsdatenbasierten Ordnungskriterien (\textit{Eventlog-based ordering relations}). Auf die kausale Beziehung zwischen Aktivitäten $(a→b)$ wird geschlossen, wenn zwei Aktivitäten $a$ und $b$ mindestens einmal in der Sequenz $(ab)$ im Eventlog vorkommen, und die Sequenz $(ba)$ nie auftritt. Auf parallele Ausführung zweier Aktivitäten $(a|b)$ wird durch die Verschränkung dieser Aktivitäten geschlossen. Auf die Unabhängigkeit zweier Aktivitäten $a$ und $b$ $(a\#b)$ wird geschlossen, wenn weder die Sequenz $(ab)$ noch die Sequenz $(ba)$ im Eventlog vorkommt.
 
 Im ersten Schritt des Verfahrens werden alle Aktivitäten des Eventlogs in einer Menge zusammengefasst. In Schritt 2 und 3 des Algorithmus werden die Mengen der ersten und letzten Elemente aller Sequenzen in einer Menge gesammelt. 
 Schritte 4 und 5 stellen den eigentlichen Kern des $\alpha$-Miner Algorithmus dar. Die Positionen und die Verbindungen der Elemente müssen systematisch ermittelt werden. Es sollen Knoten $p(A,B)$ der Art entstehen, dass $A$ die Menge der Übergangseingänge ist und $B$ die Menge der Übergangsausgänge. Alle Elemente der Menge $A$ sollen in einer kausalen Beziehung zu den Elementen der Menge $B$ stehen, die Elemente der Menge stehen dabei nicht in einer Beziehung zu Elementen der eigenen Menge.
 
-In Schritt 6 werden außerdem die Knoten $i_L$ und $o_L$ festgelegt, dabei handelt es sich um die Anfangs- und Endknoten des zu konstruierenden Netzes, sie werden als \textit{Source} beziehungsweise \textit{Sink} bezeichnet. Schritt 7 des Algorithmus ist verantwortlich für die Erzeugung der Kanten des Netzes, entsprechend der Beziehung zwischen den Knoten, die durch eine Kante verbunden werden. Abschließend wird in Schritt 8 das gesamte Netz aus den zuvor bestimmten Netzkomponenten zusammengesetzt und der Algorithmus endet.
+In Schritt 6 werden außerdem die Knoten $i_L$ und $o_L$ festgelegt, dabei handelt es sich um die Anfangs- und Endknoten des zu konstruierenden Netzes, sie werden auch als \textit{Source} beziehungsweise \textit{Sink} bezeichnet. Schritt 7 des Algorithmus ist verantwortlich für die Erzeugung der Kanten des Netzes, entsprechend der Beziehung zwischen den Knoten, die durch eine Kante verbunden werden. Abschließend wird in Schritt 8 das gesamte Netz aus den zuvor bestimmten Netzkomponenten zusammengesetzt und der Algorithmus endet.
 \newpage
 \subsection{Beispiel einer Analyse einer Protokolldatei}
 Das Ausgabemodell einer Process Mining Discovery Analyse über der selben Protokolldatei kann, in Abhängigkeit von der Strategie des eingesetzten Process Mining Verfahrens, variieren. Process Mining Algorithmen ähneln sich jedoch größtenteils in ihrer grundlegenden Struktur. Um den im vorangegangen Abschnitt vorgestellten Algorithmus verständlich zu machen, soll hier exemplarisch eine Auswertung durch den $\alpha$-Miner Algorithmus schrittweise nachvollzogen werden.
 
-Da der Schwerpunkt dieser Arbeit auf dem Entdecken von Prozessen, also dem Process Mining Typ \textit{ Discovery} liegt, werden im Rahmen dieser Arbeit Process Mining Verfahren betrachtet, die auf der Definition des \textit{General Process Discovery Problem} (Problem der allgemeinen Prozessentdeckung) beruhen. Der folgende Abschnitt basiert auf Aalst, 'Process Mining in Action', 2016, S.163 \cite{PMinAction}:
+Da der Schwerpunkt dieser Arbeit auf dem Entdecken von Prozessen, also dem Process Mining Typ \textit{ Discovery} liegt, werden im Rahmen dieser Arbeit Process Mining Verfahren betrachtet, die auf der Definition des \textit{General Process Discovery Problem} (Problem der allgemeinen Prozessentdeckung) beruhen. Der folgende Definition stammt aus 'Process Mining in Action' von Wil van der Aalst, 2016, S.163 \cite{PMinAction}:
 \begin{addmargin}[20pt]{20pt} 
 Man betrachte ein Eventlog $L$ und eine Menge $A$ an Aktivitäten. Eine einfache Sequenz $\sigma$ sei eine Folge von Aktivitäten, sprich $\sigma ∈ A $. Ein Eventlog $L$ setzt sich zusammen aus mehreren Sequenzen über $A$, also ist $L ∈ B(A)$. Ein Process Discovery Algorithmus ist eine Funktion $\gamma$ die einen Input $L$ auf ein Prozess Modell derart abbildet, das es das aufgenommene Verhalten repräsentiert.
 \end{addmargin}
 Eine gute Repräsentanz ist dann gefunden, wenn die vier Qualitäten des Ausgabemodells (\textit{Fitness, Precision, Generalization, Simplicity}) ein für den Anwendungsfall akzeptables Gleichgewicht erreichen \cite{PMinAction}.
 
-Man betrachte ein Eventlog der Form: $L = [(a, c, d)^6, (b, c, d)^5, (a, c, e)^4, (b, c, e)^2]$
-Das Eventlog resultiert in der Ordnungsrelation, die in Tabelle \ref{tab:Ordnungsrelation} aufgeführt ist.
+Man betrachte ein Eventlog der Form: $L = [(a, c, d)^6, (b, c, d)^5, (a, c, e)^4, (b, c, e)^2]$.
+Die Ordnungsrelation der Elemente des Eventlogs $L$ ist in Tabelle \ref{tab:Ordnungsrelation} aufgeführt.
 \begin{table}[!ht]
 \centering
 \resizebox{\columnwidth/3}{!}{%
@@ -168,25 +170,25 @@ Das Eventlog resultiert in der Ordnungsrelation, die in Tabelle \ref{tab:Ordnung
 \label{tab:Ordnungsrelation}
 \end{table}
 \newline
-Da auf Aktivität $a$ $b$ folgt, aber auf $b$ nie $a$ folgt, besteht die kausale Beziehung $(a→b)$ und man erwartet, dass ein Modell diese Beziehung reflektiert.
+Da auf Aktivität $a$ $c$ folgt, aber auf $c$ nie $a$ folgt, besteht die kausale Beziehung $(a→c)$ und man erwartet, dass ein Modell zu dem Eventlog diese Beziehung reflektiert.
 
-Die Relationsmatrix aus Tabelle \ref{tab:Ordnungsrelation} lässt sich auch als Menge wie folgt darstellen:
+Die Relationsmatrix aus Tabelle \ref{tab:Ordnungsrelation} lässt sich auch als eine Menge aus Tupeln wie folgt darstellen:
 
-$ X_L={ [({a}, {b}), ({a}, {c}), ({a}, {e}), ({a}, {b, e}),
-({a}, {c, e}), ({b}, {d}), ({c}, {d}), ({e}, {d}),
-({b, e}, {d}), ({c, e}, {d}) ]}$
+$ X_L={ [({a}, {c}), ({b}, {c}), ({c}, {d}), ({a}, {c, e}),
+({a}, {c, d}), ({b}, {d}), ({c}, {d}), ({a}, {d}),
+({b, c}, {d}), ({b, c}, {e}) ]}$
 
 Wenn ein Knoten für jedes Element der Menge entstünde, würde die Anforderung der Generalisierung verletzt werden. Aus diesem Grund wird eine Bedingung „Maximales Pair“ $(A,B)$ definiert und die Elementmenge gefiltert. Konkret werden alle redundanten Elemente der Menge der Länge zwei entfernt. Es entsteht:
 
-$ X_L={ [({a}, {b, e}), ({a}, {c, e}),
-({b, e}, {d}), ({c, e}, {d}) ]}$
+$ X_L={ [({a}, {c, e}), ({a}, {c, d}),
+({b, c}, {d}), ({b, c}, {e}) ]}$
 
 Nach Ausführung aller Schritte des $\alpha$-Miners auf das Eventlog $L$ entsteht folgendes Petri Netz:
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[scale=0.65]{figures/Appbildungen/alpha_petri_net.png}
-    \caption{Petri Netz, Resultat des Alpha Miner Verfahrens}
+    \includegraphics[scale=0.6]{figures/Appbildungen/alpha_petri_net.png}
+    \caption{Petri Netz, Resultat des Alpha Miner Verfahrens (eigene Darstellung in Anlehnung an: Aalst, Process Mining, 2016, S.170, \cite{PMManifesto})}
     \label{fig:petriNetExample}
 \end{figure}
 
@@ -313,7 +315,7 @@ Es wird weiterhin mindestens eine Spalte, genannt \textbf{Activity}, benötigt, 
 Die sequentielle Abfolge der Einträge ist von entscheidender Bedeutung für die Auswertung der Protokolldatei. Liegen neben der Aktivität zur Ressouce auch Zeitstempel (\textbf{Timestamps}) vor, können diese bei der Auswertung zusätzlich berücksichtigt werden. Auf diese Weise fließt die zeitliche Distanzen als Metrik in die Auswertung mit ein. Fehlen Zeitstempel, so wird angenommen, dass die Distanzen zwischen einzelnen Ereignissen mit dem gleichen Wert gewichtet werden können.
 Jede weitere Spalte, die Metainformationen liefert, kann die Ausgabequaltät zusätzlich verbessern. Diese Spalten werden auch als die Attribute des Ereignisses bezeichnet. 
 \newpage
-\subsection{XES Standard}
+\subsection{XES Standard}\label{sec:xes}
 Um Ereignisprotokolle einheitlich und herstellerunabhängig mit verschiedenen Werkzeugen verarbeiten zu können, wurde 2004 die Mining eXtensible Markup Language (MXML) definiert. Sie wurde durch das eXtensible Event Stream(XES) Format abgelöst \cite{xesmxml} und ist 2016 von der \textit{IEEE Task Force on Process Mining} als Standard anerkannt worden. 
 
 Ein XES Dokument enthält jeweils eine Protokolldatei mit einer beliebigen Anzahl an Ereignissen, in einer festen Abfolge, und beliebig vielen Attributen, die vom Typ, wie beim zugrundeliegenden XML Standard auch, String, Date, Int, Float oder Boolean sein können. 
