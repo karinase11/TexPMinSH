@@ -241,20 +241,31 @@ Auch der Heuristic Miner generierte nicht für jedes Eventlog das erwartete Mode
     \label{fig:C_heuristic}
 \end{figure}
 
-Aus der Auswertung der Testreihe geht hervor, dass aus insgesamt 104 Regeln, die in den 48 Eventlogs eingebettet wurden, der Heuristic Miner 96 korrekt identifiziert hat, der Inductive Miner hingegen nur in 48 Fällen die gesuchten Regeln korrekt abbilden konnte.
-
+Aus der Auswertung der Testreihe geht hervor, dass aus insgesamt 104 Regeln, die in den 48 Eventlogs eingebettet wurden, der Heuristic Miner in 40 korrekte Ausgabemodelle hergeleitet hat, der Inductive Miner hingegen nur in 29 Fällen die gesuchten Regeln korrekt abbilden konnte, wie in Tabelle \ref{tab:results_short} zu sehen ist.
 \begin{table}[!htbp]
 \centering
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{l|ccccc}
-Algorithmus                & \multicolumn{1}{l}{\textbf{Testreihen}} & \multicolumn{1}{l}{\textbf{Regeln}} & \multicolumn{1}{l}{\textbf{Fehlerhafte Modelle}} & \multicolumn{1}{l}{\textbf{Identifizierte Regeln}} & \multicolumn{1}{l}{\textbf{Verfehlte Regeln}} \\ \hline
-\textit{Inductive M.}  & 48                                      & 104                                 & 14                                               & 48                                                 & 56                                            \\
-\textit{Heuristics M.} & 48                                      & 104                                 & 2                                                & 96                                                 & 8                                            
+\begin{tabular}{r|ccccc}\hline
+\multicolumn{1}{l|}{Algorithmus} & \textbf{Testreihen} & \textbf{Fehlerhafte Modelle} & \textbf{Korrekte Modelle} & \textbf{Regeln} & \textbf{Identifizierte Regeln} \\ \hline\hline
+\textit{Inductive M.} & 48 & 19 & 29 & 104 & 73 \\
+\textit{Heuristic M.} & 48 & 8 & 40 & 104 & 92 \\\hline
 \end{tabular}%
 }
 \caption{Ergebnisse der Auswertung der Versuchsreihe}
 \label{tab:results_short}
 \end{table}
+%\begin{table}[!htbp]
+%\centering
+%\resizebox{\textwidth}{!}{%
+%\begin{tabular}{l|ccccc}
+%Algorithmus                & %\multicolumn{1}{l}{\textbf{Testreihen}} & %\multicolumn{1}{l}{\textbf{Regeln}} & %\multicolumn{1}{l}{\textbf{Fehlerhafte Modelle}} & %\multicolumn{1}{l}{\textbf{Identifizierte Regeln}} & %\multicolumn{1}{l}{\textbf{Verfehlte Regeln}} \\ \hline
+%\textit{Inductive M.}  & 48                                     % & 104                                 & 14                     %                          & 48                                  %               & 56                                            %\\
+%\textit{Heuristics M.} & 48                                     % & 104                                 & 2                      %                          & 96                                  %               & 8                                            
+%\end{tabular}%
+%}
+%\caption{Ergebnisse der Auswertung der Versuchsreihe}
+%\label{tab:results_short}
+%\end{table}
 
 Da ein Verfahren gesucht wurde, das kurze Regeln, also Abläufe bestehend aus zwei bis vier Elementen, erkennt und in der Lage ist mehrere Regeln, die in einem Eventlog eingebettet sind klar voneinander zu trennen, ging das Heuristic Miner Plugin aus der hier vorgestellten Testreihe als zu bevorzugendes Verfahren hervor.
 

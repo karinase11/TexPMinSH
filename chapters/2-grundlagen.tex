@@ -1,9 +1,11 @@
 \chapter{Theoretische Grundlagen}\label{chap:relatedwork}
 \fontsize{11}{12}\selectfont\begin{quote}„Process Mining ist eine vergleichsweise junge Wissenschaftsdisziplin, angesiedelt zwischen Computational Intelligence und Data Mining auf der einen Seite und Prozessmodellierung und Analyse auf der anderen. Die Grundidee von Process Mining ist es, reale Prozesse (im Gegensatz zu vermuteten oder angenommenen Prozessen) durch Extrahieren von Wissen aus Ereignislogs heutiger (Informations-)systeme zu erkennen, zu überwachen und zu verbessern.(...) 
 
-Mit Hilfe von Methoden des Process Mining können Einsichten aus Ereignisdaten gewonnen werden, welche heutzutage in vielen Informationssystemen anfallen. Diese Methoden eröffnen neue Möglichkeiten, um Prozesse in einer Vielzahl von Anwendungsszenarien zu erkennen, zu überwachen und zu verbessern.“
+Mit Hilfe von Methoden des Process Mining können Einsichten aus Ereignisdaten gewonnen werden, welche heutzutage in vielen Informationssystemen anfallen. 
 
-- Process Mining Manifest \cite{PMManifesto}\end{quote}
+Diese Methoden eröffnen neue Möglichkeiten, um Prozesse in einer Vielzahl von Anwendungsszenarien zu erkennen, zu überwachen und zu verbessern.“
+
+- Aalst et al., 2011, Process Mining Manifest \cite{PMManifesto}\end{quote}
 \section{Prozessorientierte Datenanalyse}
 Process Mining ist als Antwort auf die wachsende Nachfrage der Industrie entstanden, mehr Informationen über Prozesse, die sich im Unternehmens- und Produktionsalltag abspielen, verarbeiten, analysieren und zur Optimierung nutzen zu können. Es kann als technologisches Forschungsgebiet verstanden werden, das sich am Schnittpunkt zwischen \textit{Process Modelling} und der \textit{Process Analysis} befindet und gemeinsame Merkmale mit den Bereichen des \textit{Data Mining} und \textit{Machine Learning} teilt, vgl. \cite{Ailenei}.
 
@@ -33,12 +35,12 @@ Die drei unterschiedlichen Typen kennzeichenen folgende Eigenschaften und Abläu
 \begin{itemize}
 \item \textbf{Discovery}: Im Ausgangszustand besteht keinerlei a Priori Modell. Der Discovery Vorgang beschäftigt sich damit, den real geschehenden Prozess, anhand der von den verbundenen Geräten hinterlassenen Eventlogs, herauszukristallisieren und ein Prozessmodell aus der gegebenen Historie der Geschehnisse zu erstellen.
 
-\item \textbf{Conformance Checking}: Konformität prüfen - Ein a-priori Modell des Prozesses existiert. \textit{Conformance Checking} vergleicht den real existierenden Ablauf mithilfe des Eventlogs mit dem erwünschten Prozess um festzustellen, ob das beobachtete Verhalten mit dem geplanten Prozess übereinstimmt. Dieser Vorgang ermöglicht die Aufdeckung von Abweichungen zwischen geplanten und tatsächlichen Prozessvorgängen und kann auf Abweichungen hinweisen.  \textit{Conformance Checking} schließt \textit{Compliance Checking} mit ein, d.h. der beobachtete Prozess wird auch daraufhin untersucht, ob er sich an vorgefertigte Regeln, Spezifikationen oder relevante Normen hält.
+\item \textbf{Conformance Checking}: Ein a-priori Modell des Prozesses existiert. \textit{Conformance Checking} vergleicht den real existierenden Ablauf mithilfe des Eventlogs mit dem erwünschten Prozess um festzustellen, ob das beobachtete Verhalten mit dem geplanten Prozess übereinstimmt. Dieser Vorgang ermöglicht die Aufdeckung von Abweichungen zwischen geplanten und tatsächlichen Prozessvorgängen und kann auf Abweichungen hinweisen.  \textit{Conformance Checking} schließt \textit{Compliance Checking} mit ein, d.h. der beobachtete Prozess wird auch daraufhin untersucht, ob er sich an vorgefertigte Regeln, Spezifikationen oder relevante Normen hält.
 
 \item \textbf{Enhancement}: Ein a-priori Modell des Prozesses existiert. Das Ziel ist die Optimierung oder Umgestaltung eines Modells, mithilfe der aus der Auswertung des Eventlogs gewonnenen Informationen. Ein Prozess kann in Bezug auf seine Performanz oder Einhaltung geforderter Standards hin verbessert oder erweitert werden. Informationen wie Kostenanalyse, Zeitaufwand oder Priorisierung einzelner Schritte können in die Optimierung miteinfließen, beobachtete Engpässe können umgangen werden.
 \end{itemize}
 
-Aufgabe der Discovery-Funktion und Grundlage für alle weiteren Schritte ist die Umwandlung des aufgenommenen Protokolls in ein graphisches Modell; in der Regel handelt es sich dabei um ein Petri-Netz. Dies ist eine methodische Darstellungsform, die dazu dient, nebenläufige Prozesse zu beschreiben. Da Petri-Netze auch im folgenden praktischen Teil der Arbeit eingesetzt werden, werden sie an dieser Stelle kurz erläutert.
+Aufgabe der Discovery Funktion und Grundlage für alle weiteren Schritte ist die Umwandlung des aufgenommenen Protokolls in ein graphisches Modell; in der Regel handelt es sich dabei um ein Petri Netz. Dies ist eine methodische Darstellungsform, die dazu dient, nebenläufige Prozesse zu beschreiben. Da Petri Netze auch im folgenden praktischen Teil der Arbeit eingesetzt werden, werden sie an dieser Stelle kurz erläutert.
 
 \subsection{Petri Netze}
 Formal werden Petri Netze als gerichtete, bipartite Graphen definiert, die aus Stellen  und  Transitionen  bestehen und durch  gerichtete  Kanten  verbunden sind, wie sie in \textit{Software Engineering durch Modellierung wissensintensiver Entwicklungsprozesse} beschrieben sind \cite{freund2007software}. 
@@ -216,13 +218,13 @@ Schleifen der Länge eins stellen bis hier hin weiterhin ein Problem für das Ve
  \end{equation}
 Anhand dieser Formel kann eine Relationstabelle, entsprechend der Tabelle \ref{tab:Ordnungsrelation} in der Einführung, angelegt werden. Der Heuristics Miner nutzt aber statt der symbolischen Werte, die zwischen vier Zuständen unterscheiden, nun das Gewicht der zugehörigen Kanten. 
 
-Als nächstes berechnet das Verfahren drei Schwellwerte, die jeweils dazu dienen, Rauschen von relevanten Daten zu unterscheiden. Der Schwellwert dient dazu zu entscheiden, ob es sich bei einem Eintrag um Ausreißer in der Datenmenge, oder aber um sporadische, aber für das Modell entscheidende, Ereignisse handelt. Abschließend wird basierend auf diesen Berechnungen ein Modell generiert.
+Als nächstes berechnet das Verfahren drei Schwellwerte, die jeweils dazu dienen, Rauschen von relevanten Daten zu unterscheiden. Der Schwellwert dient dazu zu entscheiden, ob es sich bei einem Eintrag um Ausreißer in der Datenmenge, oder aber um sporadische, aber für das Modell entscheidende, Ereignisse handelt. Abschließend wird basierend auf den berechneten Abhängigkeitswerten ein Modell generiert.
 
 Der Heuristics Miner kann im Gegensatz zum $\alpha$-Miner auch kurze und lange Schleifen korrekt wiedergeben, muss aber mit zusätzlichen Metriken arbeiten um sogenannte\textit{ long distance dependencies}, also Abhängigkeiten in großer zeitlicher Distanz, zu erkennen.
 
 \subsection{Inductive Process Miner}\label{sec:inducMiner}
-Der Inductive Miner ist nach dem Heuristic Miner entwickelt worden und verfolgt die Strategie des 'divide and conquer', um ein Modell aus einem gegebenen Eventlog zu erzeugen \cite{inducMining}. 
-Die Strategie des Inductive Miners ist es, jedes Eventlog $L$ rekursiv in SubEventlogs $A_1 , ... , A_n$ zu unterteilen, diese isoliert zu betrachten und dann in weitere Sub-Eventlogs zu teilen. 
+Der Inductive Miner ist nach dem Heuristic Miner entwickelt worden und verfolgt die Strategie des \textit{divide and conquer}, um ein Modell aus einem gegebenen Eventlog zu erzeugen, vgl. \cite{inducMining}. 
+Die Strategie des Inductive Miners ist es, jedes Eventlog $L$ rekursiv in Sub-Eventlogs $A_1 , ... , A_n$ zu unterteilen, diese isoliert zu betrachten und dann in weitere Sub-Eventlogs zu teilen. 
 Ziel der Betrachtung eines Sub-Eventlogs ist es zu erkennen, an welcher Stelle des Modells ein sogenannter \textit{Cut} notwendig ist, der definiert, an welcher Stelle das betrachtete Eventlog in Sub-Eventlogs unterteilt wird. An die Stelle des Cuts setzt der Algorithmus eine von mehreren Übergängen. Die Menge an Übergangsmöglichkeiten im Prozess zwischen einzelnen Knoten ist dabei konkret $Oder$, $exklusives  Oder$, $Und$ sowie $Sequenzen$ und $Schleifen$. 
 
 \newpage
@@ -240,14 +242,14 @@ Dieser rekursive Vorgang wird fortgesetzt bis das betrachtete Sub-Eventlog atoma
 \end{figure}
 
 Mehrere Varianten des Inductive Miners wurden entwickelt, die das hier vorgestellte Verfahren erweitern, um bestimmte Schwächen des Verfahrens zu umgehen oder den Algorithmus für spezifische Anwendungsfälle anzupassen. 
-Beispielsweise kann das Protokoll selten auftretendes, aber für den Kontext relevantes Verhalten enthalten, was Algorithmen zwingt, diese Einträge entweder auszuschließen oder komplizierte, unlesbare Modelle auszugeben, die jeden beliebigen Prozess beschreiben, also einem  Blumenmodell wie in Abbildung \ref{fig:exampleFlower} entsprechen. Um dieses Problem schnell und effektiv zu lösen ist der Inductive Miner infrequent, kurz IMf \cite{inducFMining} entwickelt worden.
+Beispielsweise kann das Protokoll selten auftretendes, aber für den Kontext relevantes Verhalten enthalten, was Algorithmen zwingt, diese Einträge entweder auszuschließen oder komplizierte, unlesbare Modelle auszugeben, die jeden beliebigen Prozess beschreiben, also einem  Blumenmodell wie in Abbildung \ref{fig:exampleFlower} entsprechen. Um dieses Problem schnell und effektiv zu lösen ist der Inductive Miner \textit{infrequent}, kurz IMf entwickelt worden, vgl.  \cite{inducFMining}.
 
-Ein anderes häufig auftretendes Problem, ist ein Protokoll das unzureichende Informationen enthält, um ein Prozessmodell zu finden, das die realiät korrekt abstrahiert. Unvollständigkeit zwingt Algorithmen, entweder das fehlende Verhalten auszuschließen und damit das noch unsichtbare Verhalten zu reduzieren, das das Modell erzeugen kann, oder das fehlende, unbekannte Verhalten dort einzubeziehen, indem sie das Risiko eingehen, falsch zu raten. Im Hinblick auf diese Problematik ist der Inductive Miner incomplete, kurz IMc \cite{inducIMining} entstanden.
+Ein anderes häufig auftretendes Problem, ist ein Protokoll das unzureichende Informationen enthält, um ein Prozessmodell zu finden, das die Realiät korrekt abstrahiert. Unvollständigkeit zwingt Algorithmen, entweder das fehlende Verhalten auszuschließen und damit das noch unsichtbare Verhalten zu reduzieren, das das Modell erzeugen kann, oder das fehlende, unbekannte Verhalten dort einzubeziehen, indem sie das Risiko eingehen, falsch zu raten. Im Hinblick auf diese Problematik ist der Inductive Miner \textit{incomplete}, kurz IMc entstanden, vgl. \cite{inducIMining}.
 
 \subsection{Local Process Miner}
 Der Local Process Miner ist eines der jüngsten Verfahren der Discovery Process Miner. Im Jahr 2016 im 'Journal of Innovation in Digital Ecosystems' vorgestellt \cite{localMining}, basiert es auf den Erkenntnissen aus der Entwicklung des Sequential Pattern Mining \cite{Srikant1996MiningSP} und des Episode Mining \cite{mannila1997discovery}.
 
-Der Local Process Miner unterscheidet sich von den anderen, hier vorgestellten Algorithmen, dadurch, dass er nicht ein, sondern mehrere Modelle erzeugt. Die Modelle beschreiben dabei häufiges, aber partielles Verhalten und bestehen  aus nicht mehr als drei bis fünf Knoten. Das heißt jedes einzelne der entstandenen Netze modelliert nur eine Teilmenge der Aktivitäten, die im Ereignisprotokoll beobachtet werden. Der Algorithmus lässt sich in vier iterativen Schritten zusammenfassen: der initialen Generation, der Evaluation, der Selektion und der Expansion. LPM baut auf sogenannten Process Trees auf, der Prozess wird also als Baumstruktur beschrieben. Die  Kindknoten des Baumes werden als Nachfolger von Elternknoten abstrahiert. Die Knoten repräsentieren, wie beim Petri Netz auch, einzelne Ereignisse beziehungsweise Einträge eines Eventlogs oder Übergänge zwischen den Einträgen. 
+Der Local Process Miner unterscheidet sich von den anderen, hier vorgestellten Algorithmen, dadurch, dass er nicht ein, sondern mehrere Modelle erzeugt. Die Modelle beschreiben dabei häufiges, aber partielles Verhalten und bestehen  aus nicht mehr als drei bis fünf Einträgen. Das heißt jedes einzelne der entstandenen Netze modelliert nur eine Teilmenge der Aktivitäten, die in der Protokolldatei beobachtet werden. Der Algorithmus lässt sich in vier iterativen Schritten zusammenfassen: der initialen Generation, der Evaluation, der Selektion und der Expansion. LPM baut auf sogenannten Process Trees auf, der Prozess wird also als Baumstruktur beschrieben. Die  Kindknoten des Baumes werden als Nachfolger von Elternknoten abstrahiert. Die Knoten repräsentieren, wie beim Petri Netz auch, einzelne Ereignisse beziehungsweise Einträge eines Eventlogs oder Übergänge zwischen den Einträgen. 
 
 Zunächst wird eine Menge von einblättrigen Prozessbäumen $CM_1$, $i=1$ generiert. Jedes Blatt entspricht einem Eintrag des zu analysierenden Eventlogs. Die gegebene Menge wird nach vordefinierten Qualitätskriterien evaluiert. Auf Basis der Evaluation wird eine Teilmenge $SCM_i \subseteq CM_i$ ausgewählt. In diesem Schritt prüft die Abbruchbedingung, ob die nutzerdefinierte maximale Anzahl an Iterationsschritten erreicht wurde oder die Teilmenge $SCM_i=∅$  ist. Wird eine der beiden Bedingungen erfüllt, endet der Algorithmus. Werden sie nicht erfüllt, folgt Schritt vier, die Expansion. 
 
@@ -262,7 +264,7 @@ In jedem Expansionsschritt wird die Menge aus einzelnen Prozessbäumen zu einer 
 An den Expansionsschritt knüpft wieder ein Selektionsschritt an, die Selektion erfolgt über eine Reihe von für den gegebenen Eventlog berechneten Schwellwerten, vgl. \cite{lpm}. Die resultierenden Prozessbäume können abschließend in Petri Netze überführt werden.
 
 Die für das Local Process Mining charakteristischen kurzen Ausgangsmodelle sind nicht, oder nur unzureichend, geeignet, um dem Anwender einen Eindruck von langkettigen Prozessen zu verschaffen und Prozesse grob zu abstrahieren. Allerdings sind die Ausgangsmodelle besser als andere gängige Process Mining Algorithmen dazu geeignet, Detailansichten von Prozessen zu konstruieren. 
-Diese können je nach Anwendungsfall besonders hilfreich sein, um festzustellen welche kleinschrittigen Muster und Routinen sich in einem Prozess verbergen, die von Ausgabemodellen, die einen Prozess vollständig abdecken wollen, häufig übergangen werden. Allerdings ist dieses Verfahren bisher sehr rechenintensiv, was auch darauf zurück zu führen ist, dass seit seiner Veröffentlichung nicht genug Zeit vergangen ist, entsprechend optimiert zu werden.
+Diese können je nach Anwendungsfall besonders hilfreich sein, um festzustellen welche kleinschrittigen Muster und Routinen sich in einem Prozess verbergen, die von Ausgabemodellen, die einen Prozess vollständig abdecken wollen, häufig übergangen werden. Allerdings ist dieses Verfahren bisher sehr rechenintensiv, was auch darauf zurück zu führen ist, dass seit seiner Veröffentlichung nicht genug Zeit vergangen ist, entsprechend optimiert zu werden, vgl. \cite{localMining}.
 
 %Die Wahl eines Verfahrens sollte entsprechend nicht allein darauf beruhen, evtl. mehr bla bla 
 
@@ -271,14 +273,14 @@ Diese können je nach Anwendungsfall besonders hilfreich sein, um festzustellen 
 Nachdem im vorangegangenem Kapitel auf die verschiedenen Prozess Mining Algorithmen eingegangen wurde, sollen in diesem Kapitel die, allen Verfahren gemeinen, Ein- und Ausgangsdaten näher betrachtet werden.
 In praktischen Anwendungen liegen die Eingangsdaten in der Regel als Protokolldateien vor. Die Beschaffenheit der in dieser Arbeit verwendeten  Protokolldateien, die als Basis für die die Analyse und letztendliche Erzeugung von Petri Netzen dienen, soll hier wieder anhand eines Beispiels beschrieben werden.
 
-Um einen Prozess basierend auf einer Protokolldatei erkennen zu können, muss die Datei zunächst einem formalen Schema folgen. Es können der Zeitstempel des Eintrags, die Ressource, die den Eintrag einleitet, sowie signifikante Eigenschaften der jeweiligen Ressource, wie den Zustand oder die Lokalisation enthalten, in der Protokolldatei vorliegen.
+Um einen Prozess basierend auf einer Protokolldatei erkennen zu können, muss die Datei zunächst einem formalen Schema folgen. Es können der Zeitstempel des Eintrags, die Ressource, die den Eintrag einleitet, sowie verschiedene Attribute der jeweiligen Ressource, die den Zustand oder die Lokalisation beschreiben, in der Protokolldatei hinterlegt werden, vgl. \cite{PMinAction}.
 
 Tabelle \ref{tab:example-Eventlog} zeigt ein fiktives Protokoll, welches auch Teil der nachfolgenden Versuchsreihe ist. 
 \begin{table}[!ht]
 \centering
-\resizebox{260pt}{!}{%
+\resizebox{280pt}{!}{%
 \begin{tabular}{l|lll}
-\textbf{case} & \textbf{timestamp} & \textbf{resource} & \textbf{activity} \\ \hline
+\textbf{case} & \textbf{timestamp} & \textbf{resource} & \textbf{activity} \\ \hline \hline
 AA & 2019-01-01 07:36:36 & Coffee maker & turned to ON \\
 AA & 2019-01-01 07:38:03 & Appliance g & read 0 \\
 AA & 2019-01-01 07:42:09 & Doorbell & ringing \\
@@ -305,12 +307,12 @@ AD & 2019-01-04 07:43:30 & Coffee maker & Two Esprosso Cups \\
 ... & ... & ... & ... \\ \hline
 \end{tabular}%
 }
-\caption{Auszug aus Eventlog der Versuchsreihe in Kapitel \ref{chap:approach}}
+\caption{Auszug aus Eventlog der Versuchsreihe A in Kapitel \ref{chap:approach}}
 \label{tab:example-Eventlog}
 \end{table}
-Eine grundlegende Annahme der Process Mining Verfahren ist, dass die Ereignisse eines Protokolls alle Teil eines zusammenhängenden Prozesses sind. Weiterhin entspricht jeder Eintrag, oder eine Zeile in der Tabelle, jeweils genau einem atomaren Ereignis. Ereignisse die zu einer Prozessinstanz gehören müssen alle mit dem selben sogenannten \textbf{Case} deklariert werden, eine Prozessinstanz bezeichnet einen isolierten Vorgang innerhalb eines Prozesses und kann aus einem oder mehreren Ereignissen bestehen. In Tabelle \ref{tab:example-Eventlog} entspricht ein Case jeweils dem Zeitraum von einem Kalendertag, Cases können auch danach differenziert werden, welche Person mit einem Prozess assoziiert ist, oder beispielsweise bei Supportanfragen anhand der ID des gemeldeten Vorfalls unterschieden werden.
+Eine grundlegende Annahme der Process Mining Verfahren ist, dass die Ereignisse einer Protokolldatei alle Teil eines zusammenhängenden Prozesses sind. Weiterhin entspricht jeder Eintrag, oder eine Zeile in der Tabelle, jeweils genau einem atomaren Ereignis. Ereignisse die zu einer Prozessinstanz gehören müssen alle mit dem selben sogenannten \textbf{Case} deklariert werden, ein Case bezeichnet einen isolierten Vorgang innerhalb eines Prozesses und kann aus einem oder mehreren Ereignissen bestehen. In Tabelle \ref{tab:example-Eventlog} entspricht ein Case jeweils dem Zeitraum von einem Kalendertag, Cases können auch danach differenziert werden, welche Person mit einem Prozess assoziiert ist, oder beispielsweise bei Supportanfragen anhand der ID des gemeldeten Vorfalls unterschieden werden.
 
-Es wird weiterhin mindestens eine Spalte, genannt \textbf{Activity}, benötigt, welche beschreibt, um welche Aktion es sich bei dem aufgenommenen Ereignis handelt. Activities stehen nie für sich allein,  sondern gehören immer zu einer sogenannten \textbf{Resource}, die für die Erzeugung des Eintrags verantwortlich ist. Beispielsweise werden gemessene Sensorwerte (Activity) immer mit der Bezeichnung des Sensors (Ressource) eingetragen. Aktionen die von Personen durchgeführt wurden können die Person als Ressource identifizieren.
+Es wird außerdem mindestens eine Spalte, genannt \textbf{Activity}, benötigt, welche beschreibt, welche Aktion das Ereignis ausgelöst hat. Activities stehen nie für sich allein,  sondern gehören immer zu einer sogenannten \textbf{Resource}, die für die Erzeugung des Eintrags verantwortlich ist. Beispielsweise werden gemessene Sensorwerte (Activity) immer mit der Bezeichnung des Sensors (Ressource) eingetragen. Aktionen die von Personen durchgeführt wurden können die Person als Ressource identifizieren.
 
 Die sequentielle Abfolge der Einträge ist von entscheidender Bedeutung für die Auswertung der Protokolldatei. Liegen neben der Aktivität zur Ressouce auch Zeitstempel (\textbf{Timestamps}) vor, können diese bei der Auswertung zusätzlich berücksichtigt werden. Auf diese Weise fließt die zeitliche Distanzen als Metrik in die Auswertung mit ein. Fehlen Zeitstempel, so wird angenommen, dass die Distanzen zwischen einzelnen Ereignissen mit dem gleichen Wert gewichtet werden können.
 Jede weitere Spalte, die Metainformationen liefert, kann die Ausgabequaltät zusätzlich verbessern. Diese Spalten werden auch als die Attribute des Ereignisses bezeichnet. 
@@ -318,8 +320,8 @@ Jede weitere Spalte, die Metainformationen liefert, kann die Ausgabequaltät zus
 \subsection{XES Standard}\label{sec:xes}
 Um Ereignisprotokolle einheitlich und herstellerunabhängig mit verschiedenen Werkzeugen verarbeiten zu können, wurde 2004 die Mining eXtensible Markup Language (MXML) definiert. Sie wurde durch das eXtensible Event Stream(XES) Format abgelöst \cite{xesmxml} und ist 2016 von der \textit{IEEE Task Force on Process Mining} als Standard anerkannt worden. 
 
-Ein XES Dokument enthält jeweils eine Protokolldatei mit einer beliebigen Anzahl an Ereignissen, in einer festen Abfolge, und beliebig vielen Attributen, die vom Typ, wie beim zugrundeliegenden XML Standard auch, String, Date, Int, Float oder Boolean sein können. 
-Der Anwender kann Attribute als erforderlich deklarieren, eigene Attribute definieren oder auf die vom XES Modell definierten Typen zugreifen. XES  wird von einer weiten Bandbreite an Process Mining Software unterstützt und zählt gemeinhin als favorisiertes Datenformat für die Verarbeitung durch Process Mining Algorithmen hin zu Process Modellen.
+Ein XES Dokument enthält jeweils eine Protokolldatei mit einer beliebigen Anzahl an Ereignissen, in einer festen Abfolge, und beliebig vielen Attributen, die vom Typ, wie beim zugrundeliegenden XML Standard auch, \textit{String}, \textit{Date}, \textit{Int}, \textit{Float} oder \textit{Boolean} sein können. 
+Der Anwender kann Attribute als erforderlich deklarieren, neue Attribute definieren oder auf die vom XES Modell definierten Typen zugreifen. XES  wird von einer weiten Bandbreite an Process Mining Software unterstützt und zählt gemeinhin als favorisiertes Datenformat für die Verarbeitung durch Process Mining Algorithmen.
 
 Wird das Ereignisprotokoll aus Tabelle \ref{tab:example-Eventlog} in ein XES Dokument konvertiert, erhält man eine Dokument folgender Struktur:
 \small
